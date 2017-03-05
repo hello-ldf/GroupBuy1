@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="GroupBuyModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="StorageInC">
+    <Key>
+      <PropertyRef Name="InID" />
+      <PropertyRef Name="ItemNo" />
+    </Key>
+    <Property Name="InID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ItemNo" Type="Int32" Nullable="false" />
+    <Property Name="ProductNo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ProductName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ProductSzie" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ProductColor" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Quantity" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="Unit" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CurrentPrice" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="Account" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="Backup1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Backup2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Backup3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="StorageIn" Relationship="GroupBuyModel.FK_StorageInCs_StorageIns" FromRole="StorageInC" ToRole="StorageIn" />
+  </EntityType>
+  <EntityType Name="StorageIn">
+    <Key>
+      <PropertyRef Name="InID" />
+    </Key>
+    <Property Name="InID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="No" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="StoreArea" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Store" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CustomName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CustomSex" Type="Int32" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="DeliverDate" Type="DateTime" Precision="3" />
+    <Property Name="Saler" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Building" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Lift" Type="Int32" />
+    <Property Name="DeliverAddr" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Phone" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="GroupBuyNo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TotalAccount" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="Backup1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Backup2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Backup3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Passed" Type="Int32" />
+    <NavigationProperty Name="StorageInCs" Relationship="GroupBuyModel.FK_StorageInCs_StorageIns" FromRole="StorageIn" ToRole="StorageInC" />
+    <NavigationProperty Name="StoreChanges" Relationship="GroupBuyModel.FK_StoreChange_StorageIns" FromRole="StorageIn" ToRole="StoreChange" />
+  </EntityType>
+  <EntityType Name="Store">
+    <Key>
+      <PropertyRef Name="ProductNo" />
+    </Key>
+    <Property Name="ProductNo" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Repertory" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Inventory" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="Backup1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Backup2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Backup3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="StorageInCs" EntityType="Self.StorageInC" />
+    <EntitySet Name="StorageIns" EntityType="Self.StorageIn" />
+    <EntitySet Name="Stores" EntityType="Self.Store" />
+    <EntitySet Name="StoreChanges" EntityType="GroupBuyModel.StoreChange" />
+    <AssociationSet Name="FK_StorageInCs_StorageIns" Association="GroupBuyModel.FK_StorageInCs_StorageIns">
+      <End Role="StorageIn" EntitySet="StorageIns" />
+      <End Role="StorageInC" EntitySet="StorageInCs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_StoreChange_StorageIns" Association="GroupBuyModel.FK_StoreChange_StorageIns">
+      <End Role="StorageIn" EntitySet="StorageIns" />
+      <End Role="StoreChange" EntitySet="StoreChanges" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="StoreChange">
+    <Key>
+      <PropertyRef Name="InID" />
+      <PropertyRef Name="ItemNo" />
+    </Key>
+    <Property Name="InID" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="ItemNo" Type="Int32" Nullable="false" />
+    <Property Name="ProductNo" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Quantity" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="IOflag" Type="Int32" />
+    <Property Name="OperateDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="StorageIn" Relationship="GroupBuyModel.FK_StoreChange_StorageIns" FromRole="StoreChange" ToRole="StorageIn" />
+    <Property Name="CurryInventory" Type="Decimal" Precision="18" Scale="2" />
+  </EntityType>
+  <Association Name="FK_StorageInCs_StorageIns">
+    <End Type="GroupBuyModel.StorageIn" Role="StorageIn" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="GroupBuyModel.StorageInC" Role="StorageInC" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StorageIn">
+        <PropertyRef Name="InID" />
+      </Principal>
+      <Dependent Role="StorageInC">
+        <PropertyRef Name="InID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_StoreChange_StorageIns">
+    <End Type="GroupBuyModel.StorageIn" Role="StorageIn" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="GroupBuyModel.StoreChange" Role="StoreChange" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StorageIn">
+        <PropertyRef Name="InID" />
+      </Principal>
+      <Dependent Role="StoreChange">
+        <PropertyRef Name="InID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

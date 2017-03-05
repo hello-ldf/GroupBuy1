@@ -1,0 +1,193 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="zcscdbModelStoreContainer" CdmEntityContainer="Entities">
+    <EntitySetMapping Name="PRODUCTs">
+      <EntityTypeMapping TypeName="zcscdbModel.PRODUCT">
+        <MappingFragment StoreEntitySet="PRODUCT">
+          <ScalarProperty Name="darea" ColumnName="darea" />
+          <ScalarProperty Name="dsetamt" ColumnName="dsetamt" />
+          <ScalarProperty Name="dfreight" ColumnName="dfreight" />
+          <ScalarProperty Name="cdetaildesc2" ColumnName="cdetaildesc2" />
+          <ScalarProperty Name="cdetaildesc1" ColumnName="cdetaildesc1" />
+          <ScalarProperty Name="cstuff" ColumnName="cstuff" />
+          <ScalarProperty Name="dnetweight" ColumnName="dnetweight" />
+          <ScalarProperty Name="cphotojt" ColumnName="cphotojt" />
+          <ScalarProperty Name="cphotozzt" ColumnName="cphotozzt" />
+          <ScalarProperty Name="cphotoxgt" ColumnName="cphotoxgt" />
+          <ScalarProperty Name="cpricenocolflag" ColumnName="cpricenocolflag" />
+          <ScalarProperty Name="csplit" ColumnName="csplit" />
+          <ScalarProperty Name="itransport_other" ColumnName="itransport_other" />
+          <ScalarProperty Name="itransport_sea" ColumnName="itransport_sea" />
+          <ScalarProperty Name="itransport" ColumnName="itransport" />
+          <ScalarProperty Name="dpack_qty" ColumnName="dpack_qty" />
+          <ScalarProperty Name="caddress" ColumnName="caddress" />
+          <ScalarProperty Name="cbrandid" ColumnName="cbrandid" />
+          <ScalarProperty Name="pressprice" ColumnName="pressprice" />
+          <ScalarProperty Name="cisdagio" ColumnName="cisdagio" />
+          <ScalarProperty Name="dpercent" ColumnName="dpercent" />
+          <ScalarProperty Name="dprise" ColumnName="dprise" />
+          <ScalarProperty Name="cclassid2" ColumnName="cclassid2" />
+          <ScalarProperty Name="cassflag" ColumnName="cassflag" />
+          <ScalarProperty Name="dagio" ColumnName="dagio" />
+          <ScalarProperty Name="csetflag" ColumnName="csetflag" />
+          <ScalarProperty Name="dprice_neap" ColumnName="dprice_neap" />
+          <ScalarProperty Name="dprice_tiptop" ColumnName="dprice_tiptop" />
+          <ScalarProperty Name="dpriceF" ColumnName="dpriceF" />
+          <ScalarProperty Name="dpriceE" ColumnName="dpriceE" />
+          <ScalarProperty Name="dpriceD" ColumnName="dpriceD" />
+          <ScalarProperty Name="dpriceC" ColumnName="dpriceC" />
+          <ScalarProperty Name="dpriceB" ColumnName="dpriceB" />
+          <ScalarProperty Name="dpriceA" ColumnName="dpriceA" />
+          <ScalarProperty Name="ccolorflag" ColumnName="ccolorflag" />
+          <ScalarProperty Name="cabccode" ColumnName="cabccode" />
+          <ScalarProperty Name="iadvance_other" ColumnName="iadvance_other" />
+          <ScalarProperty Name="iadvance_sea" ColumnName="iadvance_sea" />
+          <ScalarProperty Name="iadvance" ColumnName="iadvance" />
+          <ScalarProperty Name="cpackid" ColumnName="cpackid" />
+          <ScalarProperty Name="cbarcode" ColumnName="cbarcode" />
+          <ScalarProperty Name="CPOMANID" ColumnName="CPOMANID" />
+          <ScalarProperty Name="ckctj" ColumnName="ckctj" />
+          <ScalarProperty Name="cdefwhid" ColumnName="cdefwhid" />
+          <ScalarProperty Name="dheight" ColumnName="dheight" />
+          <ScalarProperty Name="dwidth" ColumnName="dwidth" />
+          <ScalarProperty Name="dlength" ColumnName="dlength" />
+          <ScalarProperty Name="cattrid" ColumnName="cattrid" />
+          <ScalarProperty Name="cstop" ColumnName="cstop" />
+          <ScalarProperty Name="cxsfy" ColumnName="cxsfy" />
+          <ScalarProperty Name="csouru" ColumnName="csouru" />
+          <ScalarProperty Name="cxiaosou" ColumnName="cxiaosou" />
+          <ScalarProperty Name="ccaigou" ColumnName="ccaigou" />
+          <ScalarProperty Name="ccenben" ColumnName="ccenben" />
+          <ScalarProperty Name="cacctno" ColumnName="cacctno" />
+          <ScalarProperty Name="EDITDT" ColumnName="EDITDT" />
+          <ScalarProperty Name="EDITMAN" ColumnName="EDITMAN" />
+          <ScalarProperty Name="BEGINDT" ColumnName="BEGINDT" />
+          <ScalarProperty Name="BEGINMAN" ColumnName="BEGINMAN" />
+          <ScalarProperty Name="CUSTOME2" ColumnName="CUSTOME2" />
+          <ScalarProperty Name="CCUSTOM1" ColumnName="CCUSTOM1" />
+          <ScalarProperty Name="DSTOPDT" ColumnName="DSTOPDT" />
+          <ScalarProperty Name="DSTARTDT" ColumnName="DSTARTDT" />
+          <ScalarProperty Name="CEREMARK" ColumnName="CEREMARK" />
+          <ScalarProperty Name="CCREMARK" ColumnName="CCREMARK" />
+          <ScalarProperty Name="ICYC" ColumnName="ICYC" />
+          <ScalarProperty Name="CFLAG2" ColumnName="CFLAG2" />
+          <ScalarProperty Name="DVOLUNIT" ColumnName="DVOLUNIT" />
+          <ScalarProperty Name="DVOLUME" ColumnName="DVOLUME" />
+          <ScalarProperty Name="CWTUNIT" ColumnName="CWTUNIT" />
+          <ScalarProperty Name="DWEIGHT" ColumnName="DWEIGHT" />
+          <ScalarProperty Name="DWHPLACE" ColumnName="DWHPLACE" />
+          <ScalarProperty Name="DWHAREA" ColumnName="DWHAREA" />
+          <ScalarProperty Name="DMIN" ColumnName="DMIN" />
+          <ScalarProperty Name="DMAX" ColumnName="DMAX" />
+          <ScalarProperty Name="CPHOTO" ColumnName="CPHOTO" />
+          <ScalarProperty Name="CPRICETY" ColumnName="CPRICETY" />
+          <ScalarProperty Name="CVENDID" ColumnName="CVENDID" />
+          <ScalarProperty Name="DPRICE" ColumnName="DPRICE" />
+          <ScalarProperty Name="DPRICE2" ColumnName="DPRICE2" />
+          <ScalarProperty Name="DCOST" ColumnName="DCOST" />
+          <ScalarProperty Name="CCLASSID" ColumnName="CCLASSID" />
+          <ScalarProperty Name="CUNITID" ColumnName="CUNITID" />
+          <ScalarProperty Name="CESPEC" ColumnName="CESPEC" />
+          <ScalarProperty Name="CSPEC" ColumnName="CSPEC" />
+          <ScalarProperty Name="CENAME" ColumnName="CENAME" />
+          <ScalarProperty Name="CCNAME" ColumnName="CCNAME" />
+          <ScalarProperty Name="CMTEID" ColumnName="CMTEID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="COLORSETs">
+      <EntityTypeMapping TypeName="zcscdbModel.COLORSET">
+        <MappingFragment StoreEntitySet="COLORSET">
+          <ScalarProperty Name="cclassid" ColumnName="cclassid" />
+          <ScalarProperty Name="ccolorstop" ColumnName="ccolorstop" />
+          <ScalarProperty Name="cbarcode" ColumnName="cbarcode" />
+          <ScalarProperty Name="iorder" ColumnName="iorder" />
+          <ScalarProperty Name="CENAME" ColumnName="CENAME" />
+          <ScalarProperty Name="CNAME" ColumnName="CNAME" />
+          <ScalarProperty Name="CCOLORID" ColumnName="CCOLORID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PRODCOLORs">
+      <EntityTypeMapping TypeName="zcscdbModel.PRODCOLOR">
+        <MappingFragment StoreEntitySet="PRODCOLOR">
+          <ScalarProperty Name="defultflag" ColumnName="defultflag" />
+          <ScalarProperty Name="iporder" ColumnName="iporder" />
+          <ScalarProperty Name="crefcode" ColumnName="crefcode" />
+          <ScalarProperty Name="pressprice" ColumnName="pressprice" />
+          <ScalarProperty Name="dpricef1" ColumnName="dpricef1" />
+          <ScalarProperty Name="dpricee1" ColumnName="dpricee1" />
+          <ScalarProperty Name="dpriced1" ColumnName="dpriced1" />
+          <ScalarProperty Name="dpricec1" ColumnName="dpricec1" />
+          <ScalarProperty Name="dpriceb1" ColumnName="dpriceb1" />
+          <ScalarProperty Name="dpricea1" ColumnName="dpricea1" />
+          <ScalarProperty Name="dprice_neap" ColumnName="dprice_neap" />
+          <ScalarProperty Name="DMAXQTY" ColumnName="DMAXQTY" />
+          <ScalarProperty Name="DMINQTY" ColumnName="DMINQTY" />
+          <ScalarProperty Name="CATTRID" ColumnName="CATTRID" />
+          <ScalarProperty Name="DPRICE1" ColumnName="DPRICE1" />
+          <ScalarProperty Name="DPRISE" ColumnName="DPRISE" />
+          <ScalarProperty Name="DPERCENT" ColumnName="DPERCENT" />
+          <ScalarProperty Name="CDESC" ColumnName="CDESC" />
+          <ScalarProperty Name="CLEVEL" ColumnName="CLEVEL" />
+          <ScalarProperty Name="CWHPLACE" ColumnName="CWHPLACE" />
+          <ScalarProperty Name="CFROMADR" ColumnName="CFROMADR" />
+          <ScalarProperty Name="DPRICE2" ColumnName="DPRICE2" />
+          <ScalarProperty Name="DCOST" ColumnName="DCOST" />
+          <ScalarProperty Name="CCOLORID" ColumnName="CCOLORID" />
+          <ScalarProperty Name="CMTEID" ColumnName="CMTEID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UNITs">
+      <EntityTypeMapping TypeName="zcscdbModel.UNIT">
+        <MappingFragment StoreEntitySet="UNIT">
+          <ScalarProperty Name="CNAME" ColumnName="CNAME" />
+          <ScalarProperty Name="CREMARK" ColumnName="CREMARK" />
+          <ScalarProperty Name="CUNITID" ColumnName="CUNITID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EMPLOYEEs">
+      <EntityTypeMapping TypeName="zcscdbModel.EMPLOYEE">
+        <MappingFragment StoreEntitySet="EMPLOYEE">
+          <ScalarProperty Name="CMANFLAG" ColumnName="CMANFLAG" />
+          <ScalarProperty Name="CREMARK" ColumnName="CREMARK" />
+          <ScalarProperty Name="CPHOTO" ColumnName="CPHOTO" />
+          <ScalarProperty Name="CNATIVE" ColumnName="CNATIVE" />
+          <ScalarProperty Name="CNATIVEP" ColumnName="CNATIVEP" />
+          <ScalarProperty Name="DDATE2" ColumnName="DDATE2" />
+          <ScalarProperty Name="DDATE1" ColumnName="DDATE1" />
+          <ScalarProperty Name="CSTATUS" ColumnName="CSTATUS" />
+          <ScalarProperty Name="CTEL" ColumnName="CTEL" />
+          <ScalarProperty Name="CCERTIFY" ColumnName="CCERTIFY" />
+          <ScalarProperty Name="DBIRTH" ColumnName="DBIRTH" />
+          <ScalarProperty Name="CPOST" ColumnName="CPOST" />
+          <ScalarProperty Name="CDEGREE" ColumnName="CDEGREE" />
+          <ScalarProperty Name="CMARRY" ColumnName="CMARRY" />
+          <ScalarProperty Name="CSEX" ColumnName="CSEX" />
+          <ScalarProperty Name="CDEPTID" ColumnName="CDEPTID" />
+          <ScalarProperty Name="CNAME" ColumnName="CNAME" />
+          <ScalarProperty Name="CEMPID" ColumnName="CEMPID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="USERLISTs">
+      <EntityTypeMapping TypeName="zcscdbModel.USERLIST">
+        <MappingFragment StoreEntitySet="USERLIST">
+          <ScalarProperty Name="cempid" ColumnName="cempid" />
+          <ScalarProperty Name="cstop" ColumnName="cstop" />
+          <ScalarProperty Name="corderquery_days" ColumnName="corderquery_days" />
+          <ScalarProperty Name="cdesc" ColumnName="cdesc" />
+          <ScalarProperty Name="cisback" ColumnName="cisback" />
+          <ScalarProperty Name="dagio_neap" ColumnName="dagio_neap" />
+          <ScalarProperty Name="csuper" ColumnName="csuper" />
+          <ScalarProperty Name="cpwd" ColumnName="cpwd" />
+          <ScalarProperty Name="cname" ColumnName="cname" />
+          <ScalarProperty Name="cid" ColumnName="cid" />
+          <ScalarProperty Name="csys" ColumnName="csys" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

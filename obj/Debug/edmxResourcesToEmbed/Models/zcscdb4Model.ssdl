@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="zcscdb4Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2005" Alias="Self" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <Function Name="s_me007" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="varchar(max)">
+    <Parameter Name="g_flag" Type="varchar" Mode="In" />
+    <Parameter Name="g_str1" Type="varchar" Mode="In" />
+    <Parameter Name="g_str2" Type="varchar" Mode="In" />
+    <Parameter Name="g_str3" Type="varchar" Mode="In" />
+    <Parameter Name="g_str4" Type="varchar" Mode="In" />
+    <Parameter Name="g_str5" Type="varchar" Mode="In" />
+    <Parameter Name="g_str6" Type="varchar" Mode="In" />
+    <Parameter Name="g_str7" Type="varchar" Mode="In" />
+    <Parameter Name="g_str8" Type="varchar" Mode="In" />
+    <Parameter Name="g_str9" Type="varchar" Mode="In" />
+    <Parameter Name="g_str10" Type="varchar" Mode="In" />
+    <Parameter Name="g_str11" Type="varchar" Mode="In" />
+    <Parameter Name="g_str12" Type="varchar" Mode="In" />
+    <Parameter Name="g_str13" Type="varchar" Mode="In" />
+    <Parameter Name="g_str14" Type="varchar" Mode="In" />
+    <Parameter Name="g_str15" Type="varchar" Mode="In" />
+    <Parameter Name="g_str16" Type="varchar" Mode="In" />
+    <Parameter Name="g_str17" Type="varchar" Mode="In" />
+    <Parameter Name="g_str18" Type="varchar" Mode="In" />
+    <Parameter Name="g_str19" Type="varchar" Mode="In" />
+    <Parameter Name="g_str20" Type="varchar" Mode="In" />
+    <Parameter Name="l_filter1" Type="varchar" Mode="In" />
+    <Parameter Name="l_filter2" Type="varchar(max)" Mode="In" />
+    <Parameter Name="l_filter3" Type="varchar(max)" Mode="In" />
+    <Parameter Name="l_filter4" Type="varchar(max)" Mode="In" />
+    <Parameter Name="l_filter5" Type="varchar" Mode="In" />
+  </Function>
+  <EntityContainer Name="zcscdb4ModelStoreContainer" />
+</Schema>

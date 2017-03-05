@@ -1,0 +1,135 @@
+﻿@model IEnumerable<GroupBuy1.Models.StorageIn>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.No)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StoreArea)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Store)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CustomName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CustomSex)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreateDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DeliverDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Saler)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Building)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Lift)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DeliverAddr)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Phone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Note)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GroupBuyNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TotalAccount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Backup1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Backup2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Backup3)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.No)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StoreArea)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Store)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CustomName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CustomSex)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreateDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DeliverDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Saler)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Building)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Lift)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DeliverAddr)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Phone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Note)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GroupBuyNo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TotalAccount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Backup1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Backup2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Backup3)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.InID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.InID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.InID })
+        </td>
+    </tr>
+}
+
+</table>

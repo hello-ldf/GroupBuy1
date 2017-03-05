@@ -1,0 +1,549 @@
+﻿@model IEnumerable<GroupBuy1.Models.PRODUCT>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CCNAME)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CENAME)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CSPEC)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CESPEC)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CUNITID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CCLASSID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DCOST)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DPRICE2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DPRICE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CVENDID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CPRICETY)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CPHOTO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DMAX)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DMIN)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DWHAREA)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DWHPLACE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DWEIGHT)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CWTUNIT)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DVOLUME)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DVOLUNIT)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CFLAG2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ICYC)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CCREMARK)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CEREMARK)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DSTARTDT)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DSTOPDT)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CCUSTOM1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CUSTOME2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BEGINMAN)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BEGINDT)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EDITMAN)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EDITDT)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cacctno)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ccenben)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ccaigou)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cxiaosou)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.csouru)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cxsfy)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cstop)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cattrid)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dlength)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dwidth)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dheight)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cdefwhid)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ckctj)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CPOMANID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cbarcode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cpackid)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.iadvance)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.iadvance_sea)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.iadvance_other)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cabccode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ccolorflag)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dpriceA)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dpriceB)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dpriceC)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dpriceD)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dpriceE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dpriceF)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dprice_tiptop)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dprice_neap)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.csetflag)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dagio)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cassflag)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cclassid2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dprise)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dpercent)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cisdagio)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.pressprice)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cbrandid)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.caddress)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dpack_qty)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.itransport)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.itransport_sea)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.itransport_other)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.csplit)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cpricenocolflag)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cphotoxgt)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cphotozzt)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cphotojt)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dnetweight)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cstuff)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cdetaildesc1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cdetaildesc2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dfreight)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dsetamt)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.darea)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CCNAME)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CENAME)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CSPEC)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CESPEC)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CUNITID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CCLASSID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DCOST)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DPRICE2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DPRICE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CVENDID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CPRICETY)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CPHOTO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DMAX)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DMIN)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DWHAREA)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DWHPLACE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DWEIGHT)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CWTUNIT)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DVOLUME)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DVOLUNIT)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CFLAG2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ICYC)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CCREMARK)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CEREMARK)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DSTARTDT)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DSTOPDT)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CCUSTOM1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CUSTOME2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BEGINMAN)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BEGINDT)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EDITMAN)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EDITDT)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.cacctno)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ccenben)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ccaigou)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.cxiaosou)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.csouru)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.cxsfy)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.cstop)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.cattrid)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.dlength)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.dwidth)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.dheight)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.cdefwhid)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ckctj)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CPOMANID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.cbarcode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.cpackid)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.iadvance)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.iadvance_sea)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.iadvance_other)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.cabccode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ccolorflag)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.dpriceA)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.dpriceB)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.dpriceC)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.dpriceD)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.dpriceE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.dpriceF)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.dprice_tiptop)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.dprice_neap)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.csetflag)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.dagio)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.cassflag)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.cclassid2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.dprise)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.dpercent)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.cisdagio)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.pressprice)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.cbrandid)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.caddress)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.dpack_qty)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.itransport)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.itransport_sea)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.itransport_other)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.csplit)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.cpricenocolflag)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.cphotoxgt)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.cphotozzt)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.cphotojt)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.dnetweight)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.cstuff)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.cdetaildesc1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.cdetaildesc2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.dfreight)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.dsetamt)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.darea)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.CMTEID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.CMTEID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.CMTEID })
+        </td>
+    </tr>
+}
+
+</table>

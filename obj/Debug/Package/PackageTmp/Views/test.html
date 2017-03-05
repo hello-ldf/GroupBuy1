@@ -1,0 +1,397 @@
+﻿<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<!--									black-bootstrap-default-gray-material-metro							-->
+		<link rel="stylesheet" type="text/css" href="../Content/themes/material/easyui.css" />
+		<link rel="stylesheet" type="text/css" href="../Content/themes/icon.css" />
+		<link rel="stylesheet" type="text/css" href="../Content/fakeLoader.css" />
+		<link />
+		<!--自定义样式-->
+		<style type="text/css">
+			body,
+			div,
+			span,
+			a,
+			p,
+			hr {
+				display: block;
+				margin: 0;
+				padding: 0;
+			}
+			
+			.span1 {
+				margin: 5px 20px;
+			}
+			
+			.span1 input {
+				background-color: #E9E9E9;
+			}
+			
+			input,
+			button:hover {
+				cursor: pointer;
+			}
+			
+			.btns1 button {
+				margin: 3px 20px;
+				width: 120px;
+			}
+			
+			fieldset {
+				float: left;
+				height: 75px;
+			}
+			
+			.align-right {
+				font-size: 13px;
+				text-align: right;
+				width: 70px;
+				display: inline-block;
+			}
+			
+			a.tabs-inner {
+				padding: 2px !important;
+			}
+			
+			.fakeloader {
+				z-index: 9999 !important;
+			}
+		</style>
+
+	</head>
+
+	<body style="width: 100%; margin-top: 20px;" onload="closeWindow()">
+		<!--加载动画-->
+		<div class="fakeloader"></div>
+
+		<div style="background-color:whitesmoke; width: 1300px; min-height: 800px; margin: 0 auto;">
+
+			<!--标题-->
+			<p style="padding:10px 20px; color: darkblue; font-size: 30px; line-height: 30px; ">采购需求计算</p>
+			<hr />
+
+			<!--需求计算条件、操作-->
+			<div>
+				<div style="height: 160px;">
+					<!--左侧条件-->
+					<div style="width: 400px; float: left;">
+						<span class="span1">
+							<label>商品编号：</label>
+							<input name="product_list"/>
+							<button name="product_list">选择</button>
+						</span>
+						<span class="span1">
+							<label>厂家编号：</label>
+							<input />
+							<button>选择</button>
+						</span>
+						<span class="span1">
+							<label>颜色编码：</label>
+							<input />
+							<button>选择</button>
+						</span>
+						<span class="span1">
+							<label>商品分类：</label>
+							<input />
+							<button>选择</button>
+						</span>
+						<span class="span1">
+							<label>厂家分类：</label>
+							<input />
+							<button>选择</button>
+						</span>
+					</div>
+
+					<!--右侧操作-->
+					<div style="float: right;">
+						<div style="float: left; margin-top:20px">
+							<span>
+								<input type="checkbox" name="" id="" value="" />
+								<label>计算结果只显示计划采购量大于零的记录</label>
+							</span>
+							<span class="span1">
+								<label>采购计划仓库：</label>
+								<input />
+								<button>选择</button>
+							</span>
+						</div>
+						<div class="btns1" style="float: left;">
+							<button>计算需求</button><br />
+							<button>生产采购计划</button><br />
+							<button>更新采购提前期</button><br />
+							<button>打印</button><br />
+							<button>关闭</button>
+						</div>
+					</div>
+				</div>
+
+				<div style="height: 100px; margin-left: 20px;">
+					<!--时间-->
+					<fieldset>
+						<legend>时间</legend>
+						<span>
+							<label class="align-right">工作日期</label>
+							<input type="" name="" id="" value="" />
+						</span>
+						<span>
+							<label class="align-right">备货提前期</label>
+							<input class="easyui-numberspinner" value="7" data-options="increment:1,min:0"style="width:80px;"></input>
+						</span>
+					</fieldset>
+
+					<!--计算条件-->
+					<fieldset hidden="hidden">
+						<legend>计算条件</legend>
+						<span>
+							<input type="checkbox" name="" id="" value="" />
+							<label>对库存货拆并货</label>
+						</span>
+						<span>
+							<input type="checkbox" name="" id="" value="" />
+							<label>按包件订货</label>
+						</span>
+					</fieldset>
+
+					<!--拆并货排序依据-->
+					<fieldset hidden="hidden">
+						<legend>拆并货排序依据</legend>
+						<span>
+							<input type="radio" name="" id="" value="" />
+							<label>按商品标准进价</label>
+						</span>
+						<span>
+							<input type="radio" name="" id="" value="" />
+							<label>按商品属性</label>
+						</span>
+					</fieldset>
+
+					<!--采购提前期-->
+					<fieldset hidden="hidden">
+						<legend>采购提前期</legend>
+						<span>
+							<input type="radio" name="" id="" value="" />
+							<label>陆运</label>
+						</span>
+						<span>
+							<input type="radio" name="" id="" value="" />
+							<label>海运</label>
+						</span>
+						<span>
+							<input type="radio" name="" id="" value="" />
+							<label>其他</label>
+						</span>
+					</fieldset>
+
+					<!--范围-->
+					<fieldset hidden="hidden">
+						<legend>范围</legend>
+						<span>
+							<input type="radio" name="" id="" value="" />
+							<label>不考虑安全库存</label>
+						</span>
+						<span>
+							<input type="radio" name="" id="" value="" />
+							<label>考虑安全库存</label>
+						</span>
+					</fieldset>
+				</div>
+			</div>
+			<hr />
+
+			<!--仓库、需求结果-->
+			<div>
+				<!--仓库-->
+				<div style="float: left;margin: 10px;">
+					<table id="warehousTB" class="easyui-datagrid" title="仓库" style="width:300px;height:450px" data-options="singleSelect:true,collapsible:true,url:'datagrid_data1.json',method:'get'">
+						<thead>
+							<tr>
+								<th data-options="field:'itemid',width:40">Item ID</th>
+								<th data-options="field:'productid',width:80">Product</th>
+								<th data-options="field:'listprice',width:160,align:'right'">List Price</th>
+							</tr>
+						</thead>
+					</table>
+				</div>
+
+				<!--结果-->
+				<div style="float:left;margin: 10px;">
+					<div class="easyui-tabs" data-options="tools:'#tab-tools'" style="width:950px;height:450px">
+
+						<div title="需求结果">
+							<table id="needResultTB" class="easyui-datagrid" style="height:380px" data-options="singleSelect:true,collapsible:true,url:'datagrid_data1.json',method:'get'">
+								<thead>
+									<tr>
+										<th data-options="field:'itemid',width:80">Item ID</th>
+										<th data-options="field:'productid',width:100">Product</th>
+										<th data-options="field:'listprice',width:80,align:'right'">List Price</th>
+										<th data-options="field:'unitcost',width:80,align:'right'">Unit Cost</th>
+										<th data-options="field:'attr1',width:250">Attribute</th>
+										<th data-options="field:'status',width:60,align:'center'">Status</th>
+									</tr>
+								</thead>
+							</table>
+						</div>
+
+						<div title="涉及单据">
+						</div>
+
+						<div title="产品相关单据">
+						</div>
+
+						<div title="未涉及单据">
+						</div>
+
+						<div title="未审客户退货单">
+						</div>
+
+						<div title="未还借货单">
+						</div>
+					</div>
+
+					<!--tab-tools-->
+					<div id="tab-tools">
+						<button>筛选1</button>
+						<button>筛选2</button>
+						<button>全部</button>
+						<button>全部选择</button>
+						<button>取消选择</button>
+						<button>设置</button>
+						<button>单据查询</button>
+						<button>下一个</button>
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+		<div id="product_list" class="easyui-window" title="产品列表" modal="true" style="width:1100px; height:600px;">
+			<div class="easyui-layout" data-options="fit:true">
+				<!--左边树-->
+				<div title="商品分类" data-options="region:'west',split:true" style="width:300px;">
+					<div class="easyui-panel">
+						<ul class="easyui-tree"></ul>
+					</div>
+				</div>
+				<!--右边grid-->
+				<div title="商品资料" data-options="region:'center'">
+					<table id="productTB" class="easyui-datagrid" data-options="singleSelect:true,method:'get'">
+					</table>
+				</div>
+				<!--底下按钮-->
+				<div data-options="region:'south',border:false" style="text-align:right;padding:5px 0 0;">
+					<a class="easyui-linkbutton" data-options="iconCls:'icon-ok'" href="javascript:void(0)" onclick="javascript:alert('ok')" style="width:80px">Ok</a>
+					<a class="easyui-linkbutton" data-options="iconCls:'icon-cancel'" href="javascript:void(0)" onclick="javascript:alert('cancel')" style="width:80px">Cancel</a>
+				</div>
+			</div>
+		</div>
+
+		<script src="../Scripts/jquery-1.11.3.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../Scripts/jquery.easyui.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../Scripts/fakeLoader.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(document).ready(function() {
+				// 加载动画
+				//				$(".fakeloader").fakeLoader({
+				//					timeToHide: 0,
+				//					bgColor: "black"
+				//				});
+
+				// 所有window初始化
+				$(".easyui-tree").tree({
+					url: 'tree_data1.json',
+//					url: '/Stock/Demand_Init',
+//					canshu
+					method: 'get',
+					animate: true,
+					lines: true,
+					onClick: function(node) {
+						if($(node).tree('isLeaf', node.target)) {
+							alert(node.text);
+						}
+					}
+				});
+
+				$.ajax({
+				    type: "Post",
+				    url: "/Stock/test",
+				    contentType: "application/json; charset=utf-8",
+				    data: "{db: 'zcscdb7'}",
+				    dataType: "string",
+				    success: function (data) {
+				        var x = JSON.parse(data);
+				        if (data == "success") {
+				            $("#CMTFLAG").text("已审核");
+				            $("#submitOrder").prop("disabled", true);
+				            $("#cancelOrder").removeProp("disabled");
+				        } else {
+				            alert(msg[data]);
+				        }
+				    },
+				    error: function (error) { }
+				});
+
+
+				$('#productTB').datagrid({
+					//url: 'datagrid_data1.json',
+					columns: [
+						[
+							{ field: 'itemid', title: '商品编码', width: 100 },
+							{ field: 'productid', title: '商品名称', width: 100 },
+							{ field: 'listprice', title: '规格型号', width: 100, align: 'right' },
+							{ field: 'listprice', title: '单位', width: 100, align: 'right' },
+							{ field: 'itemid', title: '规格型号', width: 100 },
+							{ field: 'productid', title: '颜色名称', width: 100 },
+							{ field: 'listprice', title: '颜色编码', width: 100, align: 'right' },
+							{ field: 'productid', title: '厂家名称', width: 100 },
+							{ field: 'listprice', title: '属性编码', width: 100, align: 'right' },
+							{ field: 'itemid', title: '属性名称', width: 100 },
+							{ field: 'productid', title: '包件数', width: 100 },
+							{ field: 'productid', title: '体积', width: 100 },
+							{ field: 'listprice', title: '体积单位', width: 100, align: 'right' },
+							{ field: 'productid', title: '重量', width: 100 },
+							{ field: 'productid', title: '重量单位', width: 100 },
+							{ field: 'productid', title: '产地', width: 100 },
+							{ field: 'productid', title: '材质', width: 100 },
+							{ field: 'productid', title: '中文备注', width: 100 }
+						]
+					]
+				});
+
+				// 所有span1 input 禁写、监听open 
+				var inputs = $(".span1 input");
+				$.each(inputs, function(i, input) {
+					input.setAttribute("readOnly", 'true');;
+					var id = input.name;
+					input.addEventListener("click", function() {
+						$('#' + id).window('open');
+					})
+				});
+
+				// 所有button监听open 
+				var btns = $(".span1 button");
+				$.each(btns, function(i, btn) {
+					var id = btn.name;
+					btn.addEventListener("click", function() {
+						$('#' + id).window('open');
+
+					})
+				});
+				// 所有span1 input监听open 
+				var btns = $(".span1 input");
+				$.each(btns, function(i, btn) {
+
+				});
+
+			});
+
+			// 合上所有window
+			function closeWindow() {
+				$("#product_list").window({ closed: true });
+			}
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,249 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="zcscdbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="PRODUCTs" EntityType="zcscdbModel.PRODUCT" />
+    <EntitySet Name="COLORSETs" EntityType="zcscdbModel.COLORSET" />
+    <EntitySet Name="PRODCOLORs" EntityType="zcscdbModel.PRODCOLOR" />
+    <AssociationSet Name="FK_PRODCOLO_REF_775_COLORSET" Association="zcscdbModel.FK_PRODCOLO_REF_775_COLORSET">
+      <End Role="COLORSET" EntitySet="COLORSETs" />
+      <End Role="PRODCOLOR" EntitySet="PRODCOLORs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PRODCOLO_REF_772_PRODUCT" Association="zcscdbModel.FK_PRODCOLO_REF_772_PRODUCT">
+      <End Role="PRODUCT" EntitySet="PRODUCTs" />
+      <End Role="PRODCOLOR" EntitySet="PRODCOLORs" />
+    </AssociationSet>
+    <EntitySet Name="UNITs" EntityType="zcscdbModel.UNIT" />
+    <AssociationSet Name="FK_PRODUCT_UNIT" Association="zcscdbModel.FK_PRODUCT_UNIT">
+      <End Role="UNIT" EntitySet="UNITs" />
+      <End Role="PRODUCT" EntitySet="PRODUCTs" />
+    </AssociationSet>
+    <EntitySet Name="EMPLOYEEs" EntityType="zcscdbModel.EMPLOYEE" />
+    <EntitySet Name="USERLISTs" EntityType="zcscdbModel.USERLIST" />
+  </EntityContainer>
+  <EntityType Name="PRODUCT">
+    <Key>
+      <PropertyRef Name="CMTEID" />
+    </Key>
+    <Property Name="CMTEID" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CCNAME" Type="String" Nullable="false" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="CENAME" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="CSPEC" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+    <Property Name="CESPEC" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+    <Property Name="CUNITID" Type="String" Nullable="false" MaxLength="12" FixedLength="false" Unicode="true" />
+    <Property Name="CCLASSID" Type="String" Nullable="false" MaxLength="12" FixedLength="false" Unicode="true" />
+    <Property Name="DCOST" Type="Decimal" Nullable="false" Precision="18" Scale="5" />
+    <Property Name="DPRICE2" Type="Decimal" Nullable="false" Precision="18" Scale="5" />
+    <Property Name="DPRICE" Type="Decimal" Nullable="false" Precision="18" Scale="5" />
+    <Property Name="CVENDID" Type="String" Nullable="false" MaxLength="12" FixedLength="false" Unicode="true" />
+    <Property Name="CPRICETY" Type="String" Nullable="false" MaxLength="2" FixedLength="true" Unicode="false" />
+    <Property Name="CPHOTO" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="DMAX" Type="Decimal" Precision="18" Scale="5" />
+    <Property Name="DMIN" Type="Decimal" Precision="18" Scale="5" />
+    <Property Name="DWHAREA" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+    <Property Name="DWHPLACE" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+    <Property Name="DWEIGHT" Type="Decimal" Precision="18" Scale="5" />
+    <Property Name="CWTUNIT" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+    <Property Name="DVOLUME" Type="Decimal" Precision="18" Scale="5" />
+    <Property Name="DVOLUNIT" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+    <Property Name="CFLAG2" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="ICYC" Type="Int16" />
+    <Property Name="CCREMARK" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="CEREMARK" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="DSTARTDT" Type="DateTime" Precision="3" />
+    <Property Name="DSTOPDT" Type="DateTime" Precision="3" />
+    <Property Name="CCUSTOM1" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="CUSTOME2" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="BEGINMAN" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="BEGINDT" Type="DateTime" Precision="3" />
+    <Property Name="EDITMAN" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="EDITDT" Type="DateTime" Precision="3" />
+    <Property Name="cacctno" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
+    <Property Name="ccenben" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
+    <Property Name="ccaigou" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
+    <Property Name="cxiaosou" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
+    <Property Name="csouru" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
+    <Property Name="cxsfy" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
+    <Property Name="cstop" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="cattrid" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+    <Property Name="dlength" Type="Decimal" Precision="18" Scale="5" />
+    <Property Name="dwidth" Type="Decimal" Precision="18" Scale="5" />
+    <Property Name="dheight" Type="Decimal" Precision="18" Scale="5" />
+    <Property Name="cdefwhid" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+    <Property Name="ckctj" Type="String" MaxLength="35" FixedLength="false" Unicode="true" />
+    <Property Name="CPOMANID" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+    <Property Name="cbarcode" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+    <Property Name="cpackid" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+    <Property Name="iadvance" Type="Int32" />
+    <Property Name="iadvance_sea" Type="Int32" />
+    <Property Name="iadvance_other" Type="Int32" />
+    <Property Name="cabccode" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="ccolorflag" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="dpriceA" Type="Decimal" Precision="18" Scale="5" />
+    <Property Name="dpriceB" Type="Decimal" Precision="18" Scale="5" />
+    <Property Name="dpriceC" Type="Decimal" Precision="18" Scale="5" />
+    <Property Name="dpriceD" Type="Decimal" Precision="18" Scale="5" />
+    <Property Name="dpriceE" Type="Decimal" Precision="18" Scale="5" />
+    <Property Name="dpriceF" Type="Decimal" Precision="18" Scale="5" />
+    <Property Name="dprice_tiptop" Type="Decimal" Precision="18" Scale="5" />
+    <Property Name="dprice_neap" Type="Decimal" Precision="18" Scale="5" />
+    <Property Name="csetflag" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="dagio" Type="Decimal" Precision="18" Scale="5" />
+    <Property Name="cassflag" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="cclassid2" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+    <Property Name="dprise" Type="Decimal" Precision="18" Scale="5" />
+    <Property Name="dpercent" Type="Decimal" Precision="18" Scale="5" />
+    <Property Name="cisdagio" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="pressprice" Type="Decimal" Precision="18" Scale="5" />
+    <Property Name="cbrandid" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+    <Property Name="caddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="dpack_qty" Type="Decimal" Precision="18" Scale="5" />
+    <Property Name="itransport" Type="Int32" />
+    <Property Name="itransport_sea" Type="Int32" />
+    <Property Name="itransport_other" Type="Int32" />
+    <Property Name="csplit" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="cpricenocolflag" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="cphotoxgt" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="cphotozzt" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="cphotojt" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="dnetweight" Type="Decimal" Precision="18" Scale="5" />
+    <Property Name="cstuff" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="cdetaildesc1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="cdetaildesc2" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="dfreight" Type="Decimal" Precision="18" Scale="5" />
+    <Property Name="dsetamt" Type="Decimal" Precision="18" Scale="5" />
+    <Property Name="darea" Type="Decimal" Precision="18" Scale="5" />
+    <NavigationProperty Name="PRODCOLORs" Relationship="zcscdbModel.FK_PRODCOLO_REF_772_PRODUCT" FromRole="PRODUCT" ToRole="PRODCOLOR" />
+    <NavigationProperty Name="UNIT" Relationship="zcscdbModel.FK_PRODUCT_UNIT" FromRole="PRODUCT" ToRole="UNIT" />
+  </EntityType>
+  <EntityType Name="COLORSET">
+    <Key>
+      <PropertyRef Name="CCOLORID" />
+    </Key>
+    <Property Name="CCOLORID" Type="String" Nullable="false" MaxLength="12" FixedLength="false" Unicode="true" />
+    <Property Name="CNAME" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="CENAME" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="iorder" Type="Int32" />
+    <Property Name="cbarcode" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+    <Property Name="ccolorstop" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="cclassid" Type="String" Nullable="false" MaxLength="12" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="PRODCOLORs" Relationship="zcscdbModel.FK_PRODCOLO_REF_775_COLORSET" FromRole="COLORSET" ToRole="PRODCOLOR" />
+  </EntityType>
+  <EntityType Name="PRODCOLOR">
+    <Key>
+      <PropertyRef Name="CMTEID" />
+      <PropertyRef Name="CCOLORID" />
+    </Key>
+    <Property Name="CMTEID" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CCOLORID" Type="String" Nullable="false" MaxLength="12" FixedLength="false" Unicode="true" />
+    <Property Name="DCOST" Type="Decimal" Nullable="false" Precision="18" Scale="5" />
+    <Property Name="DPRICE2" Type="Decimal" Nullable="false" Precision="18" Scale="5" />
+    <Property Name="CFROMADR" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CWHPLACE" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CLEVEL" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CDESC" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+    <Property Name="DPERCENT" Type="Decimal" Precision="18" Scale="5" />
+    <Property Name="DPRISE" Type="Decimal" Precision="18" Scale="5" />
+    <Property Name="DPRICE1" Type="Decimal" Precision="18" Scale="5" />
+    <Property Name="CATTRID" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+    <Property Name="DMINQTY" Type="Decimal" Precision="18" Scale="5" />
+    <Property Name="DMAXQTY" Type="Decimal" Precision="18" Scale="5" />
+    <Property Name="dprice_neap" Type="Decimal" Precision="18" Scale="5" />
+    <Property Name="dpricea1" Type="Decimal" Precision="18" Scale="5" />
+    <Property Name="dpriceb1" Type="Decimal" Precision="18" Scale="5" />
+    <Property Name="dpricec1" Type="Decimal" Precision="18" Scale="5" />
+    <Property Name="dpriced1" Type="Decimal" Precision="18" Scale="5" />
+    <Property Name="dpricee1" Type="Decimal" Precision="18" Scale="5" />
+    <Property Name="dpricef1" Type="Decimal" Precision="18" Scale="5" />
+    <Property Name="pressprice" Type="Decimal" Precision="18" Scale="5" />
+    <Property Name="crefcode" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="iporder" Type="Int32" />
+    <Property Name="defultflag" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="COLORSET" Relationship="zcscdbModel.FK_PRODCOLO_REF_775_COLORSET" FromRole="PRODCOLOR" ToRole="COLORSET" />
+    <NavigationProperty Name="PRODUCT" Relationship="zcscdbModel.FK_PRODCOLO_REF_772_PRODUCT" FromRole="PRODCOLOR" ToRole="PRODUCT" />
+  </EntityType>
+  <Association Name="FK_PRODCOLO_REF_775_COLORSET">
+    <End Type="zcscdbModel.COLORSET" Role="COLORSET" Multiplicity="1" />
+    <End Type="zcscdbModel.PRODCOLOR" Role="PRODCOLOR" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="COLORSET">
+        <PropertyRef Name="CCOLORID" />
+      </Principal>
+      <Dependent Role="PRODCOLOR">
+        <PropertyRef Name="CCOLORID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PRODCOLO_REF_772_PRODUCT">
+    <End Type="zcscdbModel.PRODUCT" Role="PRODUCT" Multiplicity="1" />
+    <End Type="zcscdbModel.PRODCOLOR" Role="PRODCOLOR" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PRODUCT">
+        <PropertyRef Name="CMTEID" />
+      </Principal>
+      <Dependent Role="PRODCOLOR">
+        <PropertyRef Name="CMTEID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="UNIT">
+    <Key>
+      <PropertyRef Name="CUNITID" />
+    </Key>
+    <Property Name="CUNITID" Type="String" Nullable="false" MaxLength="12" FixedLength="false" Unicode="true" />
+    <Property Name="CREMARK" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="CNAME" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="PRODUCTs" Relationship="zcscdbModel.FK_PRODUCT_UNIT" FromRole="UNIT" ToRole="PRODUCT" />
+  </EntityType>
+  <Association Name="FK_PRODUCT_UNIT">
+    <End Type="zcscdbModel.UNIT" Role="UNIT" Multiplicity="1" />
+    <End Type="zcscdbModel.PRODUCT" Role="PRODUCT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UNIT">
+        <PropertyRef Name="CUNITID" />
+      </Principal>
+      <Dependent Role="PRODUCT">
+        <PropertyRef Name="CUNITID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="EMPLOYEE">
+    <Key>
+      <PropertyRef Name="CEMPID" />
+    </Key>
+    <Property Name="CEMPID" Type="String" Nullable="false" MaxLength="12" FixedLength="false" Unicode="true" />
+    <Property Name="CNAME" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CDEPTID" Type="String" Nullable="false" MaxLength="12" FixedLength="false" Unicode="true" />
+    <Property Name="CSEX" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="CMARRY" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="CDEGREE" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+    <Property Name="CPOST" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="DBIRTH" Type="DateTime" Precision="3" />
+    <Property Name="CCERTIFY" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CTEL" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+    <Property Name="CSTATUS" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="DDATE1" Type="DateTime" Precision="3" />
+    <Property Name="DDATE2" Type="DateTime" Precision="3" />
+    <Property Name="CNATIVEP" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CNATIVE" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="CPHOTO" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="CREMARK" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="CMANFLAG" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+  </EntityType>
+  <EntityType Name="USERLIST">
+    <Key>
+      <PropertyRef Name="csys" />
+      <PropertyRef Name="cid" />
+    </Key>
+    <Property Name="csys" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="cid" Type="String" Nullable="false" MaxLength="12" FixedLength="false" Unicode="true" />
+    <Property Name="cname" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="cpwd" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="csuper" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="dagio_neap" Type="Decimal" Precision="18" Scale="5" />
+    <Property Name="cisback" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="cdesc" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="corderquery_days" Type="Int32" />
+    <Property Name="cstop" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="cempid" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+  </EntityType>
+</Schema>

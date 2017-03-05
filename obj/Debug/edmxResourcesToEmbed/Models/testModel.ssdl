@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="testModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2005" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="accountinfo">
+    <Key>
+      <PropertyRef Name="iorder" />
+    </Key>
+    <Property Name="iorder" Type="int" Nullable="false" />
+    <Property Name="ccode" Type="varchar" MaxLength="20" />
+    <Property Name="cname" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="cstyle" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="cstatus" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="cdbname" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="ccomputer" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="cdbuser" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="cdbpwd" Type="varchar" MaxLength="40" />
+    <Property Name="csupper" Type="varchar" MaxLength="20" />
+    <Property Name="csuppwd" Type="varchar" MaxLength="40" />
+    <Property Name="cupgrade" Type="char" MaxLength="1" />
+  </EntityType>
+  <EntityContainer Name="testModelStoreContainer">
+    <EntitySet Name="accountinfo" EntityType="Self.accountinfo" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

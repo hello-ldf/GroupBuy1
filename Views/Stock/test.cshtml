@@ -1,0 +1,689 @@
+﻿<!DOCTYPE html>
+
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<!--									black-bootstrap-default-gray-material-metro							-->
+		<link rel="stylesheet" type="text/css" href="../../Content/themes/material/easyui.css" />
+		<link rel="stylesheet" type="text/css" href="../../Content/themes/icon.css" />
+		<link rel="stylesheet" type="text/css" href="../../Content/fakeLoader.css" />
+		<!--自定义样式-->
+		<style type="text/css">
+			body,
+			div,
+			span,
+			a,
+			p,
+			hr {
+				display: block;
+				margin: 0;
+				padding: 0;
+			}
+			
+			.span1 {
+				margin: 5px 20px;
+			}
+			/*.span1 input {
+				background-color: #E9E9E9;
+			}*/
+			/*input,*/
+			
+			button:hover {
+				cursor: pointer;
+			}
+			
+			.btns1 button {
+				margin: 3px 20px;
+				width: 120px;
+			}
+			
+			fieldset {
+				float: left;
+				height: 75px;
+			}
+			
+			.align-right {
+				font-size: 13px;
+				text-align: right;
+				width: 70px;
+				display: inline-block;
+			}
+			
+			a.tabs-inner {
+				padding: 2px !important;
+			}
+			
+			.fakeloader {
+				z-index: 9999 !important;
+			}
+		</style>
+
+	</head>
+
+	<body style="width: 100%; margin-top: 20px;" onload="closeWindow()">
+		<!--加载动画-->
+		<div class="fakeloader"></div>
+
+		<div style="background-color:whitesmoke; width: 1300px; min-height: 800px; margin: 0 auto;">
+
+			<!--标题-->
+			<p style="padding:10px 20px; color: darkblue; font-size: 30px; line-height: 30px; ">采购需求计算</p>
+			<hr />
+
+			<!--需求计算条件、操作-->
+			<div>
+				<div style="height: 160px;">
+					<!--左侧条件-->
+					<div style="width: 400px; float: left;">
+						<span class="span1">
+							<label>商品编号：</label>
+							<input id="cmteid" />
+						</span>
+						<span class="span1">
+							<label>厂家编号：</label>
+							<input id="CVENDID" name="vender_window"/>
+							<button name="vender_window">选择</button>
+						</span>
+						<span class="span1">
+							<label>颜色编码：</label>
+							<input id="CCOLORID" name="color_window"/>
+							<button name="color_window">选择</button>
+						</span>
+						<span class="span1">
+							<label>商品分类：</label>
+							<input id="classid" name="prodclas_window"/>
+							<button name="prodclas_window">选择</button>
+						</span>
+						<span class="span1">
+							<label>厂家分类：</label>
+							<input id="cclassid" name="vendclas_window"/>
+							<button name="vendclas_window">选择</button>
+						</span>
+					</div>
+
+					<!--右侧操作-->
+					<div style="float: right;">
+						<div style="float: left; margin-top:20px">
+							<span>
+								<input type="checkbox" name="" id="" value="" />
+								<label>计算结果只显示计划采购量大于零的记录</label>
+							</span>
+							<span class="span1">
+								<label>采购计划仓库：</label>
+								<input id="CWHID" name="warehouse_window"/>
+								<button name="warehouse_window">选择</button>
+							</span>
+						</div>
+						<div class="btns1" style="float: left;">
+							<button id="btn_caculate_demand">计算需求</button><br />
+							<button id="btn_create_polist">生产采购计划</button><br />
+							<button>更新采购提前期</button><br />
+							<button>打印</button><br />
+							<button id="btn_close">关闭</button>
+						</div>
+					</div>
+				</div>
+
+				<div style="height: 100px; margin-left: 20px;">
+					<!--时间-->
+					<fieldset>
+						<legend>时间</legend>
+						<span>
+							<label class="align-right">工作日期</label>
+							<input id="workDate" type="date"/>
+						</span>
+						<span>
+							<label class="align-right">备货提前期</label>
+							<input id="preDate" class="easyui-numberspinner" value="7" data-options="increment:1,min:0" style="width:80px;"></input>
+						</span>
+					</fieldset>
+
+					<!--计算条件-->
+					<fieldset hidden="hidden">
+						<legend>计算条件</legend>
+						<span>
+							<input type="checkbox" name="" id="" value="" />
+							<label>对库存货拆并货</label>
+						</span>
+						<span>
+							<input type="checkbox" name="" id="" value="" />
+							<label>按包件订货</label>
+						</span>
+					</fieldset>
+
+					<!--拆并货排序依据-->
+					<fieldset hidden="hidden">
+						<legend>拆并货排序依据</legend>
+						<span>
+							<input type="radio" name="" id="" value="" />
+							<label>按商品标准进价</label>
+						</span>
+						<span>
+							<input type="radio" name="" id="" value="" />
+							<label>按商品属性</label>
+						</span>
+					</fieldset>
+
+					<!--采购提前期-->
+					<fieldset hidden="hidden">
+						<legend>采购提前期</legend>
+						<span>
+							<input type="radio" name="" id="" value="" />
+							<label>陆运</label>
+						</span>
+						<span>
+							<input type="radio" name="" id="" value="" />
+							<label>海运</label>
+						</span>
+						<span>
+							<input type="radio" name="" id="" value="" />
+							<label>其他</label>
+						</span>
+					</fieldset>
+
+					<!--范围-->
+					<fieldset hidden="hidden">
+						<legend>范围</legend>
+						<span>
+							<input type="radio" name="" id="" value="" />
+							<label>不考虑安全库存</label>
+						</span>
+						<span>
+							<input type="radio" name="" id="" value="" />
+							<label>考虑安全库存</label>
+						</span>
+					</fieldset>
+				</div>
+			</div>
+			<hr />
+
+			<!--仓库、需求结果-->
+			<div>
+				<!--仓库-->
+				<div style="float: left;margin: 10px;">
+					<table id="warehouse0_grid" class="easyui-datagrid" title="仓库" style="width:300px;">
+					</table>
+				</div>
+
+				<!--结果-->
+				<div style="float:left;margin: 10px;">
+					<div class="easyui-tabs" data-options="tools:'#tab-tools'" style="width:950px;">
+
+						<div title="需求结果">
+							<table id="demandResult_grid" class="easyui-datagrid" style="height:430px">
+							</table>
+						</div>
+
+						<div title="涉及单据">
+						</div>
+
+						<div title="产品相关单据">
+						</div>
+
+						<div title="未涉及单据">
+						</div>
+
+						<div title="未审客户退货单">
+						</div>
+
+						<div title="未还借货单">
+						</div>
+					</div>
+
+					<!--tab-tools-->
+					<div id="tab-tools">
+						<button>筛选1</button>
+						<button>筛选2</button>
+						<button>全部</button>
+						<button>全部选择</button>
+						<button>取消选择</button>
+						<button>设置</button>
+						<button>单据查询</button>
+						<button>下一个</button>
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+		<!--厂家编号-->
+		<div id="vender_window" class="easyui-window" title="厂家资料" modal="true" style="width:1100px; height:600px;">
+			<div class="easyui-layout" data-options="fit:true">
+				<!--左边树-->
+				<div title="厂家分类" data-options="region:'west',split:true" style="width:300px;">
+					<div class="easyui-panel">
+						<ul id="vendclas_tree" class="easyui-tree"></ul>
+					</div>
+				</div>
+				<!--右边grid-->
+				<div title="厂家资料" data-options="region:'center'">
+					<table id="vender_grid" class="easyui-datagrid">
+					</table>
+				</div>
+			</div>
+		</div>
+
+		<!--颜色编号-->
+		<div id="color_window" class="easyui-window" title="商品颜色" modal="true" style="width:1100px; height:600px;">
+			<div title="颜色资料" data-options="region:'center'">
+				<table id="color_grid" class="easyui-datagrid">
+				</table>
+			</div>
+		</div>
+
+		<!--商品分类-->
+		<div id="prodclas_window" class="easyui-window" title="商品分类" modal="true" style="width:1100px; height:600px;">
+			<!--右边grid-->
+			<div title="商品分类" data-options="region:'center'">
+				<table id="prodclas_grid" class="easyui-datagrid">
+				</table>
+			</div>
+		</div>
+
+		<!--厂家分类-->
+		<div id="vendclas_window" class="easyui-window" title="厂家分类" modal="true" style="width:1100px; height:600px;">
+			<!--右边grid-->
+			<div title="厂家分类" data-options="region:'center'">
+				<table id="vendclas_grid" class="easyui-datagrid">
+				</table>
+			</div>
+		</div>
+
+		<!--采购计划仓库-->
+		<div id="warehouse_window" class="easyui-window" title="仓库" modal="true" style="width:1100px; height:600px;">
+			<div class="easyui-layout" data-options="fit:true">
+				<!--左边树-->
+				<div title="仓库分类" data-options="region:'west',split:true" style="width:300px;">
+					<div class="easyui-panel">
+						<ul id="warehouseCLas_tree" class="easyui-tree"></ul>
+					</div>
+				</div>
+				<!--右边grid-->
+				<div title="仓库资料" data-options="region:'center'">
+					<table id="warehouse_grid" class="easyui-datagrid">
+					</table>
+				</div>
+			</div>
+		</div>
+
+		<script src="../../Scripts/jquery-1.11.3.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../Scripts/jquery.easyui.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../Scripts/fakeLoader.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			// 加载动画
+			$(".fakeloader").fakeLoader({
+				timeToHide: 2000,
+				bgColor: "black"
+			});
+			var db = "zcscdb7";
+			var erp_cname = "";
+
+			var dateString;
+			var date = new Date();
+			var MM = date.getMonth() + 1;
+			var dd = date.getDate();
+			if(MM < 10) {
+				MM = "0" + MM;
+			}
+			if(dd < 10) {
+				dd = "0" + dd;
+			}
+
+			$(document).ready(function() {
+
+				dateString = date.getFullYear() + "-" + MM + "-" + dd;
+				$("#workDate").val(dateString);
+
+				// **************************************
+				// * *******	所有初始化        开始
+				// ************************************
+
+				// 厂家编号 - 厂家分类
+				$("#vendclas_tree").tree({
+					url: '/Stock/Init_vendclas_tree?db=' + db,
+					method: 'get',
+					animate: true,
+					lines: true,
+					onClick: function(node) {
+						$("#vender_grid").datagrid('load', {
+							db: db,
+							CCLASSID: node.id
+						});
+					}
+				});
+				// 厂家编号 - 厂家资料
+				$("#vender_grid").datagrid({
+					method: 'get',
+					url: '/Stock/Init_vender_grid',
+					columns: [
+						[
+							{ field: 'CVENDID', title: '编码', width: 100, align: 'center' },
+							{ field: 'CNAME', title: '简称', width: 100, align: 'center' },
+							{ field: 'CCNAME', title: '中文名称', width: 100, align: 'center' },
+							{ field: 'CCLASSID', title: '分类编码', width: 100, align: 'center' },
+							{ field: 'CNAME_a', title: '分类名称', width: 100, align: 'center' },
+							{ field: 'CPOMAN', title: '采购员编码', width: 100, align: 'center' },
+							{ field: 'cpomanname', title: '采购员名称', width: 100, align: 'center' },
+							{ field: 'FStlName', title: '结算方式', width: 100, align: 'center' },
+							{ field: 'CADR1', title: '地址1', width: 100, align: 'center' },
+							{ field: 'CCONMAN', title: '联系人', width: 100, align: 'center' },
+							{ field: 'CTEL', title: '电话', width: 100, align: 'center' },
+							{ field: 'dtaxrate', title: '税额', width: 100, align: 'center' }
+						]
+					],
+					striped: true,
+					singleSelect: true,
+					onDblClickRow: function(i, row) {
+						$("#CVENDID").val(row.CVENDID);
+						$("#vender_window").window({ closed: true });
+					}
+				});
+				// 颜色编号
+				$("#color_grid").datagrid({
+					method: 'get',
+					url: '/Stock/Init_color_grid?db=' + db,
+					columns: [
+						[
+							{ field: 'CCOLORID', title: '代码', width: 100, align: 'center' },
+							{ field: 'CNAME', title: '中文名称', width: 100, align: 'center' },
+							{ field: 'cbarcode', title: '颜色段条码', width: 100, align: 'center' },
+							{ field: 'ccolorstop', title: '停用', width: 100, align: 'center' }
+						]
+					],
+					striped: true,
+					singleSelect: true,
+					onDblClickRow: function(i, row) {
+						$("#CCOLORID").val(row.CCOLORID);
+						$("#color_window").window({ closed: true });
+					}
+				});
+				// 商品分类
+				$("#prodclas_grid").datagrid({
+					method: 'get',
+					url: '/Stock/Init_prodclas_grid?db=' + db,
+					columns: [
+						[
+							{ field: 'classid', title: '分类编码', width: 100, align: 'center' },
+							{ field: 'cname', title: '分类名称', width: 100, align: 'center' },
+							{ field: 'clevel', title: '备注', width: 100, align: 'center' }
+						]
+					],
+					striped: true,
+					singleSelect: true,
+					onDblClickRow: function(i, row) {
+						$("#classid").val(row.classid);
+						$("#prodclas_window").window({ closed: true });
+					}
+				});
+				// 厂家分类
+				$("#vendclas_grid").datagrid({
+					method: 'get',
+					url: '/Stock/Init_vendclas_grid?db=' + db,
+					columns: [
+						[
+							{ field: 'cclassid', title: '分类编码', width: 100, align: 'center' },
+							{ field: 'new_name', title: '分类名称', width: 100, align: 'center' },
+							{ field: 'cremark', title: '备注', width: 100, align: 'center' }
+						]
+					],
+					striped: true,
+					singleSelect: true,
+					onDblClickRow: function(i, row) {
+						$("#cclassid").val(row.cclassid);
+						$("#vendclas_window").window({ closed: true });
+					}
+				});
+				// 采购计划仓库 - 仓库分类
+				$("#warehouseCLas_tree").tree({
+					url: '/Stock/Init_warehouseCLas_tree?db=' + db,
+					method: 'get',
+					animate: true,
+					lines: true,
+					onClick: function(node) {
+						$("#warehouse_grid").datagrid('load', {
+							db: db,
+							CCLASSID: node.id
+						});
+					}
+				});
+				// 采购计划仓库 - 仓库资料
+				$("#warehouse_grid").datagrid({
+					method: 'get',
+					url: '/Stock/Init_warehouse_grid',
+					columns: [
+						[
+							{ field: 'CWHID', title: '编码', width: 100, align: 'center' },
+							{ field: 'CNAME', title: '名称', width: 100, align: 'center' },
+							{ field: 'isstation', title: '专卖店', width: 100, align: 'center' },
+							{ field: 'CADMIN', title: '负责人', width: 100, align: 'center' },
+							{ field: 'cstation', title: '销售网点', width: 100, align: 'center' },
+							{ field: 'cclassname', title: '分类', width: 100, align: 'center' },
+							{ field: '？？', title: '出货仓', width: 100, align: 'center' },
+							{ field: 'ccalcflag', title: '可用', width: 100, align: 'center' },
+							{ field: 'AREA', title: '面积', width: 100, align: 'center' },
+							{ field: 'CTEL', title: '电话', width: 100, align: 'center' },
+							{ field: 'CADR', title: '地址', width: 100, align: 'center' },
+							{ field: 'CREMARK', title: '备注', width: 100, align: 'center' },
+							{ field: '？？', title: '铺位', width: 100, align: 'center' },
+							{ field: 'cshopman', title: '承租人', width: 100, align: 'center' }
+						]
+					],
+					striped: true,
+					singleSelect: true,
+					onDblClickRow: function(i, row) {
+						$("#CWHID").val(row.CWHID);
+						$("#warehouse_window").window({ closed: true });
+					}
+				});
+				// 仓库资料
+				$("#warehouse0_grid").datagrid({
+					method: 'get',
+					url: '/Stock/Init_warehouse0_grid?db=' + db,
+					columns: [
+						[
+							{ field: 'ck', checkbox: true, title: '选择', width: 50, align: 'center' },
+							{ field: 'CWHID', title: '编码仓库', width: 50, align: 'center' },
+							{ field: 'CNAME', title: '名称', width: 50, align: 'center' },
+							{ field: 'isstation', title: '专卖店', width: 50, align: 'center' }
+						]
+					],
+					striped: true
+				});
+				// 需求结果
+				$("#demandResult_grid").datagrid({
+					method: 'get',
+					columns: [
+						[
+							{ field: '', checkbox: true, title: '选择', width: 100, align: 'center' },
+							{ field: 'cmteid', title: '商品编码', width: 100, align: 'center' },
+							{ field: 'ccname', title: '商品名称', width: 100, align: 'center' },
+							{ field: 'ccolorid', title: '颜色编码', width: 100, align: 'center' },
+							{ field: 'cname', title: '颜色名称', width: 100, align: 'center' },
+							{ field: 'cspec', title: '尺寸', width: 100, align: 'center' },
+							{ field: 'cnamea', title: '单位', width: 100, align: 'center' },
+							{ field: 'dcost', title: '成本价', width: 100, align: 'center' },
+							{ field: 'dtotalqty', title: '总需求量', width: 100, align: 'center' },
+							{ field: 'dnetqty', title: '计划采购量', width: 100, align: 'center' },
+							{ field: 'dorderqty', title: 'dorderqty', width: 100, align: 'center' },
+							{ field: 'dplanqty', title: '已计划采购量', width: 100, align: 'center' },
+							{ field: 'donwayqty', title: '采购在途量', width: 100, align: 'center' },
+							{ field: 'dstkqty', title: '库存量', width: 100, align: 'center' },
+							{ field: 'dsafeqty', title: '安全库存量', width: 100, align: 'center' },
+							{ field: 'dreqnoinqty', title: '已购未入量', width: 100, align: 'center' },
+							{ field: 'dreqnooutqty', title: '已购未出量', width: 100, align: 'center' },
+							{ field: 'dsplitqty', title: '可拆量', width: 100, align: 'center' },
+							//							{ field: '', title: '..', width: 100, align: 'center' },
+							//							{ field: '', title: '..', width: 100, align: 'center' },
+							{ field: 'cwhid', title: '仓库编号', width: 100, align: 'center' },
+							{ field: 'cwhname', title: '仓库名', width: 100, align: 'center' },
+							{ field: 'cattrid', title: '属性编号', width: 100, align: 'center' },
+							{ field: 'cattrname', title: '产品属性', width: 100, align: 'center' },
+							//							{ field: '', title: '..', width: 100, align: 'center' },
+							{ field: 'cvendid', title: '厂家编号', width: 100, align: 'center' },
+							{ field: 'cvendname', title: '厂家名', width: 100, align: 'center' },
+							{ field: 'dnoship', title: '已销未出量', width: 100, align: 'center' }
+						]
+					],
+					striped: true
+				});
+				// **************************************
+				// * *******	所有初始化        结束
+				// ************************************
+
+				// 所有button监听open 
+				var btns = $(".span1 button");
+				$.each(btns, function(i, btn) {
+					var id = btn.name;
+					btn.addEventListener("click", function() {
+						$('#' + id).window('open');
+
+					})
+				});
+
+				// 计算需求
+				$("#btn_caculate_demand").on('click', function() {
+					var f1 = "";
+					var warehouses = $('#warehouse0_grid').datagrid('getChecked');
+					$.each(warehouses, function(i, warehouse) {
+						if(i == 0) {
+							f1 = "''" + warehouse.CWHID + "''";
+						} else {
+							f1 += ",''" + warehouse.CWHID + "''";
+						}
+					});
+					$("#demandResult_grid").datagrid({
+						url: '/Stock/Calculate_Demand',
+						queryParams: {
+							s1: $("#cmteid").val(),
+							s2: $("#CVENDID").val(),
+							s3: $("#CCOLORID").val(),
+							s4: $("#classid").val(),
+							s5: $("#cclassid").val(),
+							s6: $("#workDate").val(),
+							s7: $("#preDate").val(),
+							s8: $("#CWHID").val(),
+							f1: f1,
+							db: db
+						},
+						loadMsg: '采购需求计算中，请耐心等候。'
+					});
+				}); // 采购需求计算
+
+				// 生成采购计划单
+				$("#btn_create_polist").on('click', function() {
+					var now = new Date(); // 获取现时
+					var workDate = $("#workDate").val();
+					var year = workDate.substring(0, 4);
+					var month = workDate.substring(5, 7);
+					var day = workDate.substring(8, 10);
+					var comingDate = new Date();
+					comingDate.setFullYear(year, month-1, day);
+					comingDate.setDate(comingDate.getDate() + parseInt($("#preDate").val()) );
+
+					// 采购计划单 - 单头
+					var polist = {
+						//CCODE: '', // 内部生成单号              
+						CTYPE: '4', // 计划类型编号      4        
+						CFLAG: '1', // 计划状态          1        
+						BEGINMAN: erp_cname, // 建立人    erp账号 中文名？        
+						BEGINDT: now, // 建立日期           当日       
+						//EDITMAN: '', // 修改人             空        
+						//EDITDT: null, // 修改日期           空       
+						CMTMAN: db, // 审核人    临时用于存放db
+						//CMTDT datetime NULL, // 审核日期           空       
+						INETFLAG: 1, // 商场标志          1        
+						DDate: $("#workDate").val() // 日期                     
+					}
+
+					// 采购计划单 - 单身
+					var demandResults = $('#demandResult_grid').datagrid('getChecked');
+					var polistc_list = new Array();
+					$.each(demandResults, function(i, dr) {
+						var polistc = {
+							// CCODE: '', // 内部生成单号                  
+							IORDER: i + 1, // 项次
+							CMTEID: dr.cmteid, // 商品编号 cmteid
+							DPLANDT: $("#workDate").val(), // 计划采购日期
+							CVENDID: dr.cvendid, // 计划供应商编号 cvendid
+							DQTY: dr.dnetqty, // 数量 dnetqty
+							DPRICE: dr.dcost, // 预计价格 dcost
+							DPOQTY: 0, // 已采购量 0
+							CENDFLAG: '0', // 完成状态 0
+							CDESC: db, // 说明 ""	临时存放数据库
+							DCYPRICE: 0, // 本币单价 0
+							DCYCOST: 0, // 本币成本 0
+							DUTQTY: 0, // 主单位数量 0
+							INETFLAG: 1, // 商场标志 1
+							ccolorid: dr.ccolorid, // 颜色编号 ccolorid
+							ddedt: comingDate, // 预计到货日期
+							dagio: 1, // 主折率 1
+							//corderid:'', // 指定采购产品订单号 空
+							//iporder int NULL, // 订单项次 空
+							//cpodesc text NULL, // 订单非标说明 空
+							plango_date: comingDate, // 计划出厂日期 同到货日期
+							cplanwhid: dr.cwhid, // 计划仓库编号
+							dpack_qty: 0, // 单位包件数 0
+							cattrid: dr.cattrid, // 商品属性编号 cattrid
+							dstandardcost: dr.dcost // no use dcost
+						}
+						polistc_list[i] = polistc;
+					});
+
+					var plJson = JSON.stringify(JSON.stringify(polist));
+					var plcJson = JSON.stringify(JSON.stringify(polistc_list));
+
+					$.ajax({
+						type: "Post",
+						url: "/Stock/Create_Polist",
+						contentType: "application/json; charset=utf-8",
+						data: "{plJson:" + plJson + ",plcJson:" + plcJson + "}",
+						dataType: "text",
+						success: function(data) {
+							if(data == "success") {
+								alert("采购计划单生成成功");
+								$.each(demandResults, function(i, dr) {
+									$("#demandResult_grid").datagrid('deleteRow',i+1);
+								});
+							} else {
+								//								alert(msg[data]);
+							}
+						},
+						error: function(error) {}
+					});
+				}); // 生成采购计划单
+
+				// 关闭  按钮
+				//				$("#btn_close").on('click', function() {
+				//					resetPage();
+				//				});
+
+			}); // ready end
+
+			// 合上所有window
+			function closeWindow() {
+				var windows = $(".easyui-window");
+				$.each(windows, function(i, win) {
+					$("#" + win.id).window({ closed: true });
+				});
+			}
+
+			// reset数据
+			function resetPage() {
+				$("#cmteid").val("");
+				$("#CVENDID").val("");
+				$("#CCOLORID").val("");
+				$("#classid").val("");
+				$("#cclassid").val("");
+				$("#workDate").val(dateString);
+				$("#preDate").val(7);
+				$("#CWHID").val("");
+
+				$('#warehouse0_grid').datagrid('clearChecked');
+				$('#demandResult_grid').datagrid('loadData', { total: 0, rows: [] });
+			}
+		</script>
+	</body>
+
+</html>

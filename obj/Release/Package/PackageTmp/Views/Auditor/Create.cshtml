@@ -1,0 +1,607 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link rel="stylesheet" type="text/css" href="~/Content/ui.jqgrid.css" />
+
+<link rel="stylesheet" href="~/Content/jquery-ui-1.12.0.custom/jquery-ui.css">
+<link rel="stylesheet" href="~/Content/bootstrapDatepickr-1.0.0.min.css" />
+<link rel="stylesheet" href="~/Content/font-awesome.min.css" />
+<body>
+    <!--搜索条件-->
+    <div id="qryDiv" style="width:1200px;height:150px">
+        <div class="row" style="margin-top:20px">
+            <div class="col-md-4" style="float:left">
+                <div class="input-group" style="width:500px">
+                    <span class="input-group-addon" id="basic-addon1"><i class="fa fa-calendar"></i></span>
+                    <input type="text" id="date1" placeholder="开始日期" class="form-control datePicker" readonly="readonly">
+                    <span class="input-group-addon" id="basic-addon1"><i class="fa fa-calendar"></i></span>
+                    <input type="text" id="date2" placeholder="结束日期" class="form-control datePicker" readonly="readonly">
+                </div>
+                <div class="input-group" style="width:500px">
+                    <label>地区：</label>
+                    <input type="text" id="areaQry" placeholder="地区" style="width:150px">
+                </div>
+                <div class="input-group" style="width:500px">
+                    <label>店名：</label>
+                    <input type="text" id="storeQry" placeholder="店名" style="width:150px">
+                </div>
+                <div class="input-group" style="width:500px">
+                    <label>销售员：</label>
+                    <input type="text" id="salerQry" placeholder="销售员" style="width:150px">
+                </div>
+                <div class="input-group" style="width:500px">
+                    <label>订单号：</label>
+                    <input type="text" id="inIDQry" placeholder="订单号" style="width:150px">
+                </div>
+                <div class="input-group" style="width:500px">
+                    未审核<input name="passed" type="radio" value="0" checked="checked" />
+                    已审核<input name="passed" type="radio" value="1" />
+                </div>
+            </div>
+            <div style="position:absolute;width:0;height:0">
+                <div class="row" style="position:relative; top:50px;left:300px">
+                    <button type="button" class="btn btn-primary" onclick="query()">查询/刷新</button>
+                    <button type="button" class="btn btn-danger" style="margin-top:20px" onclick="resetQry()">重置</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <hr />
+    <!--订单列表-->
+    <div id="order-list" style="height:1000px">
+        <table id="myTab" class="scroll" cellpadding="0" cellspacing="0"></table>
+        <div id="pager" class="scroll"></div>
+    </div>
+    <!--订单详细-->
+    <div id="detailBody" style="display:none">
+        <button type="button" class="btn btn-primary" onclick="backToQry()">返回</button>
+        <hr />
+        <!--标题-->
+        <div>美丽华家具中心  serviceList 客户订单</div>
+        <!--单头 用数组保存打包json提交-->
+        <div>
+            <!--地区      店名      No.
+                --------------华丽丽的分割线-----------------
+                客户名称        先生，女士       开单日期
+                送货日期                         家居顾问
+                楼盘名称                         电梯  有无
+                送货地址                         联系电话-->
+            <div>
+                №:<input id="No" type="text" disabled="disabled" />
+                开单日期：<input type="text" id="CreateDate" disabled="disabled" />
+            </div>
+            <div>
+                地区:<input id="StoreArea" type="text" disabled="disabled" />
+                店名:<input id="Store" type="text" disabled="disabled" />
+                家居顾问：<input id="Saler" type="text" disabled="disabled" />
+            </div>
+            <div>
+                客户名称:<input id="CustomName" type="text" disabled="disabled" />
+                <input id="CustomSex" type="text" disabled="disabled" />
+                联系电话：<input id="Phone" type="tel" disabled="disabled" />
+            </div>
+            <div>
+                送货日期：<input type="text" class="input" id="DeliverDate" disabled="disabled" />
+                送货地址：<input id="DeliverAddr" type="text" disabled="disabled" />
+            </div>
+            <div>
+                楼盘名称：<input id="Building" type="text" disabled="disabled" />
+                电梯：  <input id="Lift" type="text" disabled="disabled" />
+            </div>
+            <div>
+                团购号：<input id="GroupBuyNo" type="text" disabled="disabled" />
+                备注：<textarea id="Note" rows="2" cols="40" disabled="disabled"></textarea>
+            </div>
+        </div>
+        <!--单身-->
+        <div>
+            <div class="baby">
+                @*<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addModal">
+                        添加产品
+                    </button>
+                    <button type="button" class="btn btn-primary" onclick="SubmitOrder()">保存提交</button>*@
+                <table id="tb" class="scroll"></table>
+            </div>
+            <div style="float:left;margin-right:15%">
+                <button id="passBtn" type="button" class="btn btn-primary" onclick="PassOrder()">通过审核</button>
+                <button id="cancelBtn" type="button" class="btn btn-primary" onclick="PassOrder()">取消审核</button>
+            </div>
+            <div style="float:right; margin-right:15%">
+                金额：<label id="TotalAccount" style="color:red">0</label>
+            </div>
+        </div>
+
+        <!-- 添加科目样式 -->
+        @*<div class="modal fade col-md-12" id="addModal" tabindex="-1" role="dialog"
+                 aria-labelledby="exampleModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal"
+                                    aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title" id="exampleModalLabel">添加产品</h4>
+                        </div>
+
+                        <div class="modal-body row">
+                            <div class="form-group col-md-12">
+                                <div id="dcontent" class="dcontent">
+                                    <div class="button" onclick="clicked('Barcode_Scan', true, true);">扫一扫</div>
+                                </div>
+                                <div class="ui-widget">
+                                    <label for="recipient-name tags" class="control-label">型号:</label>
+                                    <select id="combobox">
+                                        <option value="">=请选择=</option>
+                                    </select>
+                                </div>
+                                <label for="message-text" class="control-label">名称:</label>
+                                <input type="text" maxlength="15" class="form-control" id="ProductName" />
+                                <label for="message-text" class="control-label">规格:</label>
+                                <input type="text" maxlength="15" class="form-control" id="ProductSzie" />
+                                <label for="recipient-name" class="control-label">颜色:</label>
+                                <input type="text" maxlength="5" class="form-control" id="ProductColor" />
+                                <label for="message-text" class="control-label">数量:</label><br />
+                                <input type="number" maxlength="5" class="form-control" id="Quantity" oninput="modalAccount()" style=" width:200px;display:inline;" />
+                                <label for="message-text" class="control-label" id="Inventory"></label>
+                                <label for="message-text" class="control-label" id="Unit"></label><br />
+                                <label for="message-text" class="control-label">单价:</label>
+                                <input type="number" maxlength="5" class="form-control" id="CurrentPrice" readonly="readonly" />
+                                <label for="recipient-name" class="control-label">合计:</label>
+                                <input type="number" maxlength="5" class="form-control" id="Account" readonly="readonly" />
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">返回</button>
+                            <button type="button" class="btn btn-primary" onclick="addItem()">确认添加</button>
+                        </div>
+                    </div>
+                </div>
+            </div>*@
+
+    </div>
+    <!-- script -->
+    <script type="text/javascript" src="~/Scripts/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/grid.locale-cn.js"></script>
+    <script src="~/Scripts/jquery.jqGrid.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="~/Scripts/bootstrapDatepickr-1.0.0.min.js"></script>
+    <script src="~/Content/jquery-ui-1.12.0.custom/jquery-ui.js"></script>
+    <script type="text/javascript">
+        var lastsel2 // 最后点击的行
+        var productNos
+        var floatReg = /^\d+(\.\d*)?$/; // 非负浮点
+
+        /************   初始化数据、初始日期   ***************
+        *************   实时编辑GRID   ************
+        *************   获取产品列表   ************/
+        $(document).ready(function () {
+            // *** 订单列表加载
+            //var date1 = date2 = '9999-12-31';
+            //var areaQry = storeQry = salerQry = inIDQry = "";
+            $("#myTab").jqGrid({
+                //url: '/GroupBuy1/Auditor/OrderList',
+                //mtype: "post",
+                //postData: { date1: date1, date2: date2, areaQry: areaQry, storeQry: storeQry, salerQry: salerQry, inIDQry: inIDQry },
+                //datatype: "json",
+                height: 300,
+                width: 800,
+                colNames: ['查看详情', '订单号', '地区', '店名', '家居顾问', '客户名', '联系电话','审核状态'],
+                colModel: [
+                    { name: 'Detial', index: 'Detial', align:'center', sortable: false, align: "center", width: 60 },
+                    { name: 'InID', index: 'InID', align: 'center', width: 80, },
+                    { name: 'StoreArea', index: 'StoreArea',align:'center', width: 60 },
+                    { name: 'Store', index: 'Store', align: 'center', width: 60 },
+                    { name: 'Saler', index: 'Saler', align: 'center', width: 60, },
+                    { name: 'CustomName', index: 'CustomName', align: 'center', width: 60 },
+                    { name: 'Phone', index: 'Phone', align: 'center', width: 80 },
+                    { name: 'Passed', index: 'Passed', align: 'center', width: 100, hidden: true }
+                ],
+                gridComplete: function () {
+                    var ids = jQuery("#myTab").jqGrid('getDataIDs');
+                    for (var i = 0; i < ids.length; i++) {
+                        var id = ids[i];
+                        var detailBtn = "<button type='button' class='btn btn-primary' onclick='GetOrder(this)'>查看详情</button>";
+                        jQuery("#myTab").jqGrid('setRowData', ids[i], { Detial: detailBtn });
+                    }
+                },
+                pager: 'pager',          //分页工具栏，pager:分页DIV的id
+                //imgpath: 'js/themes/basic/images', //图片存放路径
+                rowNum: 10,             //每页显示记录数
+                viewrecords: true,      //是否显示行数
+                rowList: [10, 20, 30],  //可调整每页显示的记录数
+                multiselect: false,     //是否支持多选
+                loadonce: true,
+                sortname: 'InID',
+                sortorder: 'asc',
+                caption: "客户列表"
+            }).navGrid("#pager", { edit: false, add: false, del: false, refresh: false, search: false });
+
+            // *** 单身 加载
+            $("#tb").jqGrid({
+                //datatype: "local",
+                height: 250,
+                colNames: ['项次', '产品型号', '名称', '规格', '颜色', '当前库存', '数量', '单位', '单价', '合计', '删除','单号'],
+                colModel: [
+                  { name: 'ItemNo', index: 'ItemNo', width: 40, align: "center" },
+                  { name: 'ProductNo', index: 'ProductNo', width: 120, align: "center" },
+                  { name: 'ProductName', index: 'ProductName', width: 120, align: "center" },
+                  { name: 'ProductSzie', index: 'ProductSzie', width: 120, align: "center" },
+                  { name: 'ProductColor', index: 'ProductColor', width: 60, align: "center" },
+                  { name: 'Backup1', index: 'Backup1', width: 80, align: "center" },
+                  { name: 'Quantity', index: 'Quantity', width: 80, editable: true, editrules: { minValue: 0, required: true, number: true }, align: "center" },
+                  { name: 'Unit', index: 'Unit', width: 40, align: "center" },
+                  { name: 'CurrentPrice', index: 'CurrentPrice', width: 80, align: "center" },
+                  { name: 'Account', index: 'Account', width: 80, align: "center" },
+                  { name: 'Del', index: 'Del', align: "center", width: 80 },
+                  { name: 'InID', index: 'InID', hidden:true }
+                ],
+                gridComplete: function () {
+                    var ids = jQuery("#tb").jqGrid('getDataIDs');
+                    for (var i = 0; i < ids.length; i++) {
+                        var id = ids[i];
+                        var delBtn = "<button type='button' class='btn btn-danger' onclick='Del(this)'>删除</button>";
+                        jQuery("#tb").jqGrid('setRowData', ids[i], { Del: delBtn });
+                    }
+                },
+                onSelectRow: function (id) {
+                    if (id && id !== lastsel2) {
+                        jQuery('#tb').saveRow(lastsel2);
+                        jQuery('#tb').editRow(id, true);
+                        lastsel2 = id;
+                        var qtt = $("#tb tr:eq(" + id + ") td:eq(6) input");//当前行的数量
+                        var crtPrice = $("#tb tr:eq(" + id + ") td:eq(8)");// 当前行 单价
+                        var act = $("#tb tr:eq(" + id + ") td:eq(9)");// 当前行 合计
+                        qtt.on('input', function (e) {// 合计总数
+                            if (!floatReg.test(qtt.val())) { // 不是数值
+                                qtt.val(0);
+                                act.html(0);
+                            } else {
+                                var Inventory = parseFloat($("#tb tr:eq(" + id + ") td:eq(5)").html());
+                                var reg = /[0]\d+/; // 0打头跟数字
+                                if (reg.test(qtt.val())) {
+                                    qtt.val(parseFloat(qtt.val()));
+                                }
+                                //if (qtt.val() > parseFloat(Inventory) + 1) {
+                                //    qtt.val(parseFloat(Inventory) + 1);
+                                //}
+                                var Quantity = parseFloat(qtt.val());
+                                var CurrentPrice = parseFloat(crtPrice.html());
+                                act.html(CurrentPrice * Quantity);
+
+                                //if (Quantity != 0) {
+                                //    if (Quantity == Inventory + 1) {
+                                //        alert("注意，你即将出售样板，请确认清楚！");
+                                //    }
+                                //}
+                            }
+                            Summary();
+                        });
+                    }
+                }
+            });
+
+            // *** 日期控件加载
+            $(".datePicker").bootstrapDatepickr({ date_format: "Y-m-d" });
+        });//初始化 ==END
+
+        // 添加产品 到grid
+        //function addItem() {
+        //    if ($("#Account").val().trim() == "") {
+        //        return;
+        //    }
+        //    var Row = {
+        //        ItemNo: $("#tb tbody tr").length, ProductNo: $("#ProductNo").val(), ProductName: $("#ProductName").val(),
+        //        ProductSzie: $("#ProductSzie").val(), ProductColor: $("#ProductColor").val(), Inventory: $("#Inventory").html(),
+        //        Quantity: $("#Quantity").val(), Unit: $("#Unit").html(), CurrentPrice: $("#CurrentPrice").val(), Account: $("#Account").val()
+        //    };
+        //    jQuery("#tb").addRowData(Row.ItemNo, Row);
+        //    var a = $("#TotalAccount").val();
+        //    var b = $("#Account").val();
+        //    a = parseInt(a) + parseInt(b);
+        //    $("#TotalAccount").val(a); // 合计
+        //    $("#ProductNo").val("");
+        //    $("#Unit").html("");
+        //    $(".modal-body .form-control").val("");
+        //}
+
+
+    </script>
+
+    <!--自定义事件调用-->
+    <script type="text/javascript" charset="utf-8">
+        // *** 删除当前产品
+        function Del(obj) {
+            if (window.confirm('是否删除该产品？')) {
+                obj.parentNode.parentNode.remove();
+                reloadItemNo();
+                Summary();
+            }
+        }
+        // 重新加载项次
+        function reloadItemNo() {
+            var itemNos = $("#tb :nth-child(1)");
+            $.each(itemNos, function (i, itemNo) {
+                itemNo.innerText = i + 1;
+            })
+        }
+        // ***重置查询信息
+        function resetQry() {
+            //$("#qryDiv input[name='passed']:checked").val();
+            $('#date1').val("");
+            $('#date2').val("");
+            $('#areaQry').val("");
+            $('#storeQry').val("");
+            $('#salerQry').val("");
+            $('#inIDQry').val("");
+        }
+        // ***根据条件查询订单***
+        function query() {
+            var passed = $("#qryDiv input[name='passed']:checked").val();
+            var date1 = $('#date1').val().trim();
+            var date2 = $('#date2').val().trim();
+            if ((date1 == "") ^ (date2 == "")) {
+                alert('不能只输入一个日期');
+                return;
+            }
+            if ((date1 == "") && (date2 == "")) {
+                date1 = date2 = '9999-12-31';
+            }
+            var areaQry = $('#areaQry').val().trim();
+            var storeQry = $('#storeQry').val().trim();
+            var salerQry = $('#salerQry').val().trim();
+            var inIDQry = $('#inIDQry').val().trim();
+
+            //$("#myTab").jqGrid('clearGridData');  //清空表格
+            $("#myTab").jqGrid('setGridParam', {  // 重新加载数据
+                url: '/GroupBuy1/Auditor/OrderList',
+                mtype: "post",
+                postData: { passed: passed, date1: date1, date2: date2, areaQry: areaQry, storeQry: storeQry, salerQry: salerQry, inIDQry: inIDQry },
+                datatype: "json"
+            }).trigger("reloadGrid");
+        }
+        // ***根据单头获取订单全部信息***
+        function GetOrder(obj) {
+            var InID = obj.parentNode.parentNode.childNodes[1].innerHTML;
+            $.ajax({
+                type: "Post",
+                url: "/GroupBuy1/Auditor/GetOrder",
+                data: "{ InID:" + JSON.stringify(InID) + "}",
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (json) {
+                    var orderQry = JSON.parse(json);
+                    if (orderQry.storageIn != null) {// 有数据返回
+                        $("#qryDiv").attr("style", "display:none");
+                        $("#order-list").attr("style", "display:none");
+                        $("#detailBody").attr("style", "display:block");
+
+                        $("#No").val(orderQry.storageIn.InID)
+                        $("#StoreArea").val(orderQry.storageIn.StoreArea)
+                        $("#Store").val(orderQry.storageIn.Store)
+                        $("#CustomName").val(orderQry.storageIn.CustomName)
+                        $("#CustomSex").val(orderQry.storageIn.CustomSex)
+                        $("#CreateDate").val(new Date(orderQry.storageIn.CreateDate).toLocaleString())
+                        $("#DeliverDate").val(new Date(orderQry.storageIn.DeliverDate).toLocaleDateString())
+                        $("#Saler").val(orderQry.storageIn.Saler)
+                        $("#Building").val(orderQry.storageIn.Building)
+                        $("#Lift").val(orderQry.storageIn.Lift)
+                        $("#DeliverAddr").val(orderQry.storageIn.DeliverAddr)
+                        $("#Phone").val(orderQry.storageIn.Phone)
+                        $("#Note").val(orderQry.storageIn.Note)
+                        $("#GroupBuyNo").val(orderQry.storageIn.GroupBuyNo)
+                        $("#TotalAccount").text(orderQry.storageIn.TotalAccount);
+                        if (orderQry.storageIn.Passed == 1) {// 已审核的订单
+                            $("#passBtn").attr("disabled", "disabled");
+                            $("#cancelBtn").removeAttr("disabled");
+                        } else {// 未审核的订单
+                            $("#passBtn").removeAttr("disabled");
+                            $("#cancelBtn").attr("disabled", "disabled");
+                        }
+
+                        $.each(orderQry.storageInCs, function (i, row) {
+                            jQuery("#tb").addRowData(i + 1, row);
+                        })
+                    }
+                    else {// 没数据返回
+                        //$("#msg").html("没有数据返回");
+                    }
+                },
+                error: function (error) {
+                    alert("/Auditor/GetOrder调用或返回失败，error=" + error);
+                }
+            });
+        }
+
+        // *** 通过审核 ***
+        function PassOrder() {
+            if (!window.confirm('是否确认审核？')) {
+                return;
+            }
+            var errorMsg = "";
+            jQuery('#tb').saveRow(lastsel2);
+            // 单身
+            var rows = $("#tb").jqGrid("getRowData");
+            if (rows.length == 1) {
+                errorMsg += "至少有一件产品<br/>";
+            }
+            else {
+                for (var i = 0; i < rows.length; i++) {
+                    var currentLine = i + 1;
+                    if (rows[i].Quantity == "0") {
+                        errorMsg += "第" + currentLine + "项的数量不能为空、<br/>";
+                    }
+                }
+            }
+
+            if (errorMsg.trim() != "") {
+                alert(errorMsg);
+                return;
+            }
+
+            var rowsJson = JSON.stringify(rows);
+            rowsJson = JSON.stringify(rowsJson);
+
+            var InID = $("$No").val();
+            $.ajax({
+                type: "Post",
+                url: "/GroupBuy1/Auditor/PassOrder",
+                data: "{ InID:" + JSON.stringify(InID) + ",rowsJson:"+rowsJson+"}",
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (data) {
+                    if (data == "success") {// 有数据返回
+                        alert("审核通过");
+                    }
+                    else {// 没数据返回
+                        //$("#msg").html("没有数据返回");
+                        alert("审核失败:"+data);
+                    }
+                },
+                error: function (error) {
+                    alert("/Auditor/GetOrder调用或返回失败，error=" + error);
+                }
+            })
+        }
+
+        // *** 单身合计
+        function Summary() {
+            var accounts = $("#tb :nth-child(10)");
+            var totalAccount = 0;
+            $.each(accounts, function (i, account) {
+                if (i != 0) {
+                    totalAccount += parseFloat(account.innerHTML);
+                }
+            })
+            $("#TotalAccount").html(totalAccount);
+        }
+
+        // *** 返回查询页面
+        function backToQry() {
+            $("#qryDiv").attr("style", "display:block");
+            $("#order-list").attr("style", "display:block");
+            $("#detailBody").attr("style", "display:none");
+            $("#tb tbody .jqgrow").remove();
+        }
+    </script>
+
+    <script>
+        //　根据id获取产品
+        //function GetProduct() {
+        //    $.ajax({
+        //        type: "Post",
+        //        url: "/CustomOrder/GetProduct",
+        //        data: "{ ProductNo:" + JSON.stringify(ProductNo) + "}",
+        //        contentType: "application/json; charset=utf-8",
+        //        dataType: "json",
+        //        success: function (json) {
+        //            var productQry = JSON.parse(json);
+        //            if (product != null) {// 有数据返回
+        //                $.each(product, function (i, product) {
+        //                    // $("#ProductNo").val(product.ProductNo);
+        //                    $("#ProductName").val(product.ProductName);
+        //                    $("#ProductSzie").val(product.ProductSzie);
+        //                    $("#ProductColor").val(product.ProductColor);
+        //                    $("#Unit").html(product.Unit);
+        //                    $("#CurrentPrice").val(product.CurrentPrice);
+        //                    $("#Quantity").val(1);
+        //                    $("#Quantity").attr("min", "0");
+        //                    $("#Quantity").attr("max", product.Inventory + 1);
+        //                    $("#Account").val(product.CurrentPrice);
+        //                    $("#Inventory").html(product.Inventory);
+        //                });
+        //            }
+        //            else {// 没数据返回
+        //                //$("#msg").html("没有数据返回");
+        //            }
+        //        },
+        //        error: function (error) {// 调用失败
+        //            alert("查询失败，error=" + error);
+        //        }
+        //    });
+        //}
+
+        //// 模态框数量金额合计
+        //function modalAccount() {
+        //    var Inventory = parseFloat($("#Inventory").html());
+        //    var Quantity = $("#Quantity").val();
+        //    if (Quantity != 0) {
+        //        if (Quantity > Inventory + 1) {
+        //            Quantity = Inventory + 1;
+        //            $("#Quantity").val(Quantity);
+        //        }
+        //        if (Quantity == Inventory + 1) {
+        //            alert("注意，你即将出售样板，请确认清楚！");
+        //        }
+        //    }
+        //    var CurrentPrice = $("#CurrentPrice").val();
+        //    $("#Account").val(Quantity * CurrentPrice);
+        //}
+        //// grid数量金额变动
+        //$(function () {
+        //    // $("#tb")
+        //})
+
+        //// 提交订单
+        //function SubmitOrder() {
+        //    var errorMsg = "";
+        //    jQuery('#tb').saveRow(lastsel2);
+        //    //　单头
+        //    /*No,StoreArea,Store,CustomName,CustomSex,CreateDate,DeliverDate,Saler,
+        //    Building, Lift, DeliverAddr, Phone, Note, GroupBuyNo, TotalAccount*/
+        //    var storageIn = [$("#No").val(), $("#StoreArea option:selected").val(), $("#Store option:selected").val(),
+        //        $("#CustomName").val(), $("#CustomSex option:selected").val(), $("#CreateDate").val(),
+        //        $("#DeliverDate").val(), $("#Saler").val(), $("#Building").val(),
+        //        $("#Lift option:selected").val(), $("#DeliverAddr").val(), $("#Phone").val(), $("#Note").val(),
+        //        $("#GroupBuyNo").val(), $("#TotalAccount").val()];
+        //    // 单身
+        //    var rows = $("#tb").jqGrid("getRowData");
+        //    for (var i = 0; i < rows.length; i++) {
+        //        var currentLine = i + 1;
+        //        if (rows[i].ItemNo.trim() || rows[i].ProductNo.trim() || rows[i].Account.trim()) {// 有参数存在
+        //            /* 项次 产品 合计不能为空*/
+        //        }
+        //        if (rows[i].Quantity == "0") {
+        //            errorMsg += "第" + currentLine + "项的数量不能为空、<br/>";
+        //        }
+        //    }
+        //    if (errorMsg.trim() != "") {
+        //        alert(errorMsg);
+        //        return;
+        //    }
+        //    var storageInJson = JSON.stringify(storageIn);
+        //    storageInJson = JSON.stringify(storageInJson);
+        //    alert(storageInJson)
+        //    var rowsJson = JSON.stringify(rows);
+        //    rowsJson = JSON.stringify(rowsJson);
+        //    alert(rowsJson)
+        //    $.ajax({
+        //        type: "Post",
+        //        url: "/CustomOrder/SaveOrder",
+        //        data: "{ rowsJson: " + rowsJson + ", storageInJson: " + storageInJson + " }",
+        //        contentType: "application/json; charset=utf-8",
+        //        dataType: "json",
+        //        success: function (data) {
+        //            alert(data);
+        //            if (data == "success") {
+        //                alert("下单成功");
+        //                $("#tb tbody .jqgrow").remove();
+        //                $("#No").val(""); $("#CustomName").val(""); $("#CustomSex").removeAttr("checked");
+        //                $("#DeliverDate").val(""); $("#Building").val(""); $("#Lift").removeAttr("checked");
+        //                $("#DeliverAddr").val(""); $("#Phone").val(""); $("#Note").val("");
+        //                $("#GroupBuyNo").val(""); $("#TotalAccount").val("0");
+        //            }
+        //            else {
+        //                // 保存失败
+        //                alert("下单失败");
+        //            }
+        //        },
+        //        error: function (error) {// 调用失败
+        //            alert("保存ajax调用失败，error=" + error);
+        //        }
+        //    });
+        //}
+    </script>
+</body>

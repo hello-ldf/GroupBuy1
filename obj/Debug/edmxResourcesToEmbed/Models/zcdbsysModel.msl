@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="zcdbsysModelStoreContainer" CdmEntityContainer="zcdbsysContext">
+    <EntitySetMapping Name="accountinfoes">
+      <EntityTypeMapping TypeName="zcdbsysModel.accountinfo">
+        <MappingFragment StoreEntitySet="accountinfo">
+          <ScalarProperty Name="cupgrade" ColumnName="cupgrade" />
+          <ScalarProperty Name="csuppwd" ColumnName="csuppwd" />
+          <ScalarProperty Name="csupper" ColumnName="csupper" />
+          <ScalarProperty Name="cdbpwd" ColumnName="cdbpwd" />
+          <ScalarProperty Name="cdbuser" ColumnName="cdbuser" />
+          <ScalarProperty Name="ccomputer" ColumnName="ccomputer" />
+          <ScalarProperty Name="cdbname" ColumnName="cdbname" />
+          <ScalarProperty Name="cstatus" ColumnName="cstatus" />
+          <ScalarProperty Name="cstyle" ColumnName="cstyle" />
+          <ScalarProperty Name="cname" ColumnName="cname" />
+          <ScalarProperty Name="ccode" ColumnName="ccode" />
+          <ScalarProperty Name="iorder" ColumnName="iorder" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

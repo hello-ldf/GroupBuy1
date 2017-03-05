@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="GroupBuyModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="StorageInCs">
+    <Key>
+      <PropertyRef Name="InID" />
+      <PropertyRef Name="ItemNo" />
+    </Key>
+    <Property Name="InID" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="ItemNo" Type="int" Nullable="false" />
+    <Property Name="ProductNo" Type="nvarchar(max)" />
+    <Property Name="ProductName" Type="nvarchar(max)" />
+    <Property Name="ProductSzie" Type="nvarchar(max)" />
+    <Property Name="ProductColor" Type="nvarchar(max)" />
+    <Property Name="Quantity" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="Unit" Type="nvarchar(max)" />
+    <Property Name="CurrentPrice" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="Account" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="Backup1" Type="nvarchar(max)" />
+    <Property Name="Backup2" Type="nvarchar(max)" />
+    <Property Name="Backup3" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="StorageIns">
+    <Key>
+      <PropertyRef Name="InID" />
+    </Key>
+    <Property Name="InID" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="No" Type="nvarchar(max)" />
+    <Property Name="StoreArea" Type="nvarchar(max)" />
+    <Property Name="Store" Type="nvarchar(max)" />
+    <Property Name="CustomName" Type="nvarchar(max)" />
+    <Property Name="CustomSex" Type="int" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+    <Property Name="DeliverDate" Type="datetime" />
+    <Property Name="Saler" Type="nvarchar(max)" />
+    <Property Name="Building" Type="nvarchar(max)" />
+    <Property Name="Lift" Type="int" />
+    <Property Name="DeliverAddr" Type="nvarchar(max)" />
+    <Property Name="Phone" Type="nvarchar(max)" />
+    <Property Name="Note" Type="nvarchar(max)" />
+    <Property Name="GroupBuyNo" Type="nvarchar(max)" />
+    <Property Name="TotalAccount" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="Passed" Type="int" />
+    <Property Name="Backup1" Type="nvarchar(max)" />
+    <Property Name="Backup2" Type="nvarchar(max)" />
+    <Property Name="Backup3" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Store">
+    <Key>
+      <PropertyRef Name="ProductNo" />
+    </Key>
+    <Property Name="ProductNo" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Repertory" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Inventory" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="Backup1" Type="nvarchar(max)" />
+    <Property Name="Backup2" Type="nvarchar(max)" />
+    <Property Name="Backup3" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="StoreChange">
+    <Key>
+      <PropertyRef Name="InID" />
+      <PropertyRef Name="ItemNo" />
+    </Key>
+    <Property Name="InID" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="ItemNo" Type="int" Nullable="false" />
+    <Property Name="ProductNo" Type="nvarchar" MaxLength="128" />
+    <Property Name="Quantity" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="IOflag" Type="int" />
+    <Property Name="OperateDate" Type="datetime" />
+    <Property Name="CurryInventory" Type="decimal" Precision="18" Scale="2" />
+  </EntityType>
+  <Association Name="FK_StorageInCs_StorageIns">
+    <End Role="StorageIns" Type="Self.StorageIns" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="StorageInCs" Type="Self.StorageInCs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StorageIns">
+        <PropertyRef Name="InID" />
+      </Principal>
+      <Dependent Role="StorageInCs">
+        <PropertyRef Name="InID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_StoreChange_StorageIns">
+    <End Role="StorageIns" Type="Self.StorageIns" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="StoreChange" Type="Self.StoreChange" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StorageIns">
+        <PropertyRef Name="InID" />
+      </Principal>
+      <Dependent Role="StoreChange">
+        <PropertyRef Name="InID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="GroupBuyModelStoreContainer">
+    <EntitySet Name="StorageInCs" EntityType="Self.StorageInCs" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="StorageIns" EntityType="Self.StorageIns" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Store" EntityType="Self.Store" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="StoreChange" EntityType="Self.StoreChange" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_StorageInCs_StorageIns" Association="Self.FK_StorageInCs_StorageIns">
+      <End Role="StorageIns" EntitySet="StorageIns" />
+      <End Role="StorageInCs" EntitySet="StorageInCs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_StoreChange_StorageIns" Association="Self.FK_StoreChange_StorageIns">
+      <End Role="StorageIns" EntitySet="StorageIns" />
+      <End Role="StoreChange" EntitySet="StoreChange" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

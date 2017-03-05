@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="ad32daaca45c49ee8ef19dc2aa2e550a" Name="Diagram1" ZoomLevel="111">
+        <EntityTypeShape EntityType="kw_m01Model.v_userlist" Width="1.5" PointX="18.25" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="kw_m01Model.v_colorset" Width="1.5" PointX="24.875" PointY="0.5" />
+        <EntityTypeShape EntityType="kw_m01Model.v_unit" Width="1.5" PointX="16.625" PointY="0.5" />
+        <EntityTypeShape EntityType="kw_m01Model.gb_Store" Width="1.5" PointX="29.25" PointY="0.5" />
+        <EntityTypeShape EntityType="kw_m01Model.v_station" Width="1.5" PointX="31" PointY="0.5" />
+        <EntityTypeShape EntityType="kw_m01Model.v_saler" Width="1.5" PointX="31" PointY="2.5" />
+        <EntityTypeShape EntityType="kw_m01Model.v_custclas" Width="1.5" PointX="24.875" PointY="3.25" />
+        <EntityTypeShape EntityType="kw_m01Model.v_SettleMode" Width="1.5" PointX="31" PointY="4.25" />
+        <EntityTypeShape EntityType="kw_m01Model.v_singnstylist" Width="1.5" PointX="29.25" PointY="2.75" />
+        <EntityTypeShape EntityType="kw_m01Model.v_warehous" Width="1.5" PointX="39.875" PointY="0.5" />
+        <EntityTypeShape EntityType="kw_m01Model.v_payment" Width="1.5" PointX="36.375" PointY="0.625" />
+        <EntityTypeShape EntityType="kw_m01Model.v_attrItem" Width="1.5" PointX="13" PointY="0.5" />
+        <EntityTypeShape EntityType="kw_m01Model.M_CORDER" Width="1.5" PointX="45.25" PointY="0.5" />
+        <EntityTypeShape EntityType="kw_m01Model.M_CORDERC" Width="1.5" PointX="43.5" PointY="0.5" />
+        <AssociationConnector Association="kw_m01Model.FK_M_CORDERC_M_CORDER" />
+        <EntityTypeShape EntityType="kw_m01Model.v_customer" Width="1.5" PointX="23.125" PointY="0.5" />
+        <EntityTypeShape EntityType="kw_m01Model.M_CUSTOMER" Width="1.5" PointX="41.75" PointY="0.5" />
+        <EntityTypeShape EntityType="kw_m01Model.v_product" Width="1.5" PointX="34.625" PointY="0.625" />
+        <EntityTypeShape EntityType="kw_m01Model.v_accountinfo" Width="1.5" PointX="11.375" PointY="0.5" />
+        <EntityTypeShape EntityType="kw_m01Model.v_prodcolor" Width="1.5" PointX="36.375" PointY="4.875" />
+        <EntityTypeShape EntityType="kw_m01Model.vq_m_corderc" Width="1.5" PointX="48.75" PointY="0.5" />
+        <EntityTypeShape EntityType="kw_m01Model.mao_file" Width="1.5" PointX="47" PointY="3.75" />
+        <EntityTypeShape EntityType="kw_m01Model.map_file" Width="1.5" PointX="47" PointY="6.625" />
+        <EntityTypeShape EntityType="kw_m01Model.vq_m_corder" Width="1.5" PointX="50.5" PointY="0.5" />
+        <EntityTypeShape EntityType="kw_m01Model.vq_m_customer" Width="2.25" PointX="52.375" PointY="0.5" />
+        <EntityTypeShape EntityType="kw_m01Model.M_StoreChange" Width="1.5" PointX="47" PointY="0.5" />
+        <EntityTypeShape EntityType="kw_m01Model.v_prodclas" Width="1.5" PointX="36.375" PointY="3" />
+        <EntityTypeShape EntityType="kw_m01Model.v_product1" Width="1.5" PointX="36.375" PointY="11.25" />
+        <EntityTypeShape EntityType="kw_m01Model.v_vendclas" Width="1.5" PointX="63.375" PointY="0.5" />
+        <EntityTypeShape EntityType="kw_m01Model.v_vendor" Width="1.5" PointX="65.125" PointY="0.5" />
+        <EntityTypeShape EntityType="kw_m01Model.v_warehous1" Width="1.5" PointX="38.25" PointY="0.5" />
+        <EntityTypeShape EntityType="kw_m01Model.v_warehousclas" Width="1.5" PointX="39.875" PointY="2.125" />
+        <EntityTypeShape EntityType="kw_m01Model.M_POLIST" Width="1.5" PointX="41.75" PointY="16" />
+        <EntityTypeShape EntityType="kw_m01Model.M_POLISTC" Width="1.5" PointX="43.5" PointY="13.25" />
+        <AssociationConnector Association="kw_m01Model.FK_POLISTC_POLIST" />
+        <EntityTypeShape EntityType="kw_m01Model.vq_stockc" Width="1.5" PointX="29.25" PointY="4.5" />
+        <EntityTypeShape EntityType="kw_m01Model.err_01" Width="1.5" PointX="7.125" PointY="0.5" />
+        <EntityTypeShape EntityType="kw_m01Model.v_corder" Width="1.5" PointX="21.625" PointY="0.5" />
+        <EntityTypeShape EntityType="kw_m01Model.v_corderc" Width="1.5" PointX="20.125" PointY="0.5" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

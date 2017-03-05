@@ -1,0 +1,714 @@
+﻿@model GroupBuy1.Models.PRODUCT
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>PRODUCT</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CCNAME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CCNAME)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CENAME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CENAME)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CSPEC)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CSPEC)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CESPEC)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CESPEC)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CUNITID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CUNITID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CCLASSID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CCLASSID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DCOST)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DCOST)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DPRICE2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DPRICE2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DPRICE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DPRICE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CVENDID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CVENDID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CPRICETY)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CPRICETY)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CPHOTO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CPHOTO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DMAX)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DMAX)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DMIN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DMIN)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DWHAREA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DWHAREA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DWHPLACE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DWHPLACE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DWEIGHT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DWEIGHT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CWTUNIT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CWTUNIT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DVOLUME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DVOLUME)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DVOLUNIT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DVOLUNIT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CFLAG2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CFLAG2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ICYC)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ICYC)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CCREMARK)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CCREMARK)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CEREMARK)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CEREMARK)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DSTARTDT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DSTARTDT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DSTOPDT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DSTOPDT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CCUSTOM1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CCUSTOM1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CUSTOME2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CUSTOME2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BEGINMAN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BEGINMAN)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BEGINDT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BEGINDT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EDITMAN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EDITMAN)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EDITDT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EDITDT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cacctno)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cacctno)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ccenben)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ccenben)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ccaigou)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ccaigou)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cxiaosou)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cxiaosou)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.csouru)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.csouru)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cxsfy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cxsfy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cstop)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cstop)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cattrid)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cattrid)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dlength)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dlength)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dwidth)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dwidth)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dheight)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dheight)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cdefwhid)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cdefwhid)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ckctj)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ckctj)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CPOMANID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CPOMANID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cbarcode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cbarcode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cpackid)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cpackid)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.iadvance)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.iadvance)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.iadvance_sea)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.iadvance_sea)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.iadvance_other)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.iadvance_other)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cabccode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cabccode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ccolorflag)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ccolorflag)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dpriceA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dpriceA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dpriceB)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dpriceB)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dpriceC)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dpriceC)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dpriceD)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dpriceD)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dpriceE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dpriceE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dpriceF)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dpriceF)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dprice_tiptop)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dprice_tiptop)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dprice_neap)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dprice_neap)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.csetflag)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.csetflag)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dagio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dagio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cassflag)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cassflag)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cclassid2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cclassid2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dprise)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dprise)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dpercent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dpercent)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cisdagio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cisdagio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.pressprice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.pressprice)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cbrandid)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cbrandid)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.caddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.caddress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dpack_qty)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dpack_qty)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.itransport)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.itransport)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.itransport_sea)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.itransport_sea)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.itransport_other)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.itransport_other)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.csplit)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.csplit)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cpricenocolflag)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cpricenocolflag)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cphotoxgt)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cphotoxgt)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cphotozzt)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cphotozzt)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cphotojt)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cphotojt)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dnetweight)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dnetweight)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cstuff)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cstuff)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cdetaildesc1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cdetaildesc1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cdetaildesc2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cdetaildesc2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dfreight)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dfreight)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dsetamt)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dsetamt)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.darea)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.darea)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.CMTEID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

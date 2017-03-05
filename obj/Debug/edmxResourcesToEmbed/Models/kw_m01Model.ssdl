@@ -1,0 +1,2443 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="kw_m01Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2005" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="err_01">
+    <Key>
+      <PropertyRef Name="a01" />
+    </Key>
+    <Property Name="a01" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="a02" Type="datetime" />
+    <Property Name="a03" Type="datetime" />
+    <Property Name="a04" Type="varchar" MaxLength="20" />
+    <Property Name="a05" Type="varchar" MaxLength="20" />
+    <Property Name="a06" Type="varchar" MaxLength="20" />
+    <Property Name="a07" Type="varchar" MaxLength="20" />
+    <Property Name="a08" Type="varchar" MaxLength="20" />
+    <Property Name="a09" Type="varchar" MaxLength="20" />
+    <Property Name="a10" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="gb_Store">
+    <Key>
+      <PropertyRef Name="ProductNo" />
+    </Key>
+    <Property Name="ProductNo" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Repertory" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Inventory" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="Backup1" Type="nvarchar(max)" />
+    <Property Name="Backup2" Type="nvarchar(max)" />
+    <Property Name="Backup3" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="M_CORDER">
+    <Key>
+      <PropertyRef Name="CCODE" />
+      <PropertyRef Name="cpathid" />
+    </Key>
+    <Property Name="CCODE" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="CCUSTID" Type="nvarchar" MaxLength="12" Nullable="false" />
+    <Property Name="DDATE" Type="datetime" />
+    <Property Name="CCYID" Type="nvarchar" MaxLength="12" Nullable="false" />
+    <Property Name="CPYID" Type="nvarchar" MaxLength="12" Nullable="false" />
+    <Property Name="DAGIO" Type="decimal" Precision="18" Scale="5" Nullable="false" />
+    <Property Name="DPAYAMT" Type="decimal" Precision="18" Scale="5" Nullable="false" />
+    <Property Name="DPAYAMT1" Type="decimal" Precision="18" Scale="5" Nullable="false" />
+    <Property Name="DPAYAMT2" Type="decimal" Precision="18" Scale="5" Nullable="false" />
+    <Property Name="DDEDT" Type="datetime" Nullable="false" />
+    <Property Name="CDEADR" Type="nvarchar" MaxLength="255" />
+    <Property Name="CTRANS" Type="nvarchar" MaxLength="20" />
+    <Property Name="CCMAN" Type="nvarchar" MaxLength="12" />
+    <Property Name="CSALEMAN" Type="nvarchar" MaxLength="12" Nullable="false" />
+    <Property Name="CREMARK" Type="text" />
+    <Property Name="CMTFLAG" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="ENDFLAG" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="BEGINMAN" Type="nvarchar" MaxLength="20" />
+    <Property Name="BEGINDT" Type="datetime" />
+    <Property Name="EDITMAN" Type="nvarchar" MaxLength="20" />
+    <Property Name="EDITDT" Type="datetime" />
+    <Property Name="CMTMAN" Type="nvarchar" MaxLength="20" />
+    <Property Name="CMTDT" Type="datetime" />
+    <Property Name="ENDMAN" Type="nvarchar" MaxLength="20" />
+    <Property Name="ENDDT" Type="datetime" />
+    <Property Name="INETFLAG" Type="tinyint" Nullable="false" />
+    <Property Name="DAMT" Type="decimal" Precision="18" Scale="5" Nullable="false" />
+    <Property Name="DCYAMT" Type="decimal" Precision="18" Scale="5" Nullable="false" />
+    <Property Name="custphone" Type="nvarchar" MaxLength="60" />
+    <Property Name="dtaxrate" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="dtaxamt" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="drate" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="ccontractno" Type="nvarchar" MaxLength="30" />
+    <Property Name="cchangeflag" Type="char" MaxLength="1" />
+    <Property Name="creadyflag" Type="char" MaxLength="1" />
+    <Property Name="cagioempid" Type="nvarchar" MaxLength="12" />
+    <Property Name="CORDER_CHANGEID" Type="nvarchar" MaxLength="20" />
+    <Property Name="ccancelflag" Type="char" MaxLength="1" />
+    <Property Name="cwhid" Type="varchar" MaxLength="12" />
+    <Property Name="cpyway" Type="varchar" MaxLength="12" />
+    <Property Name="cregionid" Type="varchar" MaxLength="12" />
+    <Property Name="cisship" Type="char" MaxLength="1" />
+    <Property Name="cpathid" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="cischdedt" Type="char" MaxLength="1" />
+    <Property Name="ddedt_new" Type="datetime" />
+    <Property Name="ipri" Type="int" />
+    <Property Name="ccounterid" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="cstation1" Type="nvarchar" MaxLength="12" />
+    <Property Name="cchremark" Type="nvarchar" MaxLength="50" />
+    <Property Name="cstockflag" Type="char" MaxLength="1" />
+    <Property Name="cforcestockflag" Type="char" MaxLength="1" />
+    <Property Name="cpostate" Type="char" MaxLength="1" />
+    <Property Name="DFREIGHTAMT" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="cfreeflag1" Type="int" />
+    <Property Name="cfreeflag2" Type="char" MaxLength="1" />
+    <Property Name="cfreeflag3" Type="char" MaxLength="1" />
+    <Property Name="iprint" Type="int" />
+    <Property Name="cfromcode" Type="nvarchar" MaxLength="20" />
+    <Property Name="dpayamt_old" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="dpayamt1_old" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="dagio_old" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="damt_old" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="ifromnetflag" Type="tinyint" />
+    <Property Name="cupdflag" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="cbldflag" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="cexflag" Type="char" MaxLength="1" />
+    <Property Name="ctenantflag" Type="char" MaxLength="1" />
+    <Property Name="ccinflag" Type="char" MaxLength="1" />
+    <Property Name="ccurplancode" Type="nvarchar" MaxLength="20" />
+    <Property Name="cautopoflag" Type="char" MaxLength="1" />
+    <Property Name="tally_damt" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="cvipid" Type="nvarchar" MaxLength="20" />
+    <Property Name="cprivilegeid" Type="nvarchar" MaxLength="12" />
+    <Property Name="cannulmtman" Type="nvarchar" MaxLength="20" />
+    <Property Name="cannulmtdt" Type="datetime" />
+    <Property Name="cmtdeamtflag" Type="char" MaxLength="1" />
+    <Property Name="agiodt" Type="datetime" />
+    <Property Name="dcess" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="csmsflg" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="csmsman" Type="nvarchar" MaxLength="20" />
+    <Property Name="csmsdt" Type="datetime" />
+    <Property Name="cstylist" Type="nvarchar" MaxLength="12" />
+    <Property Name="dcardamt" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="dchargeamt" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="cdeareaid" Type="nvarchar" MaxLength="12" />
+    <Property Name="cmtdeamtman" Type="nvarchar" MaxLength="20" />
+    <Property Name="cmtdeamtdt" Type="datetime" />
+    <Property Name="dconsumamt" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="crefereeman" Type="nvarchar" MaxLength="12" />
+    <Property Name="csignstylistid" Type="nvarchar" MaxLength="12" />
+    <Property Name="ccancelman" Type="nvarchar" MaxLength="20" />
+    <Property Name="ccanceldt" Type="datetime" />
+    <Property Name="cappflag" Type="char" MaxLength="1" />
+    <Property Name="cappman" Type="nvarchar" MaxLength="12" />
+    <Property Name="cappdt" Type="datetime" />
+    <Property Name="cprintman" Type="nvarchar" MaxLength="20" />
+    <Property Name="dpreamt" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="email" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="M_CORDERC">
+    <Key>
+      <PropertyRef Name="CCODE" />
+      <PropertyRef Name="IORDER" />
+      <PropertyRef Name="cquotid" />
+    </Key>
+    <Property Name="CCODE" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="IORDER" Type="int" Nullable="false" />
+    <Property Name="CMTEID" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="CCMTEID" Type="nvarchar" MaxLength="20" />
+    <Property Name="CCOLORID" Type="nvarchar" MaxLength="12" Nullable="false" />
+    <Property Name="CWHID" Type="nvarchar" MaxLength="12" Nullable="false" />
+    <Property Name="CDESC" Type="nvarchar" MaxLength="255" />
+    <Property Name="DQTY" Type="decimal" Precision="18" Scale="5" Nullable="false" />
+    <Property Name="DPRICE" Type="decimal" Precision="18" Scale="5" Nullable="false" />
+    <Property Name="INETFLAG" Type="tinyint" Nullable="false" />
+    <Property Name="DDEQTY" Type="decimal" Precision="18" Scale="5" Nullable="false" />
+    <Property Name="DCOST" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="DCYPRICE" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="DCYCOST" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="DAGIOC" Type="decimal" Precision="18" Scale="5" Nullable="false" />
+    <Property Name="dshipqty" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="cpocode" Type="nvarchar" MaxLength="20" />
+    <Property Name="cpoorder" Type="int" />
+    <Property Name="cattrid" Type="nvarchar" MaxLength="12" />
+    <Property Name="dprice2" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="csalman" Type="nvarchar" MaxLength="12" />
+    <Property Name="dprise" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="cplanflag" Type="char" MaxLength="1" />
+    <Property Name="ctaxflag" Type="char" MaxLength="1" />
+    <Property Name="cindentflag" Type="char" MaxLength="1" />
+    <Property Name="ddedt" Type="datetime" />
+    <Property Name="dpayqty" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="cstateflag" Type="char" MaxLength="1" />
+    <Property Name="creadyflag" Type="char" MaxLength="1" />
+    <Property Name="dunpackamt" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="drate" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="cagioempid" Type="nvarchar" MaxLength="12" />
+    <Property Name="cpomanid" Type="varchar" MaxLength="12" />
+    <Property Name="damtc" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="dreamtc" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="cstation1" Type="nvarchar" MaxLength="12" />
+    <Property Name="counterid" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="crejtype" Type="char" MaxLength="1" />
+    <Property Name="cpoflag" Type="char" MaxLength="1" />
+    <Property Name="cpostate" Type="char" MaxLength="1" />
+    <Property Name="dpercent" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="cpodesc" Type="text" />
+    <Property Name="clargessflag" Type="char" MaxLength="1" />
+    <Property Name="drejqty" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="cunitid" Type="nvarchar" MaxLength="12" />
+    <Property Name="cpcode" Type="nvarchar" MaxLength="20" />
+    <Property Name="iporder" Type="int" />
+    <Property Name="BargainFlag" Type="char" MaxLength="1" />
+    <Property Name="dshipplanqty" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="dpack_qty" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="dpoqty" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="dvinqty" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="dTranprice" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="cquotid" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="iquotorder" Type="int" />
+    <Property Name="csetflag" Type="char" MaxLength="1" />
+    <Property Name="dshipdate" Type="datetime" />
+    <Property Name="dnotaxprice" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="dpriseprice" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="cvipflag" Type="char" MaxLength="1" />
+    <Property Name="dplanqty" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="ctype" Type="char" MaxLength="4" />
+  </EntityType>
+  <EntityType Name="M_CUSTOMER">
+    <Key>
+      <PropertyRef Name="CCUSTID" />
+      <PropertyRef Name="cdeareaid" />
+    </Key>
+    <Property Name="CCUSTID" Type="nvarchar" MaxLength="12" Nullable="false" />
+    <Property Name="CNAME" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="CCNAME" Type="nvarchar" MaxLength="60" />
+    <Property Name="CENAME" Type="nvarchar" MaxLength="60" />
+    <Property Name="CADR1" Type="nvarchar" MaxLength="300" />
+    <Property Name="CADR2" Type="nvarchar" MaxLength="300" />
+    <Property Name="CDEADR1" Type="nvarchar" MaxLength="300" />
+    <Property Name="CDEADR2" Type="nvarchar" MaxLength="300" />
+    <Property Name="CINADR" Type="nvarchar" MaxLength="300" />
+    <Property Name="CCLASSID" Type="nvarchar" MaxLength="12" Nullable="false" />
+    <Property Name="CBANK" Type="nvarchar" MaxLength="60" />
+    <Property Name="CBANKNO" Type="nvarchar" MaxLength="30" />
+    <Property Name="CMAIL" Type="nvarchar" MaxLength="10" />
+    <Property Name="CCONMAN" Type="nvarchar" MaxLength="12" />
+    <Property Name="CTEL" Type="nvarchar" MaxLength="40" />
+    <Property Name="CFAX" Type="nvarchar" MaxLength="40" />
+    <Property Name="EMAIL" Type="nvarchar" MaxLength="40" />
+    <Property Name="CWEB" Type="nvarchar" MaxLength="40" />
+    <Property Name="CCYID" Type="nvarchar" MaxLength="12" Nullable="false" />
+    <Property Name="CPYID" Type="nvarchar" MaxLength="12" Nullable="false" />
+    <Property Name="CADMIN" Type="nvarchar" MaxLength="12" />
+    <Property Name="CSALEMAN" Type="nvarchar" MaxLength="12" />
+    <Property Name="CSTATUS" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="DCREDIT" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="DAMT4" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="DAMT3" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="DDATE1" Type="datetime" />
+    <Property Name="DAMT1" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="DDATE2" Type="datetime" />
+    <Property Name="DAMT2" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="CREMARK" Type="nvarchar" MaxLength="255" />
+    <Property Name="BEGINMAN" Type="nvarchar" MaxLength="20" />
+    <Property Name="BEGINDT" Type="datetime" />
+    <Property Name="EDITMAN" Type="nvarchar" MaxLength="20" />
+    <Property Name="EDITDT" Type="datetime" />
+    <Property Name="cyusou" Type="varchar" MaxLength="35" />
+    <Property Name="cyinsou" Type="varchar" MaxLength="35" />
+    <Property Name="cyusoudf" Type="varchar" MaxLength="35" />
+    <Property Name="bzj" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="yjbzj" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="cconmante" Type="nvarchar" MaxLength="60" />
+    <Property Name="cdistflag" Type="nvarchar" MaxLength="12" />
+    <Property Name="cregionid" Type="nvarchar" MaxLength="12" />
+    <Property Name="csettlemodeid" Type="nvarchar" MaxLength="12" />
+    <Property Name="credit" Type="char" MaxLength="1" />
+    <Property Name="cvip" Type="char" MaxLength="1" />
+    <Property Name="resp_day" Type="int" />
+    <Property Name="cpivotflag" Type="char" MaxLength="1" />
+    <Property Name="cstation1" Type="nvarchar" MaxLength="20" />
+    <Property Name="dagio_a" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="cashflowidys" Type="int" />
+    <Property Name="cashflowids" Type="int" />
+    <Property Name="dbirth" Type="datetime" />
+    <Property Name="careflag" Type="char" MaxLength="1" />
+    <Property Name="cresidential" Type="nvarchar" MaxLength="80" />
+    <Property Name="capartments" Type="nvarchar" MaxLength="80" />
+    <Property Name="darea" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="cfurniture_style" Type="nvarchar" MaxLength="80" />
+    <Property Name="Cbrand" Type="nvarchar" MaxLength="80" />
+    <Property Name="csex" Type="char" MaxLength="1" />
+    <Property Name="cjob" Type="nvarchar" MaxLength="50" />
+    <Property Name="cfond" Type="nvarchar" MaxLength="50" />
+    <Property Name="coldlive" Type="char" MaxLength="1" />
+    <Property Name="cpet" Type="nvarchar" MaxLength="50" />
+    <Property Name="czxjd" Type="nvarchar" MaxLength="255" />
+    <Property Name="dmarrydate" Type="datetime" />
+    <Property Name="checkindate" Type="datetime" />
+    <Property Name="cstylist" Type="nvarchar" MaxLength="12" />
+    <Property Name="cdesign_company" Type="nvarchar" MaxLength="40" />
+    <Property Name="dhousesamt" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="ccompetition_brand" Type="nvarchar" MaxLength="80" />
+    <Property Name="cqqnumber" Type="nvarchar" MaxLength="20" />
+    <Property Name="cworkunit" Type="nvarchar" MaxLength="100" />
+    <Property Name="csalary" Type="nvarchar" MaxLength="20" />
+    <Property Name="crelation" Type="nvarchar" MaxLength="40" />
+    <Property Name="CTRANS" Type="nvarchar" MaxLength="20" />
+    <Property Name="cdeareaid" Type="nvarchar" MaxLength="12" Nullable="false" />
+    <Property Name="cpost" Type="nvarchar" MaxLength="2" />
+  </EntityType>
+  <EntityType Name="M_POLIST">
+    <Key>
+      <PropertyRef Name="CCODE" />
+      <PropertyRef Name="INETFLAG" />
+    </Key>
+    <Property Name="CCODE" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="CTYPE" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="CFLAG" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="BEGINMAN" Type="nvarchar" MaxLength="20" />
+    <Property Name="BEGINDT" Type="datetime" />
+    <Property Name="EDITMAN" Type="nvarchar" MaxLength="20" />
+    <Property Name="EDITDT" Type="datetime" />
+    <Property Name="CMTMAN" Type="nvarchar" MaxLength="20" />
+    <Property Name="CMTDT" Type="datetime" />
+    <Property Name="INETFLAG" Type="tinyint" Nullable="false" />
+    <Property Name="DDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="M_POLISTC">
+    <Key>
+      <PropertyRef Name="CCODE" />
+      <PropertyRef Name="IORDER" />
+      <PropertyRef Name="INETFLAG" />
+    </Key>
+    <Property Name="CCODE" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="IORDER" Type="int" Nullable="false" />
+    <Property Name="CMTEID" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="DPLANDT" Type="datetime" />
+    <Property Name="CVENDID" Type="nvarchar" MaxLength="12" />
+    <Property Name="DQTY" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="DPRICE" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="DPOQTY" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="CENDFLAG" Type="char" MaxLength="1" />
+    <Property Name="CDESC" Type="nvarchar" MaxLength="255" />
+    <Property Name="DCYPRICE" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="DCYCOST" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="DUTQTY" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="INETFLAG" Type="tinyint" Nullable="false" />
+    <Property Name="ccolorid" Type="nvarchar" MaxLength="12" />
+    <Property Name="ddedt" Type="datetime" />
+    <Property Name="dagio" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="corderid" Type="nvarchar" MaxLength="20" />
+    <Property Name="iporder" Type="int" />
+    <Property Name="cpodesc" Type="text" />
+    <Property Name="plango_date" Type="datetime" />
+    <Property Name="cplanwhid" Type="nvarchar" MaxLength="12" />
+    <Property Name="dpack_qty" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="cattrid" Type="nvarchar" MaxLength="12" />
+    <Property Name="dstandardcost" Type="decimal" Precision="18" Scale="5" />
+  </EntityType>
+  <EntityType Name="M_StoreChange">
+    <Key>
+      <PropertyRef Name="db" />
+      <PropertyRef Name="ccode" />
+      <PropertyRef Name="iorder" />
+    </Key>
+    <Property Name="db" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="ccode" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="iorder" Type="int" Nullable="false" />
+    <Property Name="cmteid" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="changeFlag" Type="int" Nullable="false" />
+    <Property Name="quantity" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="changeDate" Type="datetime" Nullable="false" />
+    <Property Name="repertory" Type="varchar" MaxLength="20" />
+    <Property Name="backup1" Type="varchar" MaxLength="20" />
+    <Property Name="backup2" Type="varchar" MaxLength="20" />
+    <Property Name="backup3" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="mao_file">
+    <Key>
+      <PropertyRef Name="mao01" />
+      <PropertyRef Name="mao03" />
+      <PropertyRef Name="mao05" />
+    </Key>
+    <Property Name="mao01" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="mao02" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="mao03" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="mao04" Type="varchar" MaxLength="50" />
+    <Property Name="mao05" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="mao06" Type="varchar" MaxLength="30" />
+    <Property Name="mao07" Type="varchar" MaxLength="80" />
+    <Property Name="mao08" Type="varchar" MaxLength="30" />
+    <Property Name="maoacti" Type="varchar" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="map_file">
+    <Key>
+      <PropertyRef Name="map01" />
+      <PropertyRef Name="map03" />
+      <PropertyRef Name="map05" />
+    </Key>
+    <Property Name="map01" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="map02" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="map03" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="map04" Type="varchar" MaxLength="50" />
+    <Property Name="map05" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="map06" Type="varchar" MaxLength="1" />
+    <Property Name="map07" Type="varchar" MaxLength="80" />
+    <Property Name="map08" Type="varchar" MaxLength="30" />
+    <Property Name="mapacti" Type="varchar" MaxLength="1" />
+  </EntityType>
+  <!--生成过程中发现错误:
+警告 6002: 表/视图“kw_m01.dbo.v_accountinfo”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+  <EntityType Name="v_accountinfo">
+    <Key>
+      <PropertyRef Name="iorder" />
+    </Key>
+    <Property Name="iorder" Type="int" Nullable="false" />
+    <Property Name="ccode" Type="varchar" MaxLength="20" />
+    <Property Name="cname" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="cstyle" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="cstatus" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="cdbname" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="ccomputer" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="cdbuser" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="cdbpwd" Type="varchar" MaxLength="40" />
+    <Property Name="csupper" Type="varchar" MaxLength="20" />
+    <Property Name="csuppwd" Type="varchar" MaxLength="40" />
+    <Property Name="cupgrade" Type="char" MaxLength="1" />
+  </EntityType>
+  <!--生成过程中发现错误:
+警告 6002: 表/视图“kw_m01.dbo.v_attrItem”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+  <EntityType Name="v_attrItem">
+    <Key>
+      <PropertyRef Name="db" />
+      <PropertyRef Name="cattrid" />
+    </Key>
+    <Property Name="db" Type="varchar" MaxLength="8" Nullable="false" />
+    <Property Name="cattrid" Type="nvarchar" MaxLength="12" Nullable="false" />
+    <Property Name="cname" Type="nvarchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <!--生成过程中发现错误:
+警告 6002: 表/视图“kw_m01.dbo.v_colorset”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+  <EntityType Name="v_colorset">
+    <Key>
+      <PropertyRef Name="db" />
+      <PropertyRef Name="CCOLORID" />
+    </Key>
+    <Property Name="db" Type="varchar" MaxLength="8" Nullable="false" />
+    <Property Name="dbname" Type="varchar" MaxLength="6" Nullable="false" />
+    <Property Name="CCOLORID" Type="nvarchar" MaxLength="12" Nullable="false" />
+    <Property Name="CNAME" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="CENAME" Type="nvarchar" MaxLength="80" />
+    <Property Name="iorder" Type="int" />
+    <Property Name="cbarcode" Type="nvarchar" MaxLength="12" />
+    <Property Name="ccolorstop" Type="char" MaxLength="1" />
+    <Property Name="cclassid" Type="nvarchar" MaxLength="12" Nullable="false" />
+  </EntityType>
+  <!--生成过程中发现错误:
+警告 6002: 表/视图“kw_m01.dbo.v_corder”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+  <EntityType Name="v_corder">
+    <Key>
+      <PropertyRef Name="db" />
+      <PropertyRef Name="CCODE" />
+    </Key>
+    <Property Name="db" Type="varchar" MaxLength="8" Nullable="false" />
+    <Property Name="CCODE" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="CCUSTID" Type="nvarchar" MaxLength="12" Nullable="false" />
+    <Property Name="DDATE" Type="datetime" />
+    <Property Name="CCYID" Type="nvarchar" MaxLength="12" Nullable="false" />
+    <Property Name="CPYID" Type="nvarchar" MaxLength="12" Nullable="false" />
+    <Property Name="DAGIO" Type="decimal" Precision="18" Scale="5" Nullable="false" />
+    <Property Name="DPAYAMT" Type="decimal" Precision="18" Scale="5" Nullable="false" />
+    <Property Name="DPAYAMT1" Type="decimal" Precision="18" Scale="5" Nullable="false" />
+    <Property Name="DPAYAMT2" Type="decimal" Precision="18" Scale="5" Nullable="false" />
+    <Property Name="DDEDT" Type="datetime" Nullable="false" />
+    <Property Name="CDEADR" Type="nvarchar" MaxLength="255" />
+    <Property Name="CTRANS" Type="nvarchar" MaxLength="20" />
+    <Property Name="CCMAN" Type="nvarchar" MaxLength="12" />
+    <Property Name="CSALEMAN" Type="nvarchar" MaxLength="12" Nullable="false" />
+    <Property Name="CREMARK" Type="text" />
+    <Property Name="CMTFLAG" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="ENDFLAG" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="BEGINMAN" Type="nvarchar" MaxLength="20" />
+    <Property Name="BEGINDT" Type="datetime" />
+    <Property Name="EDITMAN" Type="nvarchar" MaxLength="20" />
+    <Property Name="EDITDT" Type="datetime" />
+    <Property Name="CMTMAN" Type="nvarchar" MaxLength="20" />
+    <Property Name="CMTDT" Type="datetime" />
+    <Property Name="ENDMAN" Type="nvarchar" MaxLength="20" />
+    <Property Name="ENDDT" Type="datetime" />
+    <Property Name="INETFLAG" Type="tinyint" Nullable="false" />
+    <Property Name="DAMT" Type="decimal" Precision="18" Scale="5" Nullable="false" />
+    <Property Name="DCYAMT" Type="decimal" Precision="18" Scale="5" Nullable="false" />
+    <Property Name="custphone" Type="nvarchar" MaxLength="60" />
+    <Property Name="dtaxrate" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="dtaxamt" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="drate" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="ccontractno" Type="nvarchar" MaxLength="30" />
+    <Property Name="cchangeflag" Type="char" MaxLength="1" />
+    <Property Name="creadyflag" Type="char" MaxLength="1" />
+    <Property Name="cagioempid" Type="nvarchar" MaxLength="12" />
+    <Property Name="CORDER_CHANGEID" Type="nvarchar" MaxLength="20" />
+    <Property Name="ccancelflag" Type="char" MaxLength="1" />
+    <Property Name="cwhid" Type="varchar" MaxLength="12" />
+    <Property Name="cpyway" Type="varchar" MaxLength="12" />
+    <Property Name="cregionid" Type="varchar" MaxLength="12" />
+    <Property Name="cisship" Type="char" MaxLength="1" />
+    <Property Name="cpathid" Type="nvarchar" MaxLength="12" />
+    <Property Name="cischdedt" Type="char" MaxLength="1" />
+    <Property Name="ddedt_new" Type="datetime" />
+    <Property Name="ipri" Type="int" />
+    <Property Name="ccounterid" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="cstation1" Type="nvarchar" MaxLength="12" />
+    <Property Name="cchremark" Type="nvarchar" MaxLength="50" />
+    <Property Name="cstockflag" Type="char" MaxLength="1" />
+    <Property Name="cforcestockflag" Type="char" MaxLength="1" />
+    <Property Name="cpostate" Type="char" MaxLength="1" />
+    <Property Name="DFREIGHTAMT" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="cfreeflag1" Type="int" />
+    <Property Name="cfreeflag2" Type="char" MaxLength="1" />
+    <Property Name="cfreeflag3" Type="char" MaxLength="1" />
+    <Property Name="iprint" Type="int" />
+    <Property Name="cfromcode" Type="nvarchar" MaxLength="20" />
+    <Property Name="dpayamt_old" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="dpayamt1_old" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="dagio_old" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="damt_old" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="ifromnetflag" Type="tinyint" />
+    <Property Name="cupdflag" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="cbldflag" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="cexflag" Type="char" MaxLength="1" />
+    <Property Name="ctenantflag" Type="char" MaxLength="1" />
+    <Property Name="ccinflag" Type="char" MaxLength="1" />
+    <Property Name="ccurplancode" Type="nvarchar" MaxLength="20" />
+    <Property Name="cautopoflag" Type="char" MaxLength="1" />
+    <Property Name="tally_damt" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="cvipid" Type="nvarchar" MaxLength="20" />
+    <Property Name="cprivilegeid" Type="nvarchar" MaxLength="12" />
+    <Property Name="cannulmtman" Type="nvarchar" MaxLength="20" />
+    <Property Name="cannulmtdt" Type="datetime" />
+    <Property Name="cmtdeamtflag" Type="char" MaxLength="1" />
+    <Property Name="agiodt" Type="datetime" />
+    <Property Name="dcess" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="csmsflg" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="csmsman" Type="nvarchar" MaxLength="20" />
+    <Property Name="csmsdt" Type="datetime" />
+    <Property Name="cstylist" Type="nvarchar" MaxLength="12" />
+    <Property Name="dcardamt" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="dchargeamt" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="cdeareaid" Type="nvarchar" MaxLength="12" />
+    <Property Name="cmtdeamtman" Type="nvarchar" MaxLength="20" />
+    <Property Name="cmtdeamtdt" Type="datetime" />
+    <Property Name="dconsumamt" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="crefereeman" Type="nvarchar" MaxLength="12" />
+    <Property Name="csignstylistid" Type="nvarchar" MaxLength="12" />
+    <Property Name="ccancelman" Type="nvarchar" MaxLength="20" />
+    <Property Name="ccanceldt" Type="datetime" />
+    <Property Name="cappflag" Type="char" MaxLength="1" />
+    <Property Name="cappman" Type="nvarchar" MaxLength="12" />
+    <Property Name="cappdt" Type="datetime" />
+    <Property Name="cprintman" Type="nvarchar" MaxLength="20" />
+    <Property Name="dpreamt" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="email" Type="nvarchar" MaxLength="255" />
+    <Property Name="cpyid_text" Type="nvarchar" MaxLength="20" />
+    <Property Name="csaleman_text" Type="nvarchar" MaxLength="20" />
+    <Property Name="cwhid_text" Type="nvarchar" MaxLength="20" />
+    <Property Name="cpyway_text" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <!--生成过程中发现错误:
+警告 6002: 表/视图“kw_m01.dbo.v_corderc”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+  <EntityType Name="v_corderc">
+    <Key>
+      <PropertyRef Name="db" />
+      <PropertyRef Name="CCODE" />
+      <PropertyRef Name="IORDER" />
+      <PropertyRef Name="CMTEID" />
+      <PropertyRef Name="CCOLORID" />
+      <PropertyRef Name="CWHID" />
+      <PropertyRef Name="DQTY" />
+      <PropertyRef Name="DPRICE" />
+      <PropertyRef Name="INETFLAG" />
+      <PropertyRef Name="DDEQTY" />
+      <PropertyRef Name="DAGIOC" />
+      <PropertyRef Name="counterid" />
+    </Key>
+    <Property Name="db" Type="varchar" MaxLength="8" Nullable="false" />
+    <Property Name="CCODE" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="IORDER" Type="int" Nullable="false" />
+    <Property Name="CMTEID" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="CCMTEID" Type="nvarchar" MaxLength="20" />
+    <Property Name="CCOLORID" Type="nvarchar" MaxLength="12" Nullable="false" />
+    <Property Name="CWHID" Type="nvarchar" MaxLength="12" Nullable="false" />
+    <Property Name="CDESC" Type="nvarchar" MaxLength="255" />
+    <Property Name="DQTY" Type="decimal" Precision="18" Scale="5" Nullable="false" />
+    <Property Name="DPRICE" Type="decimal" Precision="18" Scale="5" Nullable="false" />
+    <Property Name="INETFLAG" Type="tinyint" Nullable="false" />
+    <Property Name="DDEQTY" Type="decimal" Precision="18" Scale="5" Nullable="false" />
+    <Property Name="DCOST" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="DCYPRICE" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="DCYCOST" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="DAGIOC" Type="decimal" Precision="18" Scale="5" Nullable="false" />
+    <Property Name="dshipqty" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="cpocode" Type="nvarchar" MaxLength="20" />
+    <Property Name="cpoorder" Type="int" />
+    <Property Name="cattrid" Type="nvarchar" MaxLength="12" />
+    <Property Name="dprice2" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="csalman" Type="nvarchar" MaxLength="12" />
+    <Property Name="dprise" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="cplanflag" Type="char" MaxLength="1" />
+    <Property Name="ctaxflag" Type="char" MaxLength="1" />
+    <Property Name="cindentflag" Type="char" MaxLength="1" />
+    <Property Name="ddedt" Type="datetime" />
+    <Property Name="dpayqty" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="cstateflag" Type="char" MaxLength="1" />
+    <Property Name="creadyflag" Type="char" MaxLength="1" />
+    <Property Name="dunpackamt" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="drate" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="cagioempid" Type="nvarchar" MaxLength="12" />
+    <Property Name="cpomanid" Type="varchar" MaxLength="12" />
+    <Property Name="damtc" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="dreamtc" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="cstation1" Type="nvarchar" MaxLength="12" />
+    <Property Name="counterid" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="crejtype" Type="char" MaxLength="1" />
+    <Property Name="cpoflag" Type="char" MaxLength="1" />
+    <Property Name="cpostate" Type="char" MaxLength="1" />
+    <Property Name="dpercent" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="cpodesc" Type="text" />
+    <Property Name="clargessflag" Type="char" MaxLength="1" />
+    <Property Name="drejqty" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="cunitid" Type="nvarchar" MaxLength="12" />
+    <Property Name="cpcode" Type="nvarchar" MaxLength="20" />
+    <Property Name="iporder" Type="int" />
+    <Property Name="BargainFlag" Type="char" MaxLength="1" />
+    <Property Name="dshipplanqty" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="dpack_qty" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="dpoqty" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="dvinqty" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="dTranprice" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="cquotid" Type="nvarchar" MaxLength="20" />
+    <Property Name="iquotorder" Type="int" />
+    <Property Name="csetflag" Type="char" MaxLength="1" />
+    <Property Name="dshipdate" Type="datetime" />
+    <Property Name="dnotaxprice" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="dpriseprice" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="cvipflag" Type="char" MaxLength="1" />
+    <Property Name="dplanqty" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="ctype" Type="char" MaxLength="4" />
+    <Property Name="pName" Type="nvarchar" MaxLength="60" />
+    <Property Name="pColor" Type="nvarchar" MaxLength="255" />
+    <Property Name="pUnit" Type="nvarchar" MaxLength="20" />
+    <Property Name="pSpec" Type="nvarchar" MaxLength="40" />
+    <Property Name="pStore" Type="nvarchar" MaxLength="20" />
+    <Property Name="pAttritem" Type="nvarchar" MaxLength="20" />
+  </EntityType>
+  <!--生成过程中发现错误:
+警告 6002: 表/视图“kw_m01.dbo.v_custclas”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+  <EntityType Name="v_custclas">
+    <Key>
+      <PropertyRef Name="db" />
+      <PropertyRef Name="CCLASSID" />
+    </Key>
+    <Property Name="db" Type="varchar" MaxLength="8" Nullable="false" />
+    <Property Name="CCLASSID" Type="nvarchar" MaxLength="12" Nullable="false" />
+    <Property Name="CREMARK" Type="nvarchar" MaxLength="255" />
+    <Property Name="CNAME" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="CLEVEL" Type="nvarchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <!--生成过程中发现错误:
+警告 6002: 表/视图“kw_m01.dbo.v_customer”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+  <EntityType Name="v_customer">
+    <Key>
+      <PropertyRef Name="db" />
+      <PropertyRef Name="CCUSTID" />
+    </Key>
+    <Property Name="db" Type="varchar" MaxLength="8" Nullable="false" />
+    <Property Name="dbname" Type="varchar" MaxLength="6" Nullable="false" />
+    <Property Name="CCUSTID" Type="nvarchar" MaxLength="12" Nullable="false" />
+    <Property Name="CNAME" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="CCNAME" Type="nvarchar" MaxLength="60" />
+    <Property Name="CENAME" Type="nvarchar" MaxLength="60" />
+    <Property Name="CADR1" Type="nvarchar" MaxLength="300" />
+    <Property Name="CADR2" Type="nvarchar" MaxLength="300" />
+    <Property Name="CDEADR1" Type="nvarchar" MaxLength="300" />
+    <Property Name="CDEADR2" Type="nvarchar" MaxLength="300" />
+    <Property Name="CINADR" Type="nvarchar" MaxLength="300" />
+    <Property Name="CCLASSID" Type="nvarchar" MaxLength="12" Nullable="false" />
+    <Property Name="CBANK" Type="nvarchar" MaxLength="60" />
+    <Property Name="CBANKNO" Type="nvarchar" MaxLength="30" />
+    <Property Name="CMAIL" Type="nvarchar" MaxLength="10" />
+    <Property Name="CCONMAN" Type="nvarchar" MaxLength="12" />
+    <Property Name="CTEL" Type="nvarchar" MaxLength="40" />
+    <Property Name="CFAX" Type="nvarchar" MaxLength="40" />
+    <Property Name="EMAIL" Type="nvarchar" MaxLength="40" />
+    <Property Name="CWEB" Type="nvarchar" MaxLength="40" />
+    <Property Name="CCYID" Type="nvarchar" MaxLength="12" Nullable="false" />
+    <Property Name="CPYID" Type="nvarchar" MaxLength="12" Nullable="false" />
+    <Property Name="CADMIN" Type="nvarchar" MaxLength="12" />
+    <Property Name="CSALEMAN" Type="nvarchar" MaxLength="12" />
+    <Property Name="CSTATUS" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="DCREDIT" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="DAMT4" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="DAMT3" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="DDATE1" Type="datetime" />
+    <Property Name="DAMT1" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="DDATE2" Type="datetime" />
+    <Property Name="DAMT2" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="CREMARK" Type="nvarchar" MaxLength="255" />
+    <Property Name="BEGINMAN" Type="nvarchar" MaxLength="20" />
+    <Property Name="BEGINDT" Type="datetime" />
+    <Property Name="EDITMAN" Type="nvarchar" MaxLength="20" />
+    <Property Name="EDITDT" Type="datetime" />
+    <Property Name="cyusou" Type="varchar" MaxLength="35" />
+    <Property Name="cyinsou" Type="varchar" MaxLength="35" />
+    <Property Name="cyusoudf" Type="varchar" MaxLength="35" />
+    <Property Name="bzj" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="yjbzj" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="cconmante" Type="nvarchar" MaxLength="60" />
+    <Property Name="cdistflag" Type="nvarchar" MaxLength="12" />
+    <Property Name="cregionid" Type="nvarchar" MaxLength="12" />
+    <Property Name="csettlemodeid" Type="nvarchar" MaxLength="12" />
+    <Property Name="credit" Type="char" MaxLength="1" />
+    <Property Name="cvip" Type="char" MaxLength="1" />
+    <Property Name="resp_day" Type="int" />
+    <Property Name="cpivotflag" Type="char" MaxLength="1" />
+    <Property Name="cstation1" Type="nvarchar" MaxLength="20" />
+    <Property Name="dagio_a" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="cashflowidys" Type="int" />
+    <Property Name="cashflowids" Type="int" />
+    <Property Name="dbirth" Type="datetime" />
+    <Property Name="careflag" Type="char" MaxLength="1" />
+    <Property Name="cresidential" Type="nvarchar" MaxLength="80" />
+    <Property Name="capartments" Type="nvarchar" MaxLength="80" />
+    <Property Name="darea" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="cfurniture_style" Type="nvarchar" MaxLength="80" />
+    <Property Name="Cbrand" Type="nvarchar" MaxLength="80" />
+    <Property Name="csex" Type="char" MaxLength="1" />
+    <Property Name="cjob" Type="nvarchar" MaxLength="50" />
+    <Property Name="cfond" Type="nvarchar" MaxLength="50" />
+    <Property Name="coldlive" Type="char" MaxLength="1" />
+    <Property Name="cpet" Type="nvarchar" MaxLength="50" />
+    <Property Name="czxjd" Type="nvarchar" MaxLength="255" />
+    <Property Name="dmarrydate" Type="datetime" />
+    <Property Name="checkindate" Type="datetime" />
+    <Property Name="cstylist" Type="nvarchar" MaxLength="12" />
+    <Property Name="cdesign_company" Type="nvarchar" MaxLength="40" />
+    <Property Name="dhousesamt" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="ccompetition_brand" Type="nvarchar" MaxLength="80" />
+    <Property Name="cqqnumber" Type="nvarchar" MaxLength="20" />
+    <Property Name="cworkunit" Type="nvarchar" MaxLength="100" />
+    <Property Name="csalary" Type="nvarchar" MaxLength="20" />
+    <Property Name="crelation" Type="nvarchar" MaxLength="40" />
+    <Property Name="CTRANS" Type="nvarchar" MaxLength="20" />
+    <Property Name="cdeareaid" Type="nvarchar" MaxLength="12" />
+    <Property Name="cpost" Type="nvarchar" MaxLength="2" />
+    <Property Name="cclassid_text" Type="nvarchar" MaxLength="20" />
+  </EntityType>
+  <!--生成过程中发现错误:
+警告 6002: 表/视图“kw_m01.dbo.v_payment”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+  <EntityType Name="v_payment">
+    <Key>
+      <PropertyRef Name="db" />
+      <PropertyRef Name="CPYID" />
+    </Key>
+    <Property Name="db" Type="varchar" MaxLength="8" Nullable="false" />
+    <Property Name="CPYID" Type="nvarchar" MaxLength="12" Nullable="false" />
+    <Property Name="CREMARK" Type="nvarchar" MaxLength="255" />
+    <Property Name="CFLAG" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="CNAME" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="DDAYS" Type="smallint" Nullable="false" />
+    <Property Name="cstop" Type="char" MaxLength="1" />
+  </EntityType>
+  <!--生成过程中发现错误:
+警告 6002: 表/视图“kw_m01.dbo.v_prodclas”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+  <EntityType Name="v_prodclas">
+    <Key>
+      <PropertyRef Name="db" />
+      <PropertyRef Name="classid" />
+      <PropertyRef Name="clevel" />
+    </Key>
+    <Property Name="db" Type="varchar" MaxLength="8" Nullable="false" />
+    <Property Name="cname" Type="nvarchar" MaxLength="34" Nullable="false" />
+    <Property Name="classid" Type="nvarchar" MaxLength="12" Nullable="false" />
+    <Property Name="clevel" Type="nvarchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <!--生成过程中发现错误:
+警告 6002: 表/视图“kw_m01.dbo.v_prodcolor”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+  <EntityType Name="v_prodcolor">
+    <Key>
+      <PropertyRef Name="db" />
+      <PropertyRef Name="CCOLORID" />
+    </Key>
+    <Property Name="db" Type="varchar" MaxLength="8" Nullable="false" />
+    <Property Name="dbname" Type="varchar" MaxLength="6" Nullable="false" />
+    <Property Name="CMTEID" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="CCOLORID" Type="nvarchar" MaxLength="12" Nullable="false" />
+    <Property Name="DCOST" Type="decimal" Precision="18" Scale="5" Nullable="false" />
+    <Property Name="DPRICE2" Type="decimal" Precision="18" Scale="5" Nullable="false" />
+    <Property Name="CFROMADR" Type="nvarchar" MaxLength="20" />
+    <Property Name="CWHPLACE" Type="nvarchar" MaxLength="20" />
+    <Property Name="CLEVEL" Type="nvarchar" MaxLength="20" />
+    <Property Name="CDESC" Type="nvarchar" MaxLength="40" />
+    <Property Name="DPERCENT" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="DPRISE" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="DPRICE1" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="CATTRID" Type="nvarchar" MaxLength="12" />
+    <Property Name="DMINQTY" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="DMAXQTY" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="dprice_neap" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="dpricea1" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="dpriceb1" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="dpricec1" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="dpriced1" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="dpricee1" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="dpricef1" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="pressprice" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="crefcode" Type="nvarchar" MaxLength="20" />
+    <Property Name="iporder" Type="int" />
+    <Property Name="defultflag" Type="char" MaxLength="1" />
+    <Property Name="cname" Type="nvarchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <!--生成过程中发现错误:
+警告 6002: 表/视图“kw_m01.dbo.v_product”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+  <EntityType Name="v_product">
+    <Key>
+      <PropertyRef Name="db" />
+      <PropertyRef Name="CMTEID" />
+    </Key>
+    <Property Name="db" Type="varchar" MaxLength="8" Nullable="false" />
+    <Property Name="dbname" Type="varchar" MaxLength="6" Nullable="false" />
+    <Property Name="CMTEID" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="CCNAME" Type="nvarchar" MaxLength="60" Nullable="false" />
+    <Property Name="CENAME" Type="nvarchar" MaxLength="60" />
+    <Property Name="CSPEC" Type="nvarchar" MaxLength="40" />
+    <Property Name="CESPEC" Type="nvarchar" MaxLength="40" />
+    <Property Name="CUNITID" Type="nvarchar" MaxLength="12" Nullable="false" />
+    <Property Name="CCLASSID" Type="nvarchar" MaxLength="12" Nullable="false" />
+    <Property Name="DCOST" Type="decimal" Precision="18" Scale="5" Nullable="false" />
+    <Property Name="DPRICE2" Type="decimal" Precision="18" Scale="5" Nullable="false" />
+    <Property Name="DPRICE" Type="decimal" Precision="18" Scale="5" Nullable="false" />
+    <Property Name="CVENDID" Type="nvarchar" MaxLength="12" Nullable="false" />
+    <Property Name="CPRICETY" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="CPHOTO" Type="nvarchar" MaxLength="255" />
+    <Property Name="DMAX" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="DMIN" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="DWHAREA" Type="nvarchar" MaxLength="12" />
+    <Property Name="DWHPLACE" Type="nvarchar" MaxLength="12" />
+    <Property Name="DWEIGHT" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="CWTUNIT" Type="nvarchar" MaxLength="12" />
+    <Property Name="DVOLUME" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="DVOLUNIT" Type="nvarchar" MaxLength="12" />
+    <Property Name="CFLAG2" Type="char" MaxLength="1" />
+    <Property Name="ICYC" Type="smallint" />
+    <Property Name="CCREMARK" Type="nvarchar" MaxLength="255" />
+    <Property Name="CEREMARK" Type="nvarchar" MaxLength="255" />
+    <Property Name="DSTARTDT" Type="datetime" />
+    <Property Name="DSTOPDT" Type="datetime" />
+    <Property Name="CCUSTOM1" Type="nvarchar" MaxLength="60" />
+    <Property Name="CUSTOME2" Type="nvarchar" MaxLength="60" />
+    <Property Name="BEGINMAN" Type="nvarchar" MaxLength="20" />
+    <Property Name="BEGINDT" Type="datetime" />
+    <Property Name="EDITMAN" Type="nvarchar" MaxLength="20" />
+    <Property Name="EDITDT" Type="datetime" />
+    <Property Name="cacctno" Type="varchar" MaxLength="35" />
+    <Property Name="ccenben" Type="varchar" MaxLength="35" />
+    <Property Name="ccaigou" Type="varchar" MaxLength="35" />
+    <Property Name="cxiaosou" Type="varchar" MaxLength="35" />
+    <Property Name="csouru" Type="varchar" MaxLength="35" />
+    <Property Name="cxsfy" Type="varchar" MaxLength="35" />
+    <Property Name="cstop" Type="char" MaxLength="1" />
+    <Property Name="cattrid" Type="nvarchar" MaxLength="12" />
+    <Property Name="dlength" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="dwidth" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="dheight" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="cdefwhid" Type="nvarchar" MaxLength="12" />
+    <Property Name="ckctj" Type="nvarchar" MaxLength="35" />
+    <Property Name="CPOMANID" Type="nvarchar" MaxLength="12" />
+    <Property Name="cbarcode" Type="nvarchar" MaxLength="40" />
+    <Property Name="cpackid" Type="nvarchar" MaxLength="12" />
+    <Property Name="iadvance" Type="int" />
+    <Property Name="iadvance_sea" Type="int" />
+    <Property Name="iadvance_other" Type="int" />
+    <Property Name="cabccode" Type="char" MaxLength="1" />
+    <Property Name="ccolorflag" Type="char" MaxLength="1" />
+    <Property Name="dpriceA" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="dpriceB" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="dpriceC" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="dpriceD" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="dpriceE" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="dpriceF" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="dprice_tiptop" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="dprice_neap" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="csetflag" Type="char" MaxLength="1" />
+    <Property Name="dagio" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="cassflag" Type="char" MaxLength="1" />
+    <Property Name="cclassid2" Type="nvarchar" MaxLength="12" />
+    <Property Name="dprise" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="dpercent" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="cisdagio" Type="char" MaxLength="1" />
+    <Property Name="pressprice" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="cbrandid" Type="nvarchar" MaxLength="12" />
+    <Property Name="caddress" Type="nvarchar" MaxLength="50" />
+    <Property Name="dpack_qty" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="itransport" Type="int" />
+    <Property Name="itransport_sea" Type="int" />
+    <Property Name="itransport_other" Type="int" />
+    <Property Name="csplit" Type="nvarchar" MaxLength="1" />
+    <Property Name="cpricenocolflag" Type="char" MaxLength="1" />
+    <Property Name="cphotoxgt" Type="nvarchar" MaxLength="255" />
+    <Property Name="cphotozzt" Type="nvarchar" MaxLength="255" />
+    <Property Name="cphotojt" Type="nvarchar" MaxLength="255" />
+    <Property Name="dnetweight" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="cstuff" Type="nvarchar" MaxLength="20" />
+    <Property Name="cdetaildesc1" Type="text" />
+    <Property Name="cdetaildesc2" Type="text" />
+    <Property Name="dfreight" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="dsetamt" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="darea" Type="decimal" Precision="18" Scale="5" />
+  </EntityType>
+  <!--生成过程中发现错误:
+警告 6002: 表/视图“kw_m01.dbo.v_product1”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+  <EntityType Name="v_product1">
+    <Key>
+      <PropertyRef Name="db" />
+      <PropertyRef Name="CMTEID" />
+    </Key>
+    <Property Name="db" Type="varchar" MaxLength="8" Nullable="false" />
+    <Property Name="CMTEID" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="CCNAME" Type="nvarchar" MaxLength="60" Nullable="false" />
+    <Property Name="CSPEC" Type="nvarchar" MaxLength="40" />
+    <Property Name="CENAME" Type="nvarchar" MaxLength="60" />
+    <Property Name="CESPEC" Type="nvarchar" MaxLength="40" />
+    <Property Name="CUNITID" Type="nvarchar" MaxLength="12" Nullable="false" />
+    <Property Name="CNAME" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="CCLASSID" Type="nvarchar" MaxLength="12" Nullable="false" />
+    <Property Name="CNAME_b" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="DCOST" Type="decimal" Precision="18" Scale="5" Nullable="false" />
+    <Property Name="DPRICE" Type="decimal" Precision="18" Scale="5" Nullable="false" />
+    <Property Name="DWEIGHT" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="CWTUNIT" Type="nvarchar" MaxLength="12" />
+    <Property Name="DVOLUME" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="DVOLUNIT" Type="nvarchar" MaxLength="12" />
+    <Property Name="CVENDID" Type="nvarchar" MaxLength="12" Nullable="false" />
+    <Property Name="vendor_name" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="CLEVEL" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="dpack_qty" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="cunitname" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="cattrid" Type="nvarchar" MaxLength="12" />
+    <Property Name="ccremark" Type="nvarchar" MaxLength="255" />
+    <Property Name="ceremark" Type="nvarchar" MaxLength="255" />
+    <Property Name="cattname" Type="nvarchar" MaxLength="20" />
+    <Property Name="caddress" Type="nvarchar" MaxLength="50" />
+    <Property Name="cstuff" Type="nvarchar" MaxLength="20" />
+    <Property Name="ccolorname" Type="nvarchar" MaxLength="255" />
+    <Property Name="CCOLORID" Type="varchar" MaxLength="1" Nullable="false" />
+  </EntityType>
+  <!--生成过程中发现错误:
+警告 6002: 表/视图“kw_m01.dbo.v_saler”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+  <EntityType Name="v_saler">
+    <Key>
+      <PropertyRef Name="db" />
+      <PropertyRef Name="CEMPID" />
+    </Key>
+    <Property Name="db" Type="varchar" MaxLength="8" Nullable="false" />
+    <Property Name="CEMPID" Type="nvarchar" MaxLength="12" Nullable="false" />
+    <Property Name="CNAME" Type="nvarchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <!--生成过程中发现错误:
+警告 6002: 表/视图“kw_m01.dbo.v_SettleMode”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+  <EntityType Name="v_SettleMode">
+    <Key>
+      <PropertyRef Name="db" />
+      <PropertyRef Name="FStlNo" />
+    </Key>
+    <Property Name="db" Type="varchar" MaxLength="8" Nullable="false" />
+    <Property Name="FStlNo" Type="nvarchar" MaxLength="12" Nullable="false" />
+    <Property Name="FStlName" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="FAcctNo" Type="varchar" MaxLength="25" />
+    <Property Name="tallyflag" Type="char" MaxLength="1" />
+    <Property Name="ccardflag" Type="char" MaxLength="1" />
+    <Property Name="cstopflag" Type="char" MaxLength="1" />
+    <Property Name="cclassid" Type="nvarchar" MaxLength="12" />
+    <Property Name="cdesc" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <!--生成过程中发现错误:
+警告 6002: 表/视图“kw_m01.dbo.v_singnstylist”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+  <EntityType Name="v_singnstylist">
+    <Key>
+      <PropertyRef Name="db" />
+      <PropertyRef Name="csignstylistid" />
+    </Key>
+    <Property Name="db" Type="varchar" MaxLength="8" Nullable="false" />
+    <Property Name="csignstylistid" Type="nvarchar" MaxLength="12" Nullable="false" />
+    <Property Name="cname" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <!--生成过程中发现错误:
+警告 6002: 表/视图“kw_m01.dbo.v_station”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+  <EntityType Name="v_station">
+    <Key>
+      <PropertyRef Name="a02" />
+      <PropertyRef Name="cstation" />
+    </Key>
+    <Property Name="a01" Type="varchar" MaxLength="3" Nullable="false" />
+    <Property Name="a02" Type="varchar" MaxLength="8" Nullable="false" />
+    <Property Name="a03" Type="varchar" MaxLength="4" Nullable="false" />
+    <Property Name="cstation" Type="nvarchar" MaxLength="12" Nullable="false" />
+    <Property Name="cname" Type="nvarchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <!--生成过程中发现错误:
+警告 6002: 表/视图“kw_m01.dbo.v_unit”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+  <EntityType Name="v_unit">
+    <Key>
+      <PropertyRef Name="db" />
+      <PropertyRef Name="CUNITID" />
+    </Key>
+    <Property Name="db" Type="varchar" MaxLength="8" Nullable="false" />
+    <Property Name="dbname" Type="varchar" MaxLength="6" Nullable="false" />
+    <Property Name="CUNITID" Type="nvarchar" MaxLength="12" Nullable="false" />
+    <Property Name="CREMARK" Type="nvarchar" MaxLength="255" />
+    <Property Name="CNAME" Type="nvarchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <!--生成过程中发现错误:
+警告 6002: 表/视图“kw_m01.dbo.v_userlist”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+  <EntityType Name="v_userlist">
+    <Key>
+      <PropertyRef Name="db" />
+      <PropertyRef Name="cid" />
+    </Key>
+    <Property Name="db" Type="varchar" MaxLength="8" Nullable="false" />
+    <Property Name="dbname" Type="varchar" MaxLength="6" Nullable="false" />
+    <Property Name="csys" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="cid" Type="nvarchar" MaxLength="12" Nullable="false" />
+    <Property Name="cname" Type="nvarchar" MaxLength="20" />
+    <Property Name="cpwd" Type="nvarchar" MaxLength="20" />
+    <Property Name="csuper" Type="char" MaxLength="1" />
+    <Property Name="dagio_neap" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="cisback" Type="char" MaxLength="1" />
+    <Property Name="cdesc" Type="nvarchar" MaxLength="255" />
+    <Property Name="corderquery_days" Type="int" />
+    <Property Name="cstop" Type="char" MaxLength="1" />
+    <Property Name="cempid" Type="nvarchar" MaxLength="20" />
+  </EntityType>
+  <!--生成过程中发现错误:
+警告 6002: 表/视图“kw_m01.dbo.v_vendclas”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+  <EntityType Name="v_vendclas">
+    <Key>
+      <PropertyRef Name="db" />
+      <PropertyRef Name="CLEVEL" />
+      <PropertyRef Name="cclassid" />
+    </Key>
+    <Property Name="db" Type="varchar" MaxLength="8" Nullable="false" />
+    <Property Name="CLEVEL" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="new_name" Type="nvarchar" MaxLength="34" Nullable="false" />
+    <Property Name="cremark" Type="nvarchar" MaxLength="255" />
+    <Property Name="cclassid" Type="nvarchar" MaxLength="12" Nullable="false" />
+  </EntityType>
+  <!--生成过程中发现错误:
+警告 6002: 表/视图“kw_m01.dbo.v_vendor”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+  <EntityType Name="v_vendor">
+    <Key>
+      <PropertyRef Name="db" />
+      <PropertyRef Name="CVENDID" />
+      <PropertyRef Name="CNAME" />
+      <PropertyRef Name="CCLASSID" />
+      <PropertyRef Name="CNAME_a" />
+      <PropertyRef Name="CPYID" />
+      <PropertyRef Name="CSTATUS" />
+      <PropertyRef Name="CFLAG" />
+      <PropertyRef Name="CLEVEL" />
+      <PropertyRef Name="CCYID" />
+      <PropertyRef Name="cacctvendid" />
+    </Key>
+    <Property Name="db" Type="varchar" MaxLength="8" Nullable="false" />
+    <Property Name="CVENDID" Type="nvarchar" MaxLength="12" Nullable="false" />
+    <Property Name="CNAME" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="CCNAME" Type="nvarchar" MaxLength="60" />
+    <Property Name="CCLASSID" Type="nvarchar" MaxLength="12" Nullable="false" />
+    <Property Name="CNAME_a" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="CADR1" Type="nvarchar" MaxLength="60" />
+    <Property Name="CMAIL" Type="nvarchar" MaxLength="10" />
+    <Property Name="CCONMAN" Type="nvarchar" MaxLength="12" />
+    <Property Name="CBANK" Type="nvarchar" MaxLength="60" />
+    <Property Name="CBANKNO" Type="nvarchar" MaxLength="60" />
+    <Property Name="CPYID" Type="nvarchar" MaxLength="12" Nullable="false" />
+    <Property Name="CSTATUS" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="CFLAG" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="CPOMAN" Type="nvarchar" MaxLength="12" />
+    <Property Name="CLEVEL" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="CCYID" Type="nvarchar" MaxLength="12" Nullable="false" />
+    <Property Name="CTEL" Type="nvarchar" MaxLength="40" />
+    <Property Name="iadvance" Type="int" />
+    <Property Name="iadvance_sea" Type="int" />
+    <Property Name="iadvance_other" Type="int" />
+    <Property Name="ipocyc" Type="int" />
+    <Property Name="istcyc" Type="int" />
+    <Property Name="cycid" Type="nvarchar" MaxLength="12" />
+    <Property Name="cacctvendid" Type="nvarchar" MaxLength="12" Nullable="false" />
+    <Property Name="cpomanname" Type="nvarchar" MaxLength="20" />
+    <Property Name="dtaxrate" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="csettlemodeid" Type="nvarchar" MaxLength="12" />
+    <Property Name="FStlName" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <!--生成过程中发现错误:
+警告 6002: 表/视图“kw_m01.dbo.v_warehous”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+  <EntityType Name="v_warehous">
+    <Key>
+      <PropertyRef Name="db" />
+      <PropertyRef Name="CWHID" />
+    </Key>
+    <Property Name="db" Type="varchar" MaxLength="8" Nullable="false" />
+    <Property Name="CWHID" Type="nvarchar" MaxLength="12" Nullable="false" />
+    <Property Name="CNAME" Type="nvarchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <!--生成过程中发现错误:
+警告 6002: 表/视图“kw_m01.dbo.v_warehous1”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+  <EntityType Name="v_warehous1">
+    <Key>
+      <PropertyRef Name="db" />
+      <PropertyRef Name="CWHID" />
+      <PropertyRef Name="CNAME" />
+      <PropertyRef Name="INETFLAG" />
+      <PropertyRef Name="CCLASSID" />
+      <PropertyRef Name="cclassname" />
+      <PropertyRef Name="CLEVEL" />
+    </Key>
+    <Property Name="db" Type="varchar" MaxLength="8" Nullable="false" />
+    <Property Name="CWHID" Type="nvarchar" MaxLength="12" Nullable="false" />
+    <Property Name="CREMARK" Type="nvarchar" MaxLength="255" />
+    <Property Name="CADR" Type="nvarchar" MaxLength="40" />
+    <Property Name="CTEL" Type="nvarchar" MaxLength="20" />
+    <Property Name="CNAME" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="CADMIN" Type="nvarchar" MaxLength="12" />
+    <Property Name="INETFLAG" Type="tinyint" Nullable="false" />
+    <Property Name="AREA" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="csalesflag" Type="char" MaxLength="1" />
+    <Property Name="ccalcflag" Type="char" MaxLength="1" />
+    <Property Name="isstation" Type="char" MaxLength="1" />
+    <Property Name="cstation" Type="nvarchar" MaxLength="12" />
+    <Property Name="cshopid" Type="nvarchar" MaxLength="12" />
+    <Property Name="cshopman" Type="nvarchar" MaxLength="12" />
+    <Property Name="CCLASSID" Type="nvarchar" MaxLength="12" Nullable="false" />
+    <Property Name="cclassname" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="CLEVEL" Type="nvarchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <!--生成过程中发现错误:
+警告 6002: 表/视图“kw_m01.dbo.v_warehousclas”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+  <EntityType Name="v_warehousclas">
+    <Key>
+      <PropertyRef Name="db" />
+      <PropertyRef Name="CLEVEL" />
+      <PropertyRef Name="new_name" />
+      <PropertyRef Name="cla" />
+    </Key>
+    <Property Name="db" Type="varchar" MaxLength="8" Nullable="false" />
+    <Property Name="CLEVEL" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="new_name" Type="nvarchar" MaxLength="34" Nullable="false" />
+    <Property Name="cla" Type="nvarchar" MaxLength="12" Nullable="false" />
+  </EntityType>
+  <!--生成过程中发现错误:
+警告 6002: 表/视图“kw_m01.dbo.vq_m_corder”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+  <EntityType Name="vq_m_corder">
+    <Key>
+      <PropertyRef Name="CCODE" />
+      <PropertyRef Name="cpathid" />
+    </Key>
+    <Property Name="CCODE" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="CCUSTID" Type="nvarchar" MaxLength="12" Nullable="false" />
+    <Property Name="DDATE" Type="datetime" />
+    <Property Name="CCYID" Type="nvarchar" MaxLength="12" Nullable="false" />
+    <Property Name="CPYID" Type="nvarchar" MaxLength="12" Nullable="false" />
+    <Property Name="DAGIO" Type="decimal" Precision="18" Scale="5" Nullable="false" />
+    <Property Name="DPAYAMT" Type="decimal" Precision="18" Scale="5" Nullable="false" />
+    <Property Name="DPAYAMT1" Type="decimal" Precision="18" Scale="5" Nullable="false" />
+    <Property Name="DPAYAMT2" Type="decimal" Precision="18" Scale="5" Nullable="false" />
+    <Property Name="DDEDT" Type="datetime" Nullable="false" />
+    <Property Name="CDEADR" Type="nvarchar" MaxLength="255" />
+    <Property Name="CTRANS" Type="nvarchar" MaxLength="20" />
+    <Property Name="CCMAN" Type="nvarchar" MaxLength="12" />
+    <Property Name="CSALEMAN" Type="nvarchar" MaxLength="12" Nullable="false" />
+    <Property Name="CREMARK" Type="text" />
+    <Property Name="CMTFLAG" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="ENDFLAG" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="BEGINMAN" Type="nvarchar" MaxLength="20" />
+    <Property Name="BEGINDT" Type="datetime" />
+    <Property Name="EDITMAN" Type="nvarchar" MaxLength="20" />
+    <Property Name="EDITDT" Type="datetime" />
+    <Property Name="CMTMAN" Type="nvarchar" MaxLength="20" />
+    <Property Name="CMTDT" Type="datetime" />
+    <Property Name="ENDMAN" Type="nvarchar" MaxLength="20" />
+    <Property Name="ENDDT" Type="datetime" />
+    <Property Name="INETFLAG" Type="tinyint" Nullable="false" />
+    <Property Name="DAMT" Type="decimal" Precision="18" Scale="5" Nullable="false" />
+    <Property Name="DCYAMT" Type="decimal" Precision="18" Scale="5" Nullable="false" />
+    <Property Name="custphone" Type="nvarchar" MaxLength="60" />
+    <Property Name="dtaxrate" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="dtaxamt" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="drate" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="ccontractno" Type="nvarchar" MaxLength="30" />
+    <Property Name="cchangeflag" Type="char" MaxLength="1" />
+    <Property Name="creadyflag" Type="char" MaxLength="1" />
+    <Property Name="cagioempid" Type="nvarchar" MaxLength="12" />
+    <Property Name="CORDER_CHANGEID" Type="nvarchar" MaxLength="20" />
+    <Property Name="ccancelflag" Type="char" MaxLength="1" />
+    <Property Name="cwhid" Type="varchar" MaxLength="12" />
+    <Property Name="cpyway" Type="varchar" MaxLength="12" />
+    <Property Name="cregionid" Type="varchar" MaxLength="12" />
+    <Property Name="cisship" Type="char" MaxLength="1" />
+    <Property Name="cpathid" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="cischdedt" Type="char" MaxLength="1" />
+    <Property Name="ddedt_new" Type="datetime" />
+    <Property Name="ipri" Type="int" />
+    <Property Name="ccounterid" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="cstation1" Type="nvarchar" MaxLength="12" />
+    <Property Name="cchremark" Type="nvarchar" MaxLength="50" />
+    <Property Name="cstockflag" Type="char" MaxLength="1" />
+    <Property Name="cforcestockflag" Type="char" MaxLength="1" />
+    <Property Name="cpostate" Type="char" MaxLength="1" />
+    <Property Name="DFREIGHTAMT" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="cfreeflag1" Type="int" />
+    <Property Name="cfreeflag2" Type="char" MaxLength="1" />
+    <Property Name="cfreeflag3" Type="char" MaxLength="1" />
+    <Property Name="iprint" Type="int" />
+    <Property Name="cfromcode" Type="nvarchar" MaxLength="20" />
+    <Property Name="dpayamt_old" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="dpayamt1_old" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="dagio_old" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="damt_old" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="ifromnetflag" Type="tinyint" />
+    <Property Name="cupdflag" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="cbldflag" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="cexflag" Type="char" MaxLength="1" />
+    <Property Name="ctenantflag" Type="char" MaxLength="1" />
+    <Property Name="ccinflag" Type="char" MaxLength="1" />
+    <Property Name="ccurplancode" Type="nvarchar" MaxLength="20" />
+    <Property Name="cautopoflag" Type="char" MaxLength="1" />
+    <Property Name="tally_damt" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="cvipid" Type="nvarchar" MaxLength="20" />
+    <Property Name="cprivilegeid" Type="nvarchar" MaxLength="12" />
+    <Property Name="cannulmtman" Type="nvarchar" MaxLength="20" />
+    <Property Name="cannulmtdt" Type="datetime" />
+    <Property Name="cmtdeamtflag" Type="char" MaxLength="1" />
+    <Property Name="agiodt" Type="datetime" />
+    <Property Name="dcess" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="csmsflg" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="csmsman" Type="nvarchar" MaxLength="20" />
+    <Property Name="csmsdt" Type="datetime" />
+    <Property Name="cstylist" Type="nvarchar" MaxLength="12" />
+    <Property Name="dcardamt" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="dchargeamt" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="cdeareaid" Type="nvarchar" MaxLength="12" />
+    <Property Name="cmtdeamtman" Type="nvarchar" MaxLength="20" />
+    <Property Name="cmtdeamtdt" Type="datetime" />
+    <Property Name="dconsumamt" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="crefereeman" Type="nvarchar" MaxLength="12" />
+    <Property Name="csignstylistid" Type="nvarchar" MaxLength="12" />
+    <Property Name="ccancelman" Type="nvarchar" MaxLength="20" />
+    <Property Name="ccanceldt" Type="datetime" />
+    <Property Name="cappflag" Type="char" MaxLength="1" />
+    <Property Name="cappman" Type="nvarchar" MaxLength="12" />
+    <Property Name="cappdt" Type="datetime" />
+    <Property Name="cprintman" Type="nvarchar" MaxLength="20" />
+    <Property Name="dpreamt" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="email" Type="nvarchar" MaxLength="255" />
+    <Property Name="cpyid_text" Type="nvarchar" MaxLength="20" />
+    <Property Name="cpyway_text" Type="varchar" MaxLength="20" />
+    <Property Name="cwhid_text" Type="nvarchar" MaxLength="20" />
+    <Property Name="csignstylistid_text" Type="nvarchar" MaxLength="50" />
+    <Property Name="CSALEMAN_text" Type="nvarchar" MaxLength="20" />
+  </EntityType>
+  <!--生成过程中发现错误:
+警告 6002: 表/视图“kw_m01.dbo.vq_m_corderc”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+  <EntityType Name="vq_m_corderc">
+    <Key>
+      <PropertyRef Name="CCODE" />
+      <PropertyRef Name="IORDER" />
+      <PropertyRef Name="CMTEID" />
+      <PropertyRef Name="CCOLORID" />
+      <PropertyRef Name="CWHID" />
+      <PropertyRef Name="DQTY" />
+      <PropertyRef Name="DPRICE" />
+      <PropertyRef Name="INETFLAG" />
+      <PropertyRef Name="DDEQTY" />
+      <PropertyRef Name="DAGIOC" />
+      <PropertyRef Name="counterid" />
+      <PropertyRef Name="cquotid" />
+      <PropertyRef Name="pName" />
+      <PropertyRef Name="pSpec" />
+      <PropertyRef Name="pUnit" />
+      <PropertyRef Name="pColor" />
+      <PropertyRef Name="pStore" />
+      <PropertyRef Name="pAttritem" />
+      <PropertyRef Name="pInventory" />
+      <PropertyRef Name="cstation1_text" />
+    </Key>
+    <Property Name="CCODE" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="IORDER" Type="int" Nullable="false" />
+    <Property Name="CMTEID" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="CCMTEID" Type="nvarchar" MaxLength="20" />
+    <Property Name="CCOLORID" Type="nvarchar" MaxLength="12" Nullable="false" />
+    <Property Name="CWHID" Type="nvarchar" MaxLength="12" Nullable="false" />
+    <Property Name="CDESC" Type="nvarchar" MaxLength="255" />
+    <Property Name="DQTY" Type="decimal" Precision="18" Scale="5" Nullable="false" />
+    <Property Name="DPRICE" Type="decimal" Precision="18" Scale="5" Nullable="false" />
+    <Property Name="INETFLAG" Type="tinyint" Nullable="false" />
+    <Property Name="DDEQTY" Type="decimal" Precision="18" Scale="5" Nullable="false" />
+    <Property Name="DCOST" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="DCYPRICE" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="DCYCOST" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="DAGIOC" Type="decimal" Precision="18" Scale="5" Nullable="false" />
+    <Property Name="dshipqty" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="cpocode" Type="nvarchar" MaxLength="20" />
+    <Property Name="cpoorder" Type="int" />
+    <Property Name="cattrid" Type="nvarchar" MaxLength="12" />
+    <Property Name="dprice2" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="csalman" Type="nvarchar" MaxLength="12" />
+    <Property Name="dprise" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="cplanflag" Type="char" MaxLength="1" />
+    <Property Name="ctaxflag" Type="char" MaxLength="1" />
+    <Property Name="cindentflag" Type="char" MaxLength="1" />
+    <Property Name="ddedt" Type="datetime" />
+    <Property Name="dpayqty" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="cstateflag" Type="char" MaxLength="1" />
+    <Property Name="creadyflag" Type="char" MaxLength="1" />
+    <Property Name="dunpackamt" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="drate" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="cagioempid" Type="nvarchar" MaxLength="12" />
+    <Property Name="cpomanid" Type="varchar" MaxLength="12" />
+    <Property Name="damtc" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="dreamtc" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="cstation1" Type="nvarchar" MaxLength="12" />
+    <Property Name="counterid" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="crejtype" Type="char" MaxLength="1" />
+    <Property Name="cpoflag" Type="char" MaxLength="1" />
+    <Property Name="cpostate" Type="char" MaxLength="1" />
+    <Property Name="dpercent" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="cpodesc" Type="text" />
+    <Property Name="clargessflag" Type="char" MaxLength="1" />
+    <Property Name="drejqty" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="cunitid" Type="nvarchar" MaxLength="12" />
+    <Property Name="cpcode" Type="nvarchar" MaxLength="20" />
+    <Property Name="iporder" Type="int" />
+    <Property Name="BargainFlag" Type="char" MaxLength="1" />
+    <Property Name="dshipplanqty" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="dpack_qty" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="dpoqty" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="dvinqty" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="dTranprice" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="cquotid" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="iquotorder" Type="int" />
+    <Property Name="csetflag" Type="char" MaxLength="1" />
+    <Property Name="dshipdate" Type="datetime" />
+    <Property Name="dnotaxprice" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="dpriseprice" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="cvipflag" Type="char" MaxLength="1" />
+    <Property Name="dplanqty" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="ctype" Type="char" MaxLength="4" />
+    <Property Name="pName" Type="nvarchar" MaxLength="60" Nullable="false" />
+    <Property Name="pSpec" Type="nvarchar" MaxLength="40" Nullable="false" />
+    <Property Name="pUnit" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="pColor" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="pStore" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="pAttritem" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="pInventory" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="cstation1_text" Type="nvarchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <!--生成过程中发现错误:
+警告 6002: 表/视图“kw_m01.dbo.vq_m_customer”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+  <EntityType Name="vq_m_customer">
+    <Key>
+      <PropertyRef Name="CCUSTID" />
+      <PropertyRef Name="cdeareaid" />
+    </Key>
+    <Property Name="CCUSTID" Type="nvarchar" MaxLength="12" Nullable="false" />
+    <Property Name="CNAME" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="CCNAME" Type="nvarchar" MaxLength="60" />
+    <Property Name="CENAME" Type="nvarchar" MaxLength="60" />
+    <Property Name="CADR1" Type="nvarchar" MaxLength="300" />
+    <Property Name="CADR2" Type="nvarchar" MaxLength="300" />
+    <Property Name="CDEADR1" Type="nvarchar" MaxLength="300" />
+    <Property Name="CDEADR2" Type="nvarchar" MaxLength="300" />
+    <Property Name="CINADR" Type="nvarchar" MaxLength="300" />
+    <Property Name="CCLASSID" Type="nvarchar" MaxLength="12" Nullable="false" />
+    <Property Name="CBANK" Type="nvarchar" MaxLength="60" />
+    <Property Name="CBANKNO" Type="nvarchar" MaxLength="30" />
+    <Property Name="CMAIL" Type="nvarchar" MaxLength="10" />
+    <Property Name="CCONMAN" Type="nvarchar" MaxLength="12" />
+    <Property Name="CTEL" Type="nvarchar" MaxLength="40" />
+    <Property Name="CFAX" Type="nvarchar" MaxLength="40" />
+    <Property Name="EMAIL" Type="nvarchar" MaxLength="40" />
+    <Property Name="CWEB" Type="nvarchar" MaxLength="40" />
+    <Property Name="CCYID" Type="nvarchar" MaxLength="12" Nullable="false" />
+    <Property Name="CPYID" Type="nvarchar" MaxLength="12" Nullable="false" />
+    <Property Name="CADMIN" Type="nvarchar" MaxLength="12" />
+    <Property Name="CSALEMAN" Type="nvarchar" MaxLength="12" />
+    <Property Name="CSTATUS" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="DCREDIT" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="DAMT4" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="DAMT3" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="DDATE1" Type="datetime" />
+    <Property Name="DAMT1" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="DDATE2" Type="datetime" />
+    <Property Name="DAMT2" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="CREMARK" Type="nvarchar" MaxLength="255" />
+    <Property Name="BEGINMAN" Type="nvarchar" MaxLength="20" />
+    <Property Name="BEGINDT" Type="datetime" />
+    <Property Name="EDITMAN" Type="nvarchar" MaxLength="20" />
+    <Property Name="EDITDT" Type="datetime" />
+    <Property Name="cyusou" Type="varchar" MaxLength="35" />
+    <Property Name="cyinsou" Type="varchar" MaxLength="35" />
+    <Property Name="cyusoudf" Type="varchar" MaxLength="35" />
+    <Property Name="bzj" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="yjbzj" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="cconmante" Type="nvarchar" MaxLength="60" />
+    <Property Name="cdistflag" Type="nvarchar" MaxLength="12" />
+    <Property Name="cregionid" Type="nvarchar" MaxLength="12" />
+    <Property Name="csettlemodeid" Type="nvarchar" MaxLength="12" />
+    <Property Name="credit" Type="char" MaxLength="1" />
+    <Property Name="cvip" Type="char" MaxLength="1" />
+    <Property Name="resp_day" Type="int" />
+    <Property Name="cpivotflag" Type="char" MaxLength="1" />
+    <Property Name="cstation1" Type="nvarchar" MaxLength="20" />
+    <Property Name="dagio_a" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="cashflowidys" Type="int" />
+    <Property Name="cashflowids" Type="int" />
+    <Property Name="dbirth" Type="datetime" />
+    <Property Name="careflag" Type="char" MaxLength="1" />
+    <Property Name="cresidential" Type="nvarchar" MaxLength="80" />
+    <Property Name="capartments" Type="nvarchar" MaxLength="80" />
+    <Property Name="darea" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="cfurniture_style" Type="nvarchar" MaxLength="80" />
+    <Property Name="Cbrand" Type="nvarchar" MaxLength="80" />
+    <Property Name="csex" Type="char" MaxLength="1" />
+    <Property Name="cjob" Type="nvarchar" MaxLength="50" />
+    <Property Name="cfond" Type="nvarchar" MaxLength="50" />
+    <Property Name="coldlive" Type="char" MaxLength="1" />
+    <Property Name="cpet" Type="nvarchar" MaxLength="50" />
+    <Property Name="czxjd" Type="nvarchar" MaxLength="255" />
+    <Property Name="dmarrydate" Type="datetime" />
+    <Property Name="checkindate" Type="datetime" />
+    <Property Name="cstylist" Type="nvarchar" MaxLength="12" />
+    <Property Name="cdesign_company" Type="nvarchar" MaxLength="40" />
+    <Property Name="dhousesamt" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="ccompetition_brand" Type="nvarchar" MaxLength="80" />
+    <Property Name="cqqnumber" Type="nvarchar" MaxLength="20" />
+    <Property Name="cworkunit" Type="nvarchar" MaxLength="100" />
+    <Property Name="csalary" Type="nvarchar" MaxLength="20" />
+    <Property Name="crelation" Type="nvarchar" MaxLength="40" />
+    <Property Name="CTRANS" Type="nvarchar" MaxLength="20" />
+    <Property Name="cdeareaid" Type="nvarchar" MaxLength="12" Nullable="false" />
+    <Property Name="cpost" Type="nvarchar" MaxLength="2" />
+    <Property Name="cclassid_text" Type="nvarchar" MaxLength="20" />
+  </EntityType>
+  <!--生成过程中发现错误:
+警告 6002: 表/视图“kw_m01.dbo.vq_stockc”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+  <EntityType Name="vq_stockc">
+    <Key>
+      <PropertyRef Name="db" />
+      <PropertyRef Name="cmteid" />
+      <PropertyRef Name="cwhid" />
+      <PropertyRef Name="ccolorid" />
+    </Key>
+    <Property Name="db" Type="varchar" MaxLength="8" Nullable="false" />
+    <Property Name="cmteid" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="cwhid" Type="nvarchar" MaxLength="12" Nullable="false" />
+    <Property Name="ccolorid" Type="nvarchar" MaxLength="12" Nullable="false" />
+    <Property Name="dqty" Type="decimal" Precision="38" Scale="5" />
+    <Property Name="product_name" Type="nvarchar" MaxLength="60" />
+    <Property Name="cwhid_text" Type="nvarchar" MaxLength="20" />
+    <Property Name="ccolorid_text" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <Association Name="FK_M_CORDERC_M_CORDER">
+    <End Role="M_CORDER" Type="Self.M_CORDER" Multiplicity="1" />
+    <End Role="M_CORDERC" Type="Self.M_CORDERC" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="M_CORDER">
+        <PropertyRef Name="CCODE" />
+        <PropertyRef Name="cpathid" />
+      </Principal>
+      <Dependent Role="M_CORDERC">
+        <PropertyRef Name="CCODE" />
+        <PropertyRef Name="cquotid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_POLISTC_POLIST">
+    <End Role="M_POLIST" Type="Self.M_POLIST" Multiplicity="1" />
+    <End Role="M_POLISTC" Type="Self.M_POLISTC" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="M_POLIST">
+        <PropertyRef Name="CCODE" />
+        <PropertyRef Name="INETFLAG" />
+      </Principal>
+      <Dependent Role="M_POLISTC">
+        <PropertyRef Name="CCODE" />
+        <PropertyRef Name="INETFLAG" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="p_cre_custid_no" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="g_db" Type="varchar" Mode="In" />
+    <Parameter Name="g_area" Type="varchar" Mode="In" />
+    <Parameter Name="g_phone" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="p_getmaxcode3" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="as_code" Type="char" Mode="In" />
+    <Parameter Name="as_flag" Type="char" Mode="In" />
+    <Parameter Name="as_sysname" Type="nvarchar" Mode="In" />
+    <Parameter Name="adt_workdate" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="p_ins_custid_no" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="g_db" Type="varchar" Mode="In" />
+    <Parameter Name="g_ccustid" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="sp_audit_erp_corder" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="g_code" Type="nvarchar" Mode="In" />
+    <Parameter Name="g_db" Type="nvarchar" Mode="In" />
+    <Parameter Name="g_cmtMan" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_del_erp_corder" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="g_db" Type="varchar" Mode="In" />
+    <Parameter Name="g_code" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="sp_erp_corder" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="g_flag" Type="int" Mode="In" />
+    <Parameter Name="g_db" Type="varchar" Mode="In" />
+    <Parameter Name="g_code" Type="varchar" Mode="In" />
+    <Parameter Name="g_str1" Type="varchar" Mode="In" />
+    <Parameter Name="g_str2" Type="varchar" Mode="In" />
+    <Parameter Name="g_str3" Type="varchar" Mode="In" />
+    <Parameter Name="g_str4" Type="varchar" Mode="In" />
+    <Parameter Name="g_str5" Type="varchar" Mode="In" />
+    <Parameter Name="g_filter1" Type="varchar" Mode="In" />
+    <Parameter Name="g_filter2" Type="varchar" Mode="In" />
+    <Parameter Name="g_filter3" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="sp_ins_erp_corder" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="g_db" Type="varchar" Mode="In" />
+    <Parameter Name="g_code" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="sp_ins_erp_polist" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="g_db" Type="varchar" Mode="In" />
+    <Parameter Name="g_code" Type="varchar" Mode="In" />
+  </Function>
+  <EntityContainer Name="kw_m01ModelStoreContainer">
+    <EntitySet Name="err_01" EntityType="Self.err_01" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="gb_Store" EntityType="Self.gb_Store" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="M_CORDER" EntityType="Self.M_CORDER" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="M_CORDERC" EntityType="Self.M_CORDERC" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="M_CUSTOMER" EntityType="Self.M_CUSTOMER" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="M_POLIST" EntityType="Self.M_POLIST" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="M_POLISTC" EntityType="Self.M_POLISTC" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="M_StoreChange" EntityType="Self.M_StoreChange" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="mao_file" EntityType="Self.mao_file" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="map_file" EntityType="Self.map_file" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="v_accountinfo" EntityType="Self.v_accountinfo" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [v_accountinfo].[iorder] AS [iorder], 
+    [v_accountinfo].[ccode] AS [ccode], 
+    [v_accountinfo].[cname] AS [cname], 
+    [v_accountinfo].[cstyle] AS [cstyle], 
+    [v_accountinfo].[cstatus] AS [cstatus], 
+    [v_accountinfo].[cdbname] AS [cdbname], 
+    [v_accountinfo].[ccomputer] AS [ccomputer], 
+    [v_accountinfo].[cdbuser] AS [cdbuser], 
+    [v_accountinfo].[cdbpwd] AS [cdbpwd], 
+    [v_accountinfo].[csupper] AS [csupper], 
+    [v_accountinfo].[csuppwd] AS [csuppwd], 
+    [v_accountinfo].[cupgrade] AS [cupgrade]
+    FROM [dbo].[v_accountinfo] AS [v_accountinfo]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="v_attrItem" EntityType="Self.v_attrItem" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [v_attrItem].[db] AS [db], 
+    [v_attrItem].[cattrid] AS [cattrid], 
+    [v_attrItem].[cname] AS [cname]
+    FROM [dbo].[v_attrItem] AS [v_attrItem]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="v_colorset" EntityType="Self.v_colorset" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [v_colorset].[db] AS [db], 
+    [v_colorset].[dbname] AS [dbname], 
+    [v_colorset].[CCOLORID] AS [CCOLORID], 
+    [v_colorset].[CNAME] AS [CNAME], 
+    [v_colorset].[CENAME] AS [CENAME], 
+    [v_colorset].[iorder] AS [iorder], 
+    [v_colorset].[cbarcode] AS [cbarcode], 
+    [v_colorset].[ccolorstop] AS [ccolorstop], 
+    [v_colorset].[cclassid] AS [cclassid]
+    FROM [dbo].[v_colorset] AS [v_colorset]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="v_corder" EntityType="Self.v_corder" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [v_corder].[db] AS [db], 
+    [v_corder].[CCODE] AS [CCODE], 
+    [v_corder].[CCUSTID] AS [CCUSTID], 
+    [v_corder].[DDATE] AS [DDATE], 
+    [v_corder].[CCYID] AS [CCYID], 
+    [v_corder].[CPYID] AS [CPYID], 
+    [v_corder].[DAGIO] AS [DAGIO], 
+    [v_corder].[DPAYAMT] AS [DPAYAMT], 
+    [v_corder].[DPAYAMT1] AS [DPAYAMT1], 
+    [v_corder].[DPAYAMT2] AS [DPAYAMT2], 
+    [v_corder].[DDEDT] AS [DDEDT], 
+    [v_corder].[CDEADR] AS [CDEADR], 
+    [v_corder].[CTRANS] AS [CTRANS], 
+    [v_corder].[CCMAN] AS [CCMAN], 
+    [v_corder].[CSALEMAN] AS [CSALEMAN], 
+    [v_corder].[CREMARK] AS [CREMARK], 
+    [v_corder].[CMTFLAG] AS [CMTFLAG], 
+    [v_corder].[ENDFLAG] AS [ENDFLAG], 
+    [v_corder].[BEGINMAN] AS [BEGINMAN], 
+    [v_corder].[BEGINDT] AS [BEGINDT], 
+    [v_corder].[EDITMAN] AS [EDITMAN], 
+    [v_corder].[EDITDT] AS [EDITDT], 
+    [v_corder].[CMTMAN] AS [CMTMAN], 
+    [v_corder].[CMTDT] AS [CMTDT], 
+    [v_corder].[ENDMAN] AS [ENDMAN], 
+    [v_corder].[ENDDT] AS [ENDDT], 
+    [v_corder].[INETFLAG] AS [INETFLAG], 
+    [v_corder].[DAMT] AS [DAMT], 
+    [v_corder].[DCYAMT] AS [DCYAMT], 
+    [v_corder].[custphone] AS [custphone], 
+    [v_corder].[dtaxrate] AS [dtaxrate], 
+    [v_corder].[dtaxamt] AS [dtaxamt], 
+    [v_corder].[drate] AS [drate], 
+    [v_corder].[ccontractno] AS [ccontractno], 
+    [v_corder].[cchangeflag] AS [cchangeflag], 
+    [v_corder].[creadyflag] AS [creadyflag], 
+    [v_corder].[cagioempid] AS [cagioempid], 
+    [v_corder].[CORDER_CHANGEID] AS [CORDER_CHANGEID], 
+    [v_corder].[ccancelflag] AS [ccancelflag], 
+    [v_corder].[cwhid] AS [cwhid], 
+    [v_corder].[cpyway] AS [cpyway], 
+    [v_corder].[cregionid] AS [cregionid], 
+    [v_corder].[cisship] AS [cisship], 
+    [v_corder].[cpathid] AS [cpathid], 
+    [v_corder].[cischdedt] AS [cischdedt], 
+    [v_corder].[ddedt_new] AS [ddedt_new], 
+    [v_corder].[ipri] AS [ipri], 
+    [v_corder].[ccounterid] AS [ccounterid], 
+    [v_corder].[cstation1] AS [cstation1], 
+    [v_corder].[cchremark] AS [cchremark], 
+    [v_corder].[cstockflag] AS [cstockflag], 
+    [v_corder].[cforcestockflag] AS [cforcestockflag], 
+    [v_corder].[cpostate] AS [cpostate], 
+    [v_corder].[DFREIGHTAMT] AS [DFREIGHTAMT], 
+    [v_corder].[cfreeflag1] AS [cfreeflag1], 
+    [v_corder].[cfreeflag2] AS [cfreeflag2], 
+    [v_corder].[cfreeflag3] AS [cfreeflag3], 
+    [v_corder].[iprint] AS [iprint], 
+    [v_corder].[cfromcode] AS [cfromcode], 
+    [v_corder].[dpayamt_old] AS [dpayamt_old], 
+    [v_corder].[dpayamt1_old] AS [dpayamt1_old], 
+    [v_corder].[dagio_old] AS [dagio_old], 
+    [v_corder].[damt_old] AS [damt_old], 
+    [v_corder].[ifromnetflag] AS [ifromnetflag], 
+    [v_corder].[cupdflag] AS [cupdflag], 
+    [v_corder].[cbldflag] AS [cbldflag], 
+    [v_corder].[cexflag] AS [cexflag], 
+    [v_corder].[ctenantflag] AS [ctenantflag], 
+    [v_corder].[ccinflag] AS [ccinflag], 
+    [v_corder].[ccurplancode] AS [ccurplancode], 
+    [v_corder].[cautopoflag] AS [cautopoflag], 
+    [v_corder].[tally_damt] AS [tally_damt], 
+    [v_corder].[cvipid] AS [cvipid], 
+    [v_corder].[cprivilegeid] AS [cprivilegeid], 
+    [v_corder].[cannulmtman] AS [cannulmtman], 
+    [v_corder].[cannulmtdt] AS [cannulmtdt], 
+    [v_corder].[cmtdeamtflag] AS [cmtdeamtflag], 
+    [v_corder].[agiodt] AS [agiodt], 
+    [v_corder].[dcess] AS [dcess], 
+    [v_corder].[csmsflg] AS [csmsflg], 
+    [v_corder].[csmsman] AS [csmsman], 
+    [v_corder].[csmsdt] AS [csmsdt], 
+    [v_corder].[cstylist] AS [cstylist], 
+    [v_corder].[dcardamt] AS [dcardamt], 
+    [v_corder].[dchargeamt] AS [dchargeamt], 
+    [v_corder].[cdeareaid] AS [cdeareaid], 
+    [v_corder].[cmtdeamtman] AS [cmtdeamtman], 
+    [v_corder].[cmtdeamtdt] AS [cmtdeamtdt], 
+    [v_corder].[dconsumamt] AS [dconsumamt], 
+    [v_corder].[crefereeman] AS [crefereeman], 
+    [v_corder].[csignstylistid] AS [csignstylistid], 
+    [v_corder].[ccancelman] AS [ccancelman], 
+    [v_corder].[ccanceldt] AS [ccanceldt], 
+    [v_corder].[cappflag] AS [cappflag], 
+    [v_corder].[cappman] AS [cappman], 
+    [v_corder].[cappdt] AS [cappdt], 
+    [v_corder].[cprintman] AS [cprintman], 
+    [v_corder].[dpreamt] AS [dpreamt], 
+    [v_corder].[email] AS [email], 
+    [v_corder].[cpyid_text] AS [cpyid_text], 
+    [v_corder].[csaleman_text] AS [csaleman_text], 
+    [v_corder].[cwhid_text] AS [cwhid_text], 
+    [v_corder].[cpyway_text] AS [cpyway_text]
+    FROM [dbo].[v_corder] AS [v_corder]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="v_corderc" EntityType="Self.v_corderc" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [v_corderc].[db] AS [db], 
+    [v_corderc].[CCODE] AS [CCODE], 
+    [v_corderc].[IORDER] AS [IORDER], 
+    [v_corderc].[CMTEID] AS [CMTEID], 
+    [v_corderc].[CCMTEID] AS [CCMTEID], 
+    [v_corderc].[CCOLORID] AS [CCOLORID], 
+    [v_corderc].[CWHID] AS [CWHID], 
+    [v_corderc].[CDESC] AS [CDESC], 
+    [v_corderc].[DQTY] AS [DQTY], 
+    [v_corderc].[DPRICE] AS [DPRICE], 
+    [v_corderc].[INETFLAG] AS [INETFLAG], 
+    [v_corderc].[DDEQTY] AS [DDEQTY], 
+    [v_corderc].[DCOST] AS [DCOST], 
+    [v_corderc].[DCYPRICE] AS [DCYPRICE], 
+    [v_corderc].[DCYCOST] AS [DCYCOST], 
+    [v_corderc].[DAGIOC] AS [DAGIOC], 
+    [v_corderc].[dshipqty] AS [dshipqty], 
+    [v_corderc].[cpocode] AS [cpocode], 
+    [v_corderc].[cpoorder] AS [cpoorder], 
+    [v_corderc].[cattrid] AS [cattrid], 
+    [v_corderc].[dprice2] AS [dprice2], 
+    [v_corderc].[csalman] AS [csalman], 
+    [v_corderc].[dprise] AS [dprise], 
+    [v_corderc].[cplanflag] AS [cplanflag], 
+    [v_corderc].[ctaxflag] AS [ctaxflag], 
+    [v_corderc].[cindentflag] AS [cindentflag], 
+    [v_corderc].[ddedt] AS [ddedt], 
+    [v_corderc].[dpayqty] AS [dpayqty], 
+    [v_corderc].[cstateflag] AS [cstateflag], 
+    [v_corderc].[creadyflag] AS [creadyflag], 
+    [v_corderc].[dunpackamt] AS [dunpackamt], 
+    [v_corderc].[drate] AS [drate], 
+    [v_corderc].[cagioempid] AS [cagioempid], 
+    [v_corderc].[cpomanid] AS [cpomanid], 
+    [v_corderc].[damtc] AS [damtc], 
+    [v_corderc].[dreamtc] AS [dreamtc], 
+    [v_corderc].[cstation1] AS [cstation1], 
+    [v_corderc].[counterid] AS [counterid], 
+    [v_corderc].[crejtype] AS [crejtype], 
+    [v_corderc].[cpoflag] AS [cpoflag], 
+    [v_corderc].[cpostate] AS [cpostate], 
+    [v_corderc].[dpercent] AS [dpercent], 
+    [v_corderc].[cpodesc] AS [cpodesc], 
+    [v_corderc].[clargessflag] AS [clargessflag], 
+    [v_corderc].[drejqty] AS [drejqty], 
+    [v_corderc].[cunitid] AS [cunitid], 
+    [v_corderc].[cpcode] AS [cpcode], 
+    [v_corderc].[iporder] AS [iporder], 
+    [v_corderc].[BargainFlag] AS [BargainFlag], 
+    [v_corderc].[dshipplanqty] AS [dshipplanqty], 
+    [v_corderc].[dpack_qty] AS [dpack_qty], 
+    [v_corderc].[dpoqty] AS [dpoqty], 
+    [v_corderc].[dvinqty] AS [dvinqty], 
+    [v_corderc].[dTranprice] AS [dTranprice], 
+    [v_corderc].[cquotid] AS [cquotid], 
+    [v_corderc].[iquotorder] AS [iquotorder], 
+    [v_corderc].[csetflag] AS [csetflag], 
+    [v_corderc].[dshipdate] AS [dshipdate], 
+    [v_corderc].[dnotaxprice] AS [dnotaxprice], 
+    [v_corderc].[dpriseprice] AS [dpriseprice], 
+    [v_corderc].[cvipflag] AS [cvipflag], 
+    [v_corderc].[dplanqty] AS [dplanqty], 
+    [v_corderc].[ctype] AS [ctype], 
+    [v_corderc].[pName] AS [pName], 
+    [v_corderc].[pColor] AS [pColor], 
+    [v_corderc].[pUnit] AS [pUnit], 
+    [v_corderc].[pSpec] AS [pSpec], 
+    [v_corderc].[pStore] AS [pStore], 
+    [v_corderc].[pAttritem] AS [pAttritem]
+    FROM [dbo].[v_corderc] AS [v_corderc]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="v_custclas" EntityType="Self.v_custclas" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [v_custclas].[db] AS [db], 
+    [v_custclas].[CCLASSID] AS [CCLASSID], 
+    [v_custclas].[CREMARK] AS [CREMARK], 
+    [v_custclas].[CNAME] AS [CNAME], 
+    [v_custclas].[CLEVEL] AS [CLEVEL]
+    FROM [dbo].[v_custclas] AS [v_custclas]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="v_customer" EntityType="Self.v_customer" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [v_customer].[db] AS [db], 
+    [v_customer].[dbname] AS [dbname], 
+    [v_customer].[CCUSTID] AS [CCUSTID], 
+    [v_customer].[CNAME] AS [CNAME], 
+    [v_customer].[CCNAME] AS [CCNAME], 
+    [v_customer].[CENAME] AS [CENAME], 
+    [v_customer].[CADR1] AS [CADR1], 
+    [v_customer].[CADR2] AS [CADR2], 
+    [v_customer].[CDEADR1] AS [CDEADR1], 
+    [v_customer].[CDEADR2] AS [CDEADR2], 
+    [v_customer].[CINADR] AS [CINADR], 
+    [v_customer].[CCLASSID] AS [CCLASSID], 
+    [v_customer].[CBANK] AS [CBANK], 
+    [v_customer].[CBANKNO] AS [CBANKNO], 
+    [v_customer].[CMAIL] AS [CMAIL], 
+    [v_customer].[CCONMAN] AS [CCONMAN], 
+    [v_customer].[CTEL] AS [CTEL], 
+    [v_customer].[CFAX] AS [CFAX], 
+    [v_customer].[EMAIL] AS [EMAIL], 
+    [v_customer].[CWEB] AS [CWEB], 
+    [v_customer].[CCYID] AS [CCYID], 
+    [v_customer].[CPYID] AS [CPYID], 
+    [v_customer].[CADMIN] AS [CADMIN], 
+    [v_customer].[CSALEMAN] AS [CSALEMAN], 
+    [v_customer].[CSTATUS] AS [CSTATUS], 
+    [v_customer].[DCREDIT] AS [DCREDIT], 
+    [v_customer].[DAMT4] AS [DAMT4], 
+    [v_customer].[DAMT3] AS [DAMT3], 
+    [v_customer].[DDATE1] AS [DDATE1], 
+    [v_customer].[DAMT1] AS [DAMT1], 
+    [v_customer].[DDATE2] AS [DDATE2], 
+    [v_customer].[DAMT2] AS [DAMT2], 
+    [v_customer].[CREMARK] AS [CREMARK], 
+    [v_customer].[BEGINMAN] AS [BEGINMAN], 
+    [v_customer].[BEGINDT] AS [BEGINDT], 
+    [v_customer].[EDITMAN] AS [EDITMAN], 
+    [v_customer].[EDITDT] AS [EDITDT], 
+    [v_customer].[cyusou] AS [cyusou], 
+    [v_customer].[cyinsou] AS [cyinsou], 
+    [v_customer].[cyusoudf] AS [cyusoudf], 
+    [v_customer].[bzj] AS [bzj], 
+    [v_customer].[yjbzj] AS [yjbzj], 
+    [v_customer].[cconmante] AS [cconmante], 
+    [v_customer].[cdistflag] AS [cdistflag], 
+    [v_customer].[cregionid] AS [cregionid], 
+    [v_customer].[csettlemodeid] AS [csettlemodeid], 
+    [v_customer].[credit] AS [credit], 
+    [v_customer].[cvip] AS [cvip], 
+    [v_customer].[resp_day] AS [resp_day], 
+    [v_customer].[cpivotflag] AS [cpivotflag], 
+    [v_customer].[cstation1] AS [cstation1], 
+    [v_customer].[dagio_a] AS [dagio_a], 
+    [v_customer].[cashflowidys] AS [cashflowidys], 
+    [v_customer].[cashflowids] AS [cashflowids], 
+    [v_customer].[dbirth] AS [dbirth], 
+    [v_customer].[careflag] AS [careflag], 
+    [v_customer].[cresidential] AS [cresidential], 
+    [v_customer].[capartments] AS [capartments], 
+    [v_customer].[darea] AS [darea], 
+    [v_customer].[cfurniture_style] AS [cfurniture_style], 
+    [v_customer].[Cbrand] AS [Cbrand], 
+    [v_customer].[csex] AS [csex], 
+    [v_customer].[cjob] AS [cjob], 
+    [v_customer].[cfond] AS [cfond], 
+    [v_customer].[coldlive] AS [coldlive], 
+    [v_customer].[cpet] AS [cpet], 
+    [v_customer].[czxjd] AS [czxjd], 
+    [v_customer].[dmarrydate] AS [dmarrydate], 
+    [v_customer].[checkindate] AS [checkindate], 
+    [v_customer].[cstylist] AS [cstylist], 
+    [v_customer].[cdesign_company] AS [cdesign_company], 
+    [v_customer].[dhousesamt] AS [dhousesamt], 
+    [v_customer].[ccompetition_brand] AS [ccompetition_brand], 
+    [v_customer].[cqqnumber] AS [cqqnumber], 
+    [v_customer].[cworkunit] AS [cworkunit], 
+    [v_customer].[csalary] AS [csalary], 
+    [v_customer].[crelation] AS [crelation], 
+    [v_customer].[CTRANS] AS [CTRANS], 
+    [v_customer].[cdeareaid] AS [cdeareaid], 
+    [v_customer].[cpost] AS [cpost], 
+    [v_customer].[cclassid_text] AS [cclassid_text]
+    FROM [dbo].[v_customer] AS [v_customer]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="v_payment" EntityType="Self.v_payment" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [v_payment].[db] AS [db], 
+    [v_payment].[CPYID] AS [CPYID], 
+    [v_payment].[CREMARK] AS [CREMARK], 
+    [v_payment].[CFLAG] AS [CFLAG], 
+    [v_payment].[CNAME] AS [CNAME], 
+    [v_payment].[DDAYS] AS [DDAYS], 
+    [v_payment].[cstop] AS [cstop]
+    FROM [dbo].[v_payment] AS [v_payment]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="v_prodclas" EntityType="Self.v_prodclas" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [v_prodclas].[db] AS [db], 
+    [v_prodclas].[cname] AS [cname], 
+    [v_prodclas].[classid] AS [classid], 
+    [v_prodclas].[clevel] AS [clevel]
+    FROM [dbo].[v_prodclas] AS [v_prodclas]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="v_prodcolor" EntityType="Self.v_prodcolor" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [v_prodcolor].[db] AS [db], 
+    [v_prodcolor].[dbname] AS [dbname], 
+    [v_prodcolor].[CMTEID] AS [CMTEID], 
+    [v_prodcolor].[CCOLORID] AS [CCOLORID], 
+    [v_prodcolor].[DCOST] AS [DCOST], 
+    [v_prodcolor].[DPRICE2] AS [DPRICE2], 
+    [v_prodcolor].[CFROMADR] AS [CFROMADR], 
+    [v_prodcolor].[CWHPLACE] AS [CWHPLACE], 
+    [v_prodcolor].[CLEVEL] AS [CLEVEL], 
+    [v_prodcolor].[CDESC] AS [CDESC], 
+    [v_prodcolor].[DPERCENT] AS [DPERCENT], 
+    [v_prodcolor].[DPRISE] AS [DPRISE], 
+    [v_prodcolor].[DPRICE1] AS [DPRICE1], 
+    [v_prodcolor].[CATTRID] AS [CATTRID], 
+    [v_prodcolor].[DMINQTY] AS [DMINQTY], 
+    [v_prodcolor].[DMAXQTY] AS [DMAXQTY], 
+    [v_prodcolor].[dprice_neap] AS [dprice_neap], 
+    [v_prodcolor].[dpricea1] AS [dpricea1], 
+    [v_prodcolor].[dpriceb1] AS [dpriceb1], 
+    [v_prodcolor].[dpricec1] AS [dpricec1], 
+    [v_prodcolor].[dpriced1] AS [dpriced1], 
+    [v_prodcolor].[dpricee1] AS [dpricee1], 
+    [v_prodcolor].[dpricef1] AS [dpricef1], 
+    [v_prodcolor].[pressprice] AS [pressprice], 
+    [v_prodcolor].[crefcode] AS [crefcode], 
+    [v_prodcolor].[iporder] AS [iporder], 
+    [v_prodcolor].[defultflag] AS [defultflag], 
+    [v_prodcolor].[cname] AS [cname]
+    FROM [dbo].[v_prodcolor] AS [v_prodcolor]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="v_product" EntityType="Self.v_product" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [v_product].[db] AS [db], 
+    [v_product].[dbname] AS [dbname], 
+    [v_product].[CMTEID] AS [CMTEID], 
+    [v_product].[CCNAME] AS [CCNAME], 
+    [v_product].[CENAME] AS [CENAME], 
+    [v_product].[CSPEC] AS [CSPEC], 
+    [v_product].[CESPEC] AS [CESPEC], 
+    [v_product].[CUNITID] AS [CUNITID], 
+    [v_product].[CCLASSID] AS [CCLASSID], 
+    [v_product].[DCOST] AS [DCOST], 
+    [v_product].[DPRICE2] AS [DPRICE2], 
+    [v_product].[DPRICE] AS [DPRICE], 
+    [v_product].[CVENDID] AS [CVENDID], 
+    [v_product].[CPRICETY] AS [CPRICETY], 
+    [v_product].[CPHOTO] AS [CPHOTO], 
+    [v_product].[DMAX] AS [DMAX], 
+    [v_product].[DMIN] AS [DMIN], 
+    [v_product].[DWHAREA] AS [DWHAREA], 
+    [v_product].[DWHPLACE] AS [DWHPLACE], 
+    [v_product].[DWEIGHT] AS [DWEIGHT], 
+    [v_product].[CWTUNIT] AS [CWTUNIT], 
+    [v_product].[DVOLUME] AS [DVOLUME], 
+    [v_product].[DVOLUNIT] AS [DVOLUNIT], 
+    [v_product].[CFLAG2] AS [CFLAG2], 
+    [v_product].[ICYC] AS [ICYC], 
+    [v_product].[CCREMARK] AS [CCREMARK], 
+    [v_product].[CEREMARK] AS [CEREMARK], 
+    [v_product].[DSTARTDT] AS [DSTARTDT], 
+    [v_product].[DSTOPDT] AS [DSTOPDT], 
+    [v_product].[CCUSTOM1] AS [CCUSTOM1], 
+    [v_product].[CUSTOME2] AS [CUSTOME2], 
+    [v_product].[BEGINMAN] AS [BEGINMAN], 
+    [v_product].[BEGINDT] AS [BEGINDT], 
+    [v_product].[EDITMAN] AS [EDITMAN], 
+    [v_product].[EDITDT] AS [EDITDT], 
+    [v_product].[cacctno] AS [cacctno], 
+    [v_product].[ccenben] AS [ccenben], 
+    [v_product].[ccaigou] AS [ccaigou], 
+    [v_product].[cxiaosou] AS [cxiaosou], 
+    [v_product].[csouru] AS [csouru], 
+    [v_product].[cxsfy] AS [cxsfy], 
+    [v_product].[cstop] AS [cstop], 
+    [v_product].[cattrid] AS [cattrid], 
+    [v_product].[dlength] AS [dlength], 
+    [v_product].[dwidth] AS [dwidth], 
+    [v_product].[dheight] AS [dheight], 
+    [v_product].[cdefwhid] AS [cdefwhid], 
+    [v_product].[ckctj] AS [ckctj], 
+    [v_product].[CPOMANID] AS [CPOMANID], 
+    [v_product].[cbarcode] AS [cbarcode], 
+    [v_product].[cpackid] AS [cpackid], 
+    [v_product].[iadvance] AS [iadvance], 
+    [v_product].[iadvance_sea] AS [iadvance_sea], 
+    [v_product].[iadvance_other] AS [iadvance_other], 
+    [v_product].[cabccode] AS [cabccode], 
+    [v_product].[ccolorflag] AS [ccolorflag], 
+    [v_product].[dpriceA] AS [dpriceA], 
+    [v_product].[dpriceB] AS [dpriceB], 
+    [v_product].[dpriceC] AS [dpriceC], 
+    [v_product].[dpriceD] AS [dpriceD], 
+    [v_product].[dpriceE] AS [dpriceE], 
+    [v_product].[dpriceF] AS [dpriceF], 
+    [v_product].[dprice_tiptop] AS [dprice_tiptop], 
+    [v_product].[dprice_neap] AS [dprice_neap], 
+    [v_product].[csetflag] AS [csetflag], 
+    [v_product].[dagio] AS [dagio], 
+    [v_product].[cassflag] AS [cassflag], 
+    [v_product].[cclassid2] AS [cclassid2], 
+    [v_product].[dprise] AS [dprise], 
+    [v_product].[dpercent] AS [dpercent], 
+    [v_product].[cisdagio] AS [cisdagio], 
+    [v_product].[pressprice] AS [pressprice], 
+    [v_product].[cbrandid] AS [cbrandid], 
+    [v_product].[caddress] AS [caddress], 
+    [v_product].[dpack_qty] AS [dpack_qty], 
+    [v_product].[itransport] AS [itransport], 
+    [v_product].[itransport_sea] AS [itransport_sea], 
+    [v_product].[itransport_other] AS [itransport_other], 
+    [v_product].[csplit] AS [csplit], 
+    [v_product].[cpricenocolflag] AS [cpricenocolflag], 
+    [v_product].[cphotoxgt] AS [cphotoxgt], 
+    [v_product].[cphotozzt] AS [cphotozzt], 
+    [v_product].[cphotojt] AS [cphotojt], 
+    [v_product].[dnetweight] AS [dnetweight], 
+    [v_product].[cstuff] AS [cstuff], 
+    [v_product].[cdetaildesc1] AS [cdetaildesc1], 
+    [v_product].[cdetaildesc2] AS [cdetaildesc2], 
+    [v_product].[dfreight] AS [dfreight], 
+    [v_product].[dsetamt] AS [dsetamt], 
+    [v_product].[darea] AS [darea]
+    FROM [dbo].[v_product] AS [v_product]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="v_product1" EntityType="Self.v_product1" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [v_product1].[db] AS [db], 
+    [v_product1].[CMTEID] AS [CMTEID], 
+    [v_product1].[CCNAME] AS [CCNAME], 
+    [v_product1].[CSPEC] AS [CSPEC], 
+    [v_product1].[CENAME] AS [CENAME], 
+    [v_product1].[CESPEC] AS [CESPEC], 
+    [v_product1].[CUNITID] AS [CUNITID], 
+    [v_product1].[CNAME] AS [CNAME], 
+    [v_product1].[CCLASSID] AS [CCLASSID], 
+    [v_product1].[CNAME_b] AS [CNAME_b], 
+    [v_product1].[DCOST] AS [DCOST], 
+    [v_product1].[DPRICE] AS [DPRICE], 
+    [v_product1].[DWEIGHT] AS [DWEIGHT], 
+    [v_product1].[CWTUNIT] AS [CWTUNIT], 
+    [v_product1].[DVOLUME] AS [DVOLUME], 
+    [v_product1].[DVOLUNIT] AS [DVOLUNIT], 
+    [v_product1].[CVENDID] AS [CVENDID], 
+    [v_product1].[vendor_name] AS [vendor_name], 
+    [v_product1].[CLEVEL] AS [CLEVEL], 
+    [v_product1].[dpack_qty] AS [dpack_qty], 
+    [v_product1].[cunitname] AS [cunitname], 
+    [v_product1].[cattrid] AS [cattrid], 
+    [v_product1].[ccremark] AS [ccremark], 
+    [v_product1].[ceremark] AS [ceremark], 
+    [v_product1].[cattname] AS [cattname], 
+    [v_product1].[caddress] AS [caddress], 
+    [v_product1].[cstuff] AS [cstuff], 
+    [v_product1].[ccolorname] AS [ccolorname], 
+    [v_product1].[CCOLORID] AS [CCOLORID]
+    FROM [dbo].[v_product1] AS [v_product1]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="v_saler" EntityType="Self.v_saler" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [v_saler].[db] AS [db], 
+    [v_saler].[CEMPID] AS [CEMPID], 
+    [v_saler].[CNAME] AS [CNAME]
+    FROM [dbo].[v_saler] AS [v_saler]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="v_SettleMode" EntityType="Self.v_SettleMode" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [v_SettleMode].[db] AS [db], 
+    [v_SettleMode].[FStlNo] AS [FStlNo], 
+    [v_SettleMode].[FStlName] AS [FStlName], 
+    [v_SettleMode].[FAcctNo] AS [FAcctNo], 
+    [v_SettleMode].[tallyflag] AS [tallyflag], 
+    [v_SettleMode].[ccardflag] AS [ccardflag], 
+    [v_SettleMode].[cstopflag] AS [cstopflag], 
+    [v_SettleMode].[cclassid] AS [cclassid], 
+    [v_SettleMode].[cdesc] AS [cdesc]
+    FROM [dbo].[v_SettleMode] AS [v_SettleMode]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="v_singnstylist" EntityType="Self.v_singnstylist" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [v_singnstylist].[db] AS [db], 
+    [v_singnstylist].[csignstylistid] AS [csignstylistid], 
+    [v_singnstylist].[cname] AS [cname]
+    FROM [dbo].[v_singnstylist] AS [v_singnstylist]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="v_station" EntityType="Self.v_station" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [v_station].[a01] AS [a01], 
+    [v_station].[a02] AS [a02], 
+    [v_station].[a03] AS [a03], 
+    [v_station].[cstation] AS [cstation], 
+    [v_station].[cname] AS [cname]
+    FROM [dbo].[v_station] AS [v_station]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="v_unit" EntityType="Self.v_unit" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [v_unit].[db] AS [db], 
+    [v_unit].[dbname] AS [dbname], 
+    [v_unit].[CUNITID] AS [CUNITID], 
+    [v_unit].[CREMARK] AS [CREMARK], 
+    [v_unit].[CNAME] AS [CNAME]
+    FROM [dbo].[v_unit] AS [v_unit]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="v_userlist" EntityType="Self.v_userlist" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [v_userlist].[db] AS [db], 
+    [v_userlist].[dbname] AS [dbname], 
+    [v_userlist].[csys] AS [csys], 
+    [v_userlist].[cid] AS [cid], 
+    [v_userlist].[cname] AS [cname], 
+    [v_userlist].[cpwd] AS [cpwd], 
+    [v_userlist].[csuper] AS [csuper], 
+    [v_userlist].[dagio_neap] AS [dagio_neap], 
+    [v_userlist].[cisback] AS [cisback], 
+    [v_userlist].[cdesc] AS [cdesc], 
+    [v_userlist].[corderquery_days] AS [corderquery_days], 
+    [v_userlist].[cstop] AS [cstop], 
+    [v_userlist].[cempid] AS [cempid]
+    FROM [dbo].[v_userlist] AS [v_userlist]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="v_vendclas" EntityType="Self.v_vendclas" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [v_vendclas].[db] AS [db], 
+    [v_vendclas].[CLEVEL] AS [CLEVEL], 
+    [v_vendclas].[new_name] AS [new_name], 
+    [v_vendclas].[cremark] AS [cremark], 
+    [v_vendclas].[cclassid] AS [cclassid]
+    FROM [dbo].[v_vendclas] AS [v_vendclas]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="v_vendor" EntityType="Self.v_vendor" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [v_vendor].[db] AS [db], 
+    [v_vendor].[CVENDID] AS [CVENDID], 
+    [v_vendor].[CNAME] AS [CNAME], 
+    [v_vendor].[CCNAME] AS [CCNAME], 
+    [v_vendor].[CCLASSID] AS [CCLASSID], 
+    [v_vendor].[CNAME_a] AS [CNAME_a], 
+    [v_vendor].[CADR1] AS [CADR1], 
+    [v_vendor].[CMAIL] AS [CMAIL], 
+    [v_vendor].[CCONMAN] AS [CCONMAN], 
+    [v_vendor].[CBANK] AS [CBANK], 
+    [v_vendor].[CBANKNO] AS [CBANKNO], 
+    [v_vendor].[CPYID] AS [CPYID], 
+    [v_vendor].[CSTATUS] AS [CSTATUS], 
+    [v_vendor].[CFLAG] AS [CFLAG], 
+    [v_vendor].[CPOMAN] AS [CPOMAN], 
+    [v_vendor].[CLEVEL] AS [CLEVEL], 
+    [v_vendor].[CCYID] AS [CCYID], 
+    [v_vendor].[CTEL] AS [CTEL], 
+    [v_vendor].[iadvance] AS [iadvance], 
+    [v_vendor].[iadvance_sea] AS [iadvance_sea], 
+    [v_vendor].[iadvance_other] AS [iadvance_other], 
+    [v_vendor].[ipocyc] AS [ipocyc], 
+    [v_vendor].[istcyc] AS [istcyc], 
+    [v_vendor].[cycid] AS [cycid], 
+    [v_vendor].[cacctvendid] AS [cacctvendid], 
+    [v_vendor].[cpomanname] AS [cpomanname], 
+    [v_vendor].[dtaxrate] AS [dtaxrate], 
+    [v_vendor].[csettlemodeid] AS [csettlemodeid], 
+    [v_vendor].[FStlName] AS [FStlName]
+    FROM [dbo].[v_vendor] AS [v_vendor]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="v_warehous" EntityType="Self.v_warehous" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [v_warehous].[db] AS [db], 
+    [v_warehous].[CWHID] AS [CWHID], 
+    [v_warehous].[CNAME] AS [CNAME]
+    FROM [dbo].[v_warehous] AS [v_warehous]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="v_warehous1" EntityType="Self.v_warehous1" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [v_warehous1].[db] AS [db], 
+    [v_warehous1].[CWHID] AS [CWHID], 
+    [v_warehous1].[CREMARK] AS [CREMARK], 
+    [v_warehous1].[CADR] AS [CADR], 
+    [v_warehous1].[CTEL] AS [CTEL], 
+    [v_warehous1].[CNAME] AS [CNAME], 
+    [v_warehous1].[CADMIN] AS [CADMIN], 
+    [v_warehous1].[INETFLAG] AS [INETFLAG], 
+    [v_warehous1].[AREA] AS [AREA], 
+    [v_warehous1].[csalesflag] AS [csalesflag], 
+    [v_warehous1].[ccalcflag] AS [ccalcflag], 
+    [v_warehous1].[isstation] AS [isstation], 
+    [v_warehous1].[cstation] AS [cstation], 
+    [v_warehous1].[cshopid] AS [cshopid], 
+    [v_warehous1].[cshopman] AS [cshopman], 
+    [v_warehous1].[CCLASSID] AS [CCLASSID], 
+    [v_warehous1].[cclassname] AS [cclassname], 
+    [v_warehous1].[CLEVEL] AS [CLEVEL]
+    FROM [dbo].[v_warehous1] AS [v_warehous1]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="v_warehousclas" EntityType="Self.v_warehousclas" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [v_warehousclas].[db] AS [db], 
+    [v_warehousclas].[CLEVEL] AS [CLEVEL], 
+    [v_warehousclas].[new_name] AS [new_name], 
+    [v_warehousclas].[cla] AS [cla]
+    FROM [dbo].[v_warehousclas] AS [v_warehousclas]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vq_m_corder" EntityType="Self.vq_m_corder" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vq_m_corder].[CCODE] AS [CCODE], 
+    [vq_m_corder].[CCUSTID] AS [CCUSTID], 
+    [vq_m_corder].[DDATE] AS [DDATE], 
+    [vq_m_corder].[CCYID] AS [CCYID], 
+    [vq_m_corder].[CPYID] AS [CPYID], 
+    [vq_m_corder].[DAGIO] AS [DAGIO], 
+    [vq_m_corder].[DPAYAMT] AS [DPAYAMT], 
+    [vq_m_corder].[DPAYAMT1] AS [DPAYAMT1], 
+    [vq_m_corder].[DPAYAMT2] AS [DPAYAMT2], 
+    [vq_m_corder].[DDEDT] AS [DDEDT], 
+    [vq_m_corder].[CDEADR] AS [CDEADR], 
+    [vq_m_corder].[CTRANS] AS [CTRANS], 
+    [vq_m_corder].[CCMAN] AS [CCMAN], 
+    [vq_m_corder].[CSALEMAN] AS [CSALEMAN], 
+    [vq_m_corder].[CREMARK] AS [CREMARK], 
+    [vq_m_corder].[CMTFLAG] AS [CMTFLAG], 
+    [vq_m_corder].[ENDFLAG] AS [ENDFLAG], 
+    [vq_m_corder].[BEGINMAN] AS [BEGINMAN], 
+    [vq_m_corder].[BEGINDT] AS [BEGINDT], 
+    [vq_m_corder].[EDITMAN] AS [EDITMAN], 
+    [vq_m_corder].[EDITDT] AS [EDITDT], 
+    [vq_m_corder].[CMTMAN] AS [CMTMAN], 
+    [vq_m_corder].[CMTDT] AS [CMTDT], 
+    [vq_m_corder].[ENDMAN] AS [ENDMAN], 
+    [vq_m_corder].[ENDDT] AS [ENDDT], 
+    [vq_m_corder].[INETFLAG] AS [INETFLAG], 
+    [vq_m_corder].[DAMT] AS [DAMT], 
+    [vq_m_corder].[DCYAMT] AS [DCYAMT], 
+    [vq_m_corder].[custphone] AS [custphone], 
+    [vq_m_corder].[dtaxrate] AS [dtaxrate], 
+    [vq_m_corder].[dtaxamt] AS [dtaxamt], 
+    [vq_m_corder].[drate] AS [drate], 
+    [vq_m_corder].[ccontractno] AS [ccontractno], 
+    [vq_m_corder].[cchangeflag] AS [cchangeflag], 
+    [vq_m_corder].[creadyflag] AS [creadyflag], 
+    [vq_m_corder].[cagioempid] AS [cagioempid], 
+    [vq_m_corder].[CORDER_CHANGEID] AS [CORDER_CHANGEID], 
+    [vq_m_corder].[ccancelflag] AS [ccancelflag], 
+    [vq_m_corder].[cwhid] AS [cwhid], 
+    [vq_m_corder].[cpyway] AS [cpyway], 
+    [vq_m_corder].[cregionid] AS [cregionid], 
+    [vq_m_corder].[cisship] AS [cisship], 
+    [vq_m_corder].[cpathid] AS [cpathid], 
+    [vq_m_corder].[cischdedt] AS [cischdedt], 
+    [vq_m_corder].[ddedt_new] AS [ddedt_new], 
+    [vq_m_corder].[ipri] AS [ipri], 
+    [vq_m_corder].[ccounterid] AS [ccounterid], 
+    [vq_m_corder].[cstation1] AS [cstation1], 
+    [vq_m_corder].[cchremark] AS [cchremark], 
+    [vq_m_corder].[cstockflag] AS [cstockflag], 
+    [vq_m_corder].[cforcestockflag] AS [cforcestockflag], 
+    [vq_m_corder].[cpostate] AS [cpostate], 
+    [vq_m_corder].[DFREIGHTAMT] AS [DFREIGHTAMT], 
+    [vq_m_corder].[cfreeflag1] AS [cfreeflag1], 
+    [vq_m_corder].[cfreeflag2] AS [cfreeflag2], 
+    [vq_m_corder].[cfreeflag3] AS [cfreeflag3], 
+    [vq_m_corder].[iprint] AS [iprint], 
+    [vq_m_corder].[cfromcode] AS [cfromcode], 
+    [vq_m_corder].[dpayamt_old] AS [dpayamt_old], 
+    [vq_m_corder].[dpayamt1_old] AS [dpayamt1_old], 
+    [vq_m_corder].[dagio_old] AS [dagio_old], 
+    [vq_m_corder].[damt_old] AS [damt_old], 
+    [vq_m_corder].[ifromnetflag] AS [ifromnetflag], 
+    [vq_m_corder].[cupdflag] AS [cupdflag], 
+    [vq_m_corder].[cbldflag] AS [cbldflag], 
+    [vq_m_corder].[cexflag] AS [cexflag], 
+    [vq_m_corder].[ctenantflag] AS [ctenantflag], 
+    [vq_m_corder].[ccinflag] AS [ccinflag], 
+    [vq_m_corder].[ccurplancode] AS [ccurplancode], 
+    [vq_m_corder].[cautopoflag] AS [cautopoflag], 
+    [vq_m_corder].[tally_damt] AS [tally_damt], 
+    [vq_m_corder].[cvipid] AS [cvipid], 
+    [vq_m_corder].[cprivilegeid] AS [cprivilegeid], 
+    [vq_m_corder].[cannulmtman] AS [cannulmtman], 
+    [vq_m_corder].[cannulmtdt] AS [cannulmtdt], 
+    [vq_m_corder].[cmtdeamtflag] AS [cmtdeamtflag], 
+    [vq_m_corder].[agiodt] AS [agiodt], 
+    [vq_m_corder].[dcess] AS [dcess], 
+    [vq_m_corder].[csmsflg] AS [csmsflg], 
+    [vq_m_corder].[csmsman] AS [csmsman], 
+    [vq_m_corder].[csmsdt] AS [csmsdt], 
+    [vq_m_corder].[cstylist] AS [cstylist], 
+    [vq_m_corder].[dcardamt] AS [dcardamt], 
+    [vq_m_corder].[dchargeamt] AS [dchargeamt], 
+    [vq_m_corder].[cdeareaid] AS [cdeareaid], 
+    [vq_m_corder].[cmtdeamtman] AS [cmtdeamtman], 
+    [vq_m_corder].[cmtdeamtdt] AS [cmtdeamtdt], 
+    [vq_m_corder].[dconsumamt] AS [dconsumamt], 
+    [vq_m_corder].[crefereeman] AS [crefereeman], 
+    [vq_m_corder].[csignstylistid] AS [csignstylistid], 
+    [vq_m_corder].[ccancelman] AS [ccancelman], 
+    [vq_m_corder].[ccanceldt] AS [ccanceldt], 
+    [vq_m_corder].[cappflag] AS [cappflag], 
+    [vq_m_corder].[cappman] AS [cappman], 
+    [vq_m_corder].[cappdt] AS [cappdt], 
+    [vq_m_corder].[cprintman] AS [cprintman], 
+    [vq_m_corder].[dpreamt] AS [dpreamt], 
+    [vq_m_corder].[email] AS [email], 
+    [vq_m_corder].[cpyid_text] AS [cpyid_text], 
+    [vq_m_corder].[cpyway_text] AS [cpyway_text], 
+    [vq_m_corder].[cwhid_text] AS [cwhid_text], 
+    [vq_m_corder].[csignstylistid_text] AS [csignstylistid_text], 
+    [vq_m_corder].[CSALEMAN_text] AS [CSALEMAN_text]
+    FROM [dbo].[vq_m_corder] AS [vq_m_corder]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vq_m_corderc" EntityType="Self.vq_m_corderc" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vq_m_corderc].[CCODE] AS [CCODE], 
+    [vq_m_corderc].[IORDER] AS [IORDER], 
+    [vq_m_corderc].[CMTEID] AS [CMTEID], 
+    [vq_m_corderc].[CCMTEID] AS [CCMTEID], 
+    [vq_m_corderc].[CCOLORID] AS [CCOLORID], 
+    [vq_m_corderc].[CWHID] AS [CWHID], 
+    [vq_m_corderc].[CDESC] AS [CDESC], 
+    [vq_m_corderc].[DQTY] AS [DQTY], 
+    [vq_m_corderc].[DPRICE] AS [DPRICE], 
+    [vq_m_corderc].[INETFLAG] AS [INETFLAG], 
+    [vq_m_corderc].[DDEQTY] AS [DDEQTY], 
+    [vq_m_corderc].[DCOST] AS [DCOST], 
+    [vq_m_corderc].[DCYPRICE] AS [DCYPRICE], 
+    [vq_m_corderc].[DCYCOST] AS [DCYCOST], 
+    [vq_m_corderc].[DAGIOC] AS [DAGIOC], 
+    [vq_m_corderc].[dshipqty] AS [dshipqty], 
+    [vq_m_corderc].[cpocode] AS [cpocode], 
+    [vq_m_corderc].[cpoorder] AS [cpoorder], 
+    [vq_m_corderc].[cattrid] AS [cattrid], 
+    [vq_m_corderc].[dprice2] AS [dprice2], 
+    [vq_m_corderc].[csalman] AS [csalman], 
+    [vq_m_corderc].[dprise] AS [dprise], 
+    [vq_m_corderc].[cplanflag] AS [cplanflag], 
+    [vq_m_corderc].[ctaxflag] AS [ctaxflag], 
+    [vq_m_corderc].[cindentflag] AS [cindentflag], 
+    [vq_m_corderc].[ddedt] AS [ddedt], 
+    [vq_m_corderc].[dpayqty] AS [dpayqty], 
+    [vq_m_corderc].[cstateflag] AS [cstateflag], 
+    [vq_m_corderc].[creadyflag] AS [creadyflag], 
+    [vq_m_corderc].[dunpackamt] AS [dunpackamt], 
+    [vq_m_corderc].[drate] AS [drate], 
+    [vq_m_corderc].[cagioempid] AS [cagioempid], 
+    [vq_m_corderc].[cpomanid] AS [cpomanid], 
+    [vq_m_corderc].[damtc] AS [damtc], 
+    [vq_m_corderc].[dreamtc] AS [dreamtc], 
+    [vq_m_corderc].[cstation1] AS [cstation1], 
+    [vq_m_corderc].[counterid] AS [counterid], 
+    [vq_m_corderc].[crejtype] AS [crejtype], 
+    [vq_m_corderc].[cpoflag] AS [cpoflag], 
+    [vq_m_corderc].[cpostate] AS [cpostate], 
+    [vq_m_corderc].[dpercent] AS [dpercent], 
+    [vq_m_corderc].[cpodesc] AS [cpodesc], 
+    [vq_m_corderc].[clargessflag] AS [clargessflag], 
+    [vq_m_corderc].[drejqty] AS [drejqty], 
+    [vq_m_corderc].[cunitid] AS [cunitid], 
+    [vq_m_corderc].[cpcode] AS [cpcode], 
+    [vq_m_corderc].[iporder] AS [iporder], 
+    [vq_m_corderc].[BargainFlag] AS [BargainFlag], 
+    [vq_m_corderc].[dshipplanqty] AS [dshipplanqty], 
+    [vq_m_corderc].[dpack_qty] AS [dpack_qty], 
+    [vq_m_corderc].[dpoqty] AS [dpoqty], 
+    [vq_m_corderc].[dvinqty] AS [dvinqty], 
+    [vq_m_corderc].[dTranprice] AS [dTranprice], 
+    [vq_m_corderc].[cquotid] AS [cquotid], 
+    [vq_m_corderc].[iquotorder] AS [iquotorder], 
+    [vq_m_corderc].[csetflag] AS [csetflag], 
+    [vq_m_corderc].[dshipdate] AS [dshipdate], 
+    [vq_m_corderc].[dnotaxprice] AS [dnotaxprice], 
+    [vq_m_corderc].[dpriseprice] AS [dpriseprice], 
+    [vq_m_corderc].[cvipflag] AS [cvipflag], 
+    [vq_m_corderc].[dplanqty] AS [dplanqty], 
+    [vq_m_corderc].[ctype] AS [ctype], 
+    [vq_m_corderc].[pName] AS [pName], 
+    [vq_m_corderc].[pSpec] AS [pSpec], 
+    [vq_m_corderc].[pUnit] AS [pUnit], 
+    [vq_m_corderc].[pColor] AS [pColor], 
+    [vq_m_corderc].[pStore] AS [pStore], 
+    [vq_m_corderc].[pAttritem] AS [pAttritem], 
+    [vq_m_corderc].[pInventory] AS [pInventory], 
+    [vq_m_corderc].[cstation1_text] AS [cstation1_text]
+    FROM [dbo].[vq_m_corderc] AS [vq_m_corderc]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vq_m_customer" EntityType="Self.vq_m_customer" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vq_m_customer].[CCUSTID] AS [CCUSTID], 
+    [vq_m_customer].[CNAME] AS [CNAME], 
+    [vq_m_customer].[CCNAME] AS [CCNAME], 
+    [vq_m_customer].[CENAME] AS [CENAME], 
+    [vq_m_customer].[CADR1] AS [CADR1], 
+    [vq_m_customer].[CADR2] AS [CADR2], 
+    [vq_m_customer].[CDEADR1] AS [CDEADR1], 
+    [vq_m_customer].[CDEADR2] AS [CDEADR2], 
+    [vq_m_customer].[CINADR] AS [CINADR], 
+    [vq_m_customer].[CCLASSID] AS [CCLASSID], 
+    [vq_m_customer].[CBANK] AS [CBANK], 
+    [vq_m_customer].[CBANKNO] AS [CBANKNO], 
+    [vq_m_customer].[CMAIL] AS [CMAIL], 
+    [vq_m_customer].[CCONMAN] AS [CCONMAN], 
+    [vq_m_customer].[CTEL] AS [CTEL], 
+    [vq_m_customer].[CFAX] AS [CFAX], 
+    [vq_m_customer].[EMAIL] AS [EMAIL], 
+    [vq_m_customer].[CWEB] AS [CWEB], 
+    [vq_m_customer].[CCYID] AS [CCYID], 
+    [vq_m_customer].[CPYID] AS [CPYID], 
+    [vq_m_customer].[CADMIN] AS [CADMIN], 
+    [vq_m_customer].[CSALEMAN] AS [CSALEMAN], 
+    [vq_m_customer].[CSTATUS] AS [CSTATUS], 
+    [vq_m_customer].[DCREDIT] AS [DCREDIT], 
+    [vq_m_customer].[DAMT4] AS [DAMT4], 
+    [vq_m_customer].[DAMT3] AS [DAMT3], 
+    [vq_m_customer].[DDATE1] AS [DDATE1], 
+    [vq_m_customer].[DAMT1] AS [DAMT1], 
+    [vq_m_customer].[DDATE2] AS [DDATE2], 
+    [vq_m_customer].[DAMT2] AS [DAMT2], 
+    [vq_m_customer].[CREMARK] AS [CREMARK], 
+    [vq_m_customer].[BEGINMAN] AS [BEGINMAN], 
+    [vq_m_customer].[BEGINDT] AS [BEGINDT], 
+    [vq_m_customer].[EDITMAN] AS [EDITMAN], 
+    [vq_m_customer].[EDITDT] AS [EDITDT], 
+    [vq_m_customer].[cyusou] AS [cyusou], 
+    [vq_m_customer].[cyinsou] AS [cyinsou], 
+    [vq_m_customer].[cyusoudf] AS [cyusoudf], 
+    [vq_m_customer].[bzj] AS [bzj], 
+    [vq_m_customer].[yjbzj] AS [yjbzj], 
+    [vq_m_customer].[cconmante] AS [cconmante], 
+    [vq_m_customer].[cdistflag] AS [cdistflag], 
+    [vq_m_customer].[cregionid] AS [cregionid], 
+    [vq_m_customer].[csettlemodeid] AS [csettlemodeid], 
+    [vq_m_customer].[credit] AS [credit], 
+    [vq_m_customer].[cvip] AS [cvip], 
+    [vq_m_customer].[resp_day] AS [resp_day], 
+    [vq_m_customer].[cpivotflag] AS [cpivotflag], 
+    [vq_m_customer].[cstation1] AS [cstation1], 
+    [vq_m_customer].[dagio_a] AS [dagio_a], 
+    [vq_m_customer].[cashflowidys] AS [cashflowidys], 
+    [vq_m_customer].[cashflowids] AS [cashflowids], 
+    [vq_m_customer].[dbirth] AS [dbirth], 
+    [vq_m_customer].[careflag] AS [careflag], 
+    [vq_m_customer].[cresidential] AS [cresidential], 
+    [vq_m_customer].[capartments] AS [capartments], 
+    [vq_m_customer].[darea] AS [darea], 
+    [vq_m_customer].[cfurniture_style] AS [cfurniture_style], 
+    [vq_m_customer].[Cbrand] AS [Cbrand], 
+    [vq_m_customer].[csex] AS [csex], 
+    [vq_m_customer].[cjob] AS [cjob], 
+    [vq_m_customer].[cfond] AS [cfond], 
+    [vq_m_customer].[coldlive] AS [coldlive], 
+    [vq_m_customer].[cpet] AS [cpet], 
+    [vq_m_customer].[czxjd] AS [czxjd], 
+    [vq_m_customer].[dmarrydate] AS [dmarrydate], 
+    [vq_m_customer].[checkindate] AS [checkindate], 
+    [vq_m_customer].[cstylist] AS [cstylist], 
+    [vq_m_customer].[cdesign_company] AS [cdesign_company], 
+    [vq_m_customer].[dhousesamt] AS [dhousesamt], 
+    [vq_m_customer].[ccompetition_brand] AS [ccompetition_brand], 
+    [vq_m_customer].[cqqnumber] AS [cqqnumber], 
+    [vq_m_customer].[cworkunit] AS [cworkunit], 
+    [vq_m_customer].[csalary] AS [csalary], 
+    [vq_m_customer].[crelation] AS [crelation], 
+    [vq_m_customer].[CTRANS] AS [CTRANS], 
+    [vq_m_customer].[cdeareaid] AS [cdeareaid], 
+    [vq_m_customer].[cpost] AS [cpost], 
+    [vq_m_customer].[cclassid_text] AS [cclassid_text]
+    FROM [dbo].[vq_m_customer] AS [vq_m_customer]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vq_stockc" EntityType="Self.vq_stockc" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vq_stockc].[db] AS [db], 
+    [vq_stockc].[cmteid] AS [cmteid], 
+    [vq_stockc].[cwhid] AS [cwhid], 
+    [vq_stockc].[ccolorid] AS [ccolorid], 
+    [vq_stockc].[dqty] AS [dqty], 
+    [vq_stockc].[product_name] AS [product_name], 
+    [vq_stockc].[cwhid_text] AS [cwhid_text], 
+    [vq_stockc].[ccolorid_text] AS [ccolorid_text]
+    FROM [dbo].[vq_stockc] AS [vq_stockc]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_M_CORDERC_M_CORDER" Association="Self.FK_M_CORDERC_M_CORDER">
+      <End Role="M_CORDER" EntitySet="M_CORDER" />
+      <End Role="M_CORDERC" EntitySet="M_CORDERC" />
+    </AssociationSet>
+    <AssociationSet Name="FK_POLISTC_POLIST" Association="Self.FK_POLISTC_POLIST">
+      <End Role="M_POLIST" EntitySet="M_POLIST" />
+      <End Role="M_POLISTC" EntitySet="M_POLISTC" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

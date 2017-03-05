@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="zcscdb4Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2005" Alias="Self" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <Function Name="s_me007" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="varchar(max)">
+          <Parameter Name="g_flag" Type="varchar" Mode="In" />
+          <Parameter Name="g_str1" Type="varchar" Mode="In" />
+          <Parameter Name="g_str2" Type="varchar" Mode="In" />
+          <Parameter Name="g_str3" Type="varchar" Mode="In" />
+          <Parameter Name="g_str4" Type="varchar" Mode="In" />
+          <Parameter Name="g_str5" Type="varchar" Mode="In" />
+          <Parameter Name="g_str6" Type="varchar" Mode="In" />
+          <Parameter Name="g_str7" Type="varchar" Mode="In" />
+          <Parameter Name="g_str8" Type="varchar" Mode="In" />
+          <Parameter Name="g_str9" Type="varchar" Mode="In" />
+          <Parameter Name="g_str10" Type="varchar" Mode="In" />
+          <Parameter Name="g_str11" Type="varchar" Mode="In" />
+          <Parameter Name="g_str12" Type="varchar" Mode="In" />
+          <Parameter Name="g_str13" Type="varchar" Mode="In" />
+          <Parameter Name="g_str14" Type="varchar" Mode="In" />
+          <Parameter Name="g_str15" Type="varchar" Mode="In" />
+          <Parameter Name="g_str16" Type="varchar" Mode="In" />
+          <Parameter Name="g_str17" Type="varchar" Mode="In" />
+          <Parameter Name="g_str18" Type="varchar" Mode="In" />
+          <Parameter Name="g_str19" Type="varchar" Mode="In" />
+          <Parameter Name="g_str20" Type="varchar" Mode="In" />
+          <Parameter Name="l_filter1" Type="varchar" Mode="In" />
+          <Parameter Name="l_filter2" Type="varchar(max)" Mode="In" />
+          <Parameter Name="l_filter3" Type="varchar(max)" Mode="In" />
+          <Parameter Name="l_filter4" Type="varchar(max)" Mode="In" />
+          <Parameter Name="l_filter5" Type="varchar" Mode="In" />
+        </Function>
+        <EntityContainer Name="zcscdb4ModelStoreContainer" />
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="zcscdb4Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="zcscdb4Entities" annotation:LazyLoadingEnabled="true" />
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="zcscdb4ModelStoreContainer" CdmEntityContainer="zcscdb4Entities" />
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="GroupBuyModelStoreContainer" CdmEntityContainer="Entities">
+    <EntitySetMapping Name="StorageInCs">
+      <EntityTypeMapping TypeName="GroupBuyModel.StorageInC">
+        <MappingFragment StoreEntitySet="StorageInCs">
+          <ScalarProperty Name="InID" ColumnName="InID" />
+          <ScalarProperty Name="ItemNo" ColumnName="ItemNo" />
+          <ScalarProperty Name="ProductNo" ColumnName="ProductNo" />
+          <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+          <ScalarProperty Name="ProductSzie" ColumnName="ProductSzie" />
+          <ScalarProperty Name="ProductColor" ColumnName="ProductColor" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="Unit" ColumnName="Unit" />
+          <ScalarProperty Name="CurrentPrice" ColumnName="CurrentPrice" />
+          <ScalarProperty Name="Account" ColumnName="Account" />
+          <ScalarProperty Name="Backup1" ColumnName="Backup1" />
+          <ScalarProperty Name="Backup2" ColumnName="Backup2" />
+          <ScalarProperty Name="Backup3" ColumnName="Backup3" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StorageIns">
+      <EntityTypeMapping TypeName="GroupBuyModel.StorageIn">
+        <MappingFragment StoreEntitySet="StorageIns">
+          <ScalarProperty Name="Passed" ColumnName="Passed" />
+          <ScalarProperty Name="InID" ColumnName="InID" />
+          <ScalarProperty Name="No" ColumnName="No" />
+          <ScalarProperty Name="StoreArea" ColumnName="StoreArea" />
+          <ScalarProperty Name="Store" ColumnName="Store" />
+          <ScalarProperty Name="CustomName" ColumnName="CustomName" />
+          <ScalarProperty Name="CustomSex" ColumnName="CustomSex" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="DeliverDate" ColumnName="DeliverDate" />
+          <ScalarProperty Name="Saler" ColumnName="Saler" />
+          <ScalarProperty Name="Building" ColumnName="Building" />
+          <ScalarProperty Name="Lift" ColumnName="Lift" />
+          <ScalarProperty Name="DeliverAddr" ColumnName="DeliverAddr" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="GroupBuyNo" ColumnName="GroupBuyNo" />
+          <ScalarProperty Name="TotalAccount" ColumnName="TotalAccount" />
+          <ScalarProperty Name="Backup1" ColumnName="Backup1" />
+          <ScalarProperty Name="Backup2" ColumnName="Backup2" />
+          <ScalarProperty Name="Backup3" ColumnName="Backup3" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Stores">
+      <EntityTypeMapping TypeName="GroupBuyModel.Store">
+        <MappingFragment StoreEntitySet="Store">
+          <ScalarProperty Name="ProductNo" ColumnName="ProductNo" />
+          <ScalarProperty Name="Repertory" ColumnName="Repertory" />
+          <ScalarProperty Name="Inventory" ColumnName="Inventory" />
+          <ScalarProperty Name="Backup1" ColumnName="Backup1" />
+          <ScalarProperty Name="Backup2" ColumnName="Backup2" />
+          <ScalarProperty Name="Backup3" ColumnName="Backup3" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StoreChanges">
+      <EntityTypeMapping TypeName="GroupBuyModel.StoreChange">
+        <MappingFragment StoreEntitySet="StoreChange">
+          <ScalarProperty Name="CurryInventory" ColumnName="CurryInventory" />
+          <ScalarProperty Name="OperateDate" ColumnName="OperateDate" />
+          <ScalarProperty Name="IOflag" ColumnName="IOflag" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="ProductNo" ColumnName="ProductNo" />
+          <ScalarProperty Name="ItemNo" ColumnName="ItemNo" />
+          <ScalarProperty Name="InID" ColumnName="InID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

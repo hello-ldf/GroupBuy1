@@ -30,6 +30,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -221,11 +222,15 @@
     <Compile Include="Models\M_POLISTC.cs">
       <DependentUpon>kw_m01Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\M_STOCK.cs">
+      <DependentUpon>kw_m01Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\M_StoreChange.cs">
       <DependentUpon>kw_m01Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ParmClass.cs" />
     <Compile Include="Models\QryClass.cs" />
+    <Compile Include="Models\Result.cs" />
     <Compile Include="Models\vq_m_corder.cs">
       <DependentUpon>kw_m01Model.tt</DependentUpon>
     </Compile>
@@ -546,7 +551,7 @@
           <IISUrl>http://localhost:17884/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>True</UseCustomServer>
-          <CustomServerUrl>http://192.168.1.100:2345</CustomServerUrl>
+          <CustomServerUrl>http://192.168.1.105:2345</CustomServerUrl>
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>

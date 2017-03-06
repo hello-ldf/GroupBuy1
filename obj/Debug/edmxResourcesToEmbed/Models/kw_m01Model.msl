@@ -1347,5 +1347,19 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <FunctionImportMapping FunctionImportName="sp_audit_erp_corder" FunctionName="kw_m01Model.Store.sp_audit_erp_corder" />
+    <EntitySetMapping Name="M_STOCK">
+      <EntityTypeMapping TypeName="kw_m01Model.M_STOCK">
+        <MappingFragment StoreEntitySet="M_STOCK">
+          <ScalarProperty Name="Backup3" ColumnName="Backup3" />
+          <ScalarProperty Name="Backup2" ColumnName="Backup2" />
+          <ScalarProperty Name="Backup1" ColumnName="Backup1" />
+          <ScalarProperty Name="QTY" ColumnName="QTY" />
+          <ScalarProperty Name="CWHID_text" ColumnName="CWHID_text" />
+          <ScalarProperty Name="CWHID" ColumnName="CWHID" />
+          <ScalarProperty Name="CMTEID_text" ColumnName="CMTEID_text" />
+          <ScalarProperty Name="CMTEID" ColumnName="CMTEID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

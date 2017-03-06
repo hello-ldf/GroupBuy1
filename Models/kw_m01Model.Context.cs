@@ -64,6 +64,7 @@ namespace GroupBuy1.Models
         public virtual DbSet<err_01> err_01 { get; set; }
         public virtual DbSet<v_corder> v_corder { get; set; }
         public virtual DbSet<v_corderc> v_corderc { get; set; }
+        public virtual DbSet<M_STOCK> M_STOCK { get; set; }
     
         public virtual ObjectResult<string> p_getmaxcode3(string as_code, string as_flag, string as_sysname, Nullable<System.DateTime> adt_workdate)
         {

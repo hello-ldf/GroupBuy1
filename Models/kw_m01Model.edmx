@@ -337,6 +337,20 @@
           <Property Name="cattrid" Type="nvarchar" MaxLength="12" />
           <Property Name="dstandardcost" Type="decimal" Precision="18" Scale="5" />
         </EntityType>
+        <EntityType Name="M_STOCK">
+          <Key>
+            <PropertyRef Name="CMTEID" />
+            <PropertyRef Name="CWHID" />
+          </Key>
+          <Property Name="CMTEID" Type="varchar" MaxLength="128" Nullable="false" />
+          <Property Name="CMTEID_text" Type="varchar" MaxLength="50" />
+          <Property Name="CWHID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CWHID_text" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="QTY" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Backup1" Type="varchar" MaxLength="50" />
+          <Property Name="Backup2" Type="varchar" MaxLength="50" />
+          <Property Name="Backup3" Type="varchar" MaxLength="50" />
+        </EntityType>
         <EntityType Name="M_StoreChange">
           <Key>
             <PropertyRef Name="db" />
@@ -1629,6 +1643,7 @@
           <EntitySet Name="M_CUSTOMER" EntityType="Self.M_CUSTOMER" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="M_POLIST" EntityType="Self.M_POLIST" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="M_POLISTC" EntityType="Self.M_POLISTC" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="M_STOCK" EntityType="Self.M_STOCK" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="M_StoreChange" EntityType="Self.M_StoreChange" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="mao_file" EntityType="Self.mao_file" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="map_file" EntityType="Self.map_file" Schema="dbo" store:Type="Tables" />
@@ -2660,6 +2675,7 @@
             <Parameter Name="g_db" Mode="In" Type="String" />
             <Parameter Name="g_cmtMan" Mode="In" Type="String" />
           </FunctionImport>
+          <EntitySet Name="M_STOCK" EntityType="kw_m01Model.M_STOCK" />
         </EntityContainer>
         <EntityType Name="v_colorset">
           <Key>
@@ -4062,6 +4078,20 @@
           <Property Name="pStore" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="pAttritem" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
         </EntityType>
+        <EntityType Name="M_STOCK">
+          <Key>
+            <PropertyRef Name="CMTEID" />
+            <PropertyRef Name="CWHID" />
+          </Key>
+          <Property Name="CMTEID" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Name="CMTEID_text" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CWHID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CWHID_text" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="QTY" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Backup1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Backup2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Backup3" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -5414,6 +5444,20 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <FunctionImportMapping FunctionImportName="sp_audit_erp_corder" FunctionName="kw_m01Model.Store.sp_audit_erp_corder" />
+          <EntitySetMapping Name="M_STOCK">
+            <EntityTypeMapping TypeName="kw_m01Model.M_STOCK">
+              <MappingFragment StoreEntitySet="M_STOCK">
+                <ScalarProperty Name="Backup3" ColumnName="Backup3" />
+                <ScalarProperty Name="Backup2" ColumnName="Backup2" />
+                <ScalarProperty Name="Backup1" ColumnName="Backup1" />
+                <ScalarProperty Name="QTY" ColumnName="QTY" />
+                <ScalarProperty Name="CWHID_text" ColumnName="CWHID_text" />
+                <ScalarProperty Name="CWHID" ColumnName="CWHID" />
+                <ScalarProperty Name="CMTEID_text" ColumnName="CMTEID_text" />
+                <ScalarProperty Name="CMTEID" ColumnName="CMTEID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

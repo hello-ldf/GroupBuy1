@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="ad32daaca45c49ee8ef19dc2aa2e550a" Name="Diagram1" ZoomLevel="111">
+      <Diagram DiagramId="ad32daaca45c49ee8ef19dc2aa2e550a" Name="Diagram1" ZoomLevel="29">
         <EntityTypeShape EntityType="kw_m01Model.v_userlist" Width="1.5" PointX="18.25" PointY="0.5" IsExpanded="true" />
         <EntityTypeShape EntityType="kw_m01Model.v_colorset" Width="1.5" PointX="24.875" PointY="0.5" />
         <EntityTypeShape EntityType="kw_m01Model.v_unit" Width="1.5" PointX="16.625" PointY="0.5" />
@@ -44,6 +44,7 @@
         <EntityTypeShape EntityType="kw_m01Model.err_01" Width="1.5" PointX="7.125" PointY="0.5" />
         <EntityTypeShape EntityType="kw_m01Model.v_corder" Width="1.5" PointX="21.625" PointY="0.5" />
         <EntityTypeShape EntityType="kw_m01Model.v_corderc" Width="1.5" PointX="20.125" PointY="0.5" />
+        <EntityTypeShape EntityType="kw_m01Model.M_STOCK" Width="1.5" PointX="41.75" PointY="19.25" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

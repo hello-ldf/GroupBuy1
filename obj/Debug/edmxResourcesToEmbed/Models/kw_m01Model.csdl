@@ -110,6 +110,7 @@
       <Parameter Name="g_db" Mode="In" Type="String" />
       <Parameter Name="g_cmtMan" Mode="In" Type="String" />
     </FunctionImport>
+    <EntitySet Name="M_STOCK" EntityType="kw_m01Model.M_STOCK" />
   </EntityContainer>
   <EntityType Name="v_colorset">
     <Key>
@@ -1511,5 +1512,19 @@
     <Property Name="pSpec" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
     <Property Name="pStore" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
     <Property Name="pAttritem" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="M_STOCK">
+    <Key>
+      <PropertyRef Name="CMTEID" />
+      <PropertyRef Name="CWHID" />
+    </Key>
+    <Property Name="CMTEID" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="false" />
+    <Property Name="CMTEID_text" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CWHID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CWHID_text" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="QTY" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Backup1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Backup2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Backup3" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
   </EntityType>
 </Schema>

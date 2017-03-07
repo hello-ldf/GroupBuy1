@@ -34,5 +34,11 @@ namespace GroupBuy1.Controllers
             jsonResult.Data = "ok";
             return jsonResult;
         }
+
+        // 跳转到Home页面
+        public ActionResult Home()
+        {
+            return View("Home");
+        }
     }
 }

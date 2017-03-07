@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<!--									black-bootstrap-default-gray-material-metro							-->
+		<link rel="stylesheet" type="text/css" href="../../Content/themes/material/easyui.css" />
+		<link rel="stylesheet" type="text/css" href="../../Content/themes/icon.css" />
+		<link rel="stylesheet" type="text/css" href="../../Content/fakeLoader.css" />
+		<!--自定义样式-->
+		<style type="text/css">
+			body,
+			div,
+			span,
+			a,
+			p,
+			hr {
+				overflow: hidden;
+				display: block;
+				margin: 0;
+				padding: 0;
+			}
+			
+			.span1 {
+				margin: 5px 20px;
+				float: left;
+			}
+			
+			.span1 label {
+				text-align: right;
+				width: 80px;
+				display: inline-block;
+			}
+			
+			button:hover {
+				cursor: pointer;
+			}
+			
+			.btns1 button {
+				margin: 3px 20px;
+				width: 120px;
+			}
+			
+			fieldset {
+				float: left;
+				height: 75px;
+			}
+			
+			.align-right {
+				font-size: 13px;
+				text-align: right;
+				width: 70px;
+				display: inline-block;
+			}
+			
+			a.tabs-inner {
+				padding: 2px !important;
+			}
+			
+			.fakeloader {
+				z-index: 9999 !important;
+			}
+		</style>
+		<script type="text/javascript">
+			if('@Session["cid"]' == '') {
+				alert('请先登录');
+				window.location.href = '/Home/Index';
+			}
+		</script>
+	</head>
+
+	<body style="width: 100%; margin-top: 20px;">
+
+		<div style="background-color:whitesmoke; width: 1300px; min-height: 800px; margin: 0 auto;">
+
+			<!--标题-->
+			<p style="padding:10px 20px; color: darkblue; font-size: 30px; line-height: 30px; ">Title</p>
+			<hr />
+
+			<!--需求计算条件、操作-->
+			<div>
+				<div>
+					<!--顶端条件-->
+					<div>
+						<span class="span1">
+	                        <label>商品编号：</label>
+	                        <input id="" />
+	                    </span>
+					</div>
+					<div>
+						<span class="span1">
+	                        <label>采购员：</label>
+	                        <input id="" name="" />
+	                    </span>
+						<span class="span1">
+	                        <label>厂家：</label>
+	                        <input id="" name="" />
+	                    </span>
+						<span class="span1">
+	                        <label>备注：</label>
+	                        <input id="classid" name="" />
+	                    </span>
+					</div>
+
+					<!--单头GRID-->
+					<div style="float:left;margin: 10px;">
+							<div title="需求结果">
+								<table id="demandResult_grid" class="easyui-datagrid" style="height:200px;width: 1200px;"></table>
+							</div>
+						</div>
+					</div>
+				</div>
+				<hr />
+
+				<!--仓库、需求结果-->
+				<div>
+					<!--单身grid-->
+					<div style="float:left;margin: 10px;">
+
+						<div title="需求结果">
+							<table id="demandResult_grid" class="easyui-datagrid" style="height:430px;width: 1200px;"></table>
+						</div>
+
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+		<script src="../../Scripts/jquery-1.11.3.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../Scripts/jquery.easyui.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../Scripts/fakeLoader.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			var db = '@Session["db"]';
+			var erp_cname = '@Session["cname"]';
+
+			$(document).ready(function() {
+
+			}); // ready end
+		</script>
+	</body>
+
+</html>

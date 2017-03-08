@@ -12,6 +12,8 @@ namespace GroupBuy1.Models
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
     public partial class zcscdb4Entities : DbContext
     {
@@ -25,5 +27,70 @@ namespace GroupBuy1.Models
             throw new UnintentionalCodeFirstException();
         }
     
+    
+        public virtual int sp_me01(string g_flag, string b_date, string e_date, string g_str1, string g_str2, string g_str3, string g_str4, string g_str5, string g_str6, string g_str7, string g_str8, string g_str9, string g_str10, string g_str11, string g_str12)
+        {
+            var g_flagParameter = g_flag != null ?
+                new ObjectParameter("g_flag", g_flag) :
+                new ObjectParameter("g_flag", typeof(string));
+    
+            var b_dateParameter = b_date != null ?
+                new ObjectParameter("b_date", b_date) :
+                new ObjectParameter("b_date", typeof(string));
+    
+            var e_dateParameter = e_date != null ?
+                new ObjectParameter("e_date", e_date) :
+                new ObjectParameter("e_date", typeof(string));
+    
+            var g_str1Parameter = g_str1 != null ?
+                new ObjectParameter("g_str1", g_str1) :
+                new ObjectParameter("g_str1", typeof(string));
+    
+            var g_str2Parameter = g_str2 != null ?
+                new ObjectParameter("g_str2", g_str2) :
+                new ObjectParameter("g_str2", typeof(string));
+    
+            var g_str3Parameter = g_str3 != null ?
+                new ObjectParameter("g_str3", g_str3) :
+                new ObjectParameter("g_str3", typeof(string));
+    
+            var g_str4Parameter = g_str4 != null ?
+                new ObjectParameter("g_str4", g_str4) :
+                new ObjectParameter("g_str4", typeof(string));
+    
+            var g_str5Parameter = g_str5 != null ?
+                new ObjectParameter("g_str5", g_str5) :
+                new ObjectParameter("g_str5", typeof(string));
+    
+            var g_str6Parameter = g_str6 != null ?
+                new ObjectParameter("g_str6", g_str6) :
+                new ObjectParameter("g_str6", typeof(string));
+    
+            var g_str7Parameter = g_str7 != null ?
+                new ObjectParameter("g_str7", g_str7) :
+                new ObjectParameter("g_str7", typeof(string));
+    
+            var g_str8Parameter = g_str8 != null ?
+                new ObjectParameter("g_str8", g_str8) :
+                new ObjectParameter("g_str8", typeof(string));
+    
+            var g_str9Parameter = g_str9 != null ?
+                new ObjectParameter("g_str9", g_str9) :
+                new ObjectParameter("g_str9", typeof(string));
+    
+            var g_str10Parameter = g_str10 != null ?
+                new ObjectParameter("g_str10", g_str10) :
+                new ObjectParameter("g_str10", typeof(string));
+    
+            var g_str11Parameter = g_str11 != null ?
+                new ObjectParameter("g_str11", g_str11) :
+                new ObjectParameter("g_str11", typeof(string));
+    
+            var g_str12Parameter = g_str12 != null ?
+                new ObjectParameter("g_str12", g_str12) :
+                new ObjectParameter("g_str12", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_me01", g_flagParameter, b_dateParameter, e_dateParameter, g_str1Parameter, g_str2Parameter, g_str3Parameter, g_str4Parameter, g_str5Parameter, g_str6Parameter, g_str7Parameter, g_str8Parameter, g_str9Parameter, g_str10Parameter, g_str11Parameter, g_str12Parameter);
+        }
     }
 }

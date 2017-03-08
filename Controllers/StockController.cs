@@ -3,16 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-
 using GroupBuy1.Models;
 using System.Data;
 using Newtonsoft.Json;
 using System.Web.Script.Serialization;
+using System.Collections;
+using GroupBuy1.act;
 
 namespace GroupBuy1.Controllers
 {
     public class StockController : Controller
     {
+        private string o = "";
         private List<v_prodclas> prodclas = null;
 
         // GET: Stock
@@ -264,30 +266,82 @@ namespace GroupBuy1.Controllers
         }
 
         // 查询采购单详情
-        public string qry_vorderc_grid(string db,string ccode)
+        public string qry_vorderc_grid(string db, string ccode)
         {
             string grid_json = "";
             using (kw_m01Context kw_m01 = new kw_m01Context())
             {
                 var vordercs = from s in kw_m01.v_vorderc
-                              where s.db == db
-                              && s.CCODE == ccode
-                              orderby s.IORDER
-                              select s;
+                               where s.db == db
+                               && s.CCODE == ccode
+                               orderby s.IORDER
+                               select s;
                 grid_json = JsonConvert.SerializeObject(vordercs);
             }
             return grid_json;
         }
 
         // 采购单 转 工厂销售单
-        public string v2f(string db, string f1)
+        public string v2f(string db, string[] ccodes)
         {
-            string msg = "失败。未知原因";
-            using (kw_m01Context kw_m01 = new kw_m01Context())
+            string msg = "";
+            string success = "";
+            string error = "";
+            using (zcscdb4Entities zcscdb4 = new zcscdb4Entities())
             {
-                // 调用WCF
+                // wcf服务准备
+                Add_Tiptop_cxmt410Client act = new Add_Tiptop_cxmt410Client();
 
-                msg = "success";
+                // 循环每个订单
+                foreach (string ccode in ccodes)
+                {
+                    // 存储过程sp_me01
+                    string sql = "select dbo.sp_me01('21','','','" + db + "','" + ccode + "','','','','','','','','','','')";
+                    var rs = zcscdb4.Database.SqlQuery<zcscdb4_sp_me01_21>(sql).AsEnumerable().ToList();
+
+                    // 转DataTable - dt
+                    Type elementType = typeof(zcscdb4_sp_me01_21);
+                    //var ds = new DataSet();
+                    var dt = new DataTable();
+                    //ds.Tables.Add(t);
+                    elementType.GetProperties().ToList().ForEach(propInfo => dt.Columns.Add(propInfo.Name, Nullable.GetUnderlyingType(propInfo.PropertyType) ?? propInfo.PropertyType));
+                    foreach (zcscdb4_sp_me01_21 item in rs)
+                    {
+                        var row = dt.NewRow();
+                        elementType.GetProperties().ToList().ForEach(propInfo => row[propInfo.Name] = propInfo.GetValue(item, null) ?? DBNull.Value);
+                        dt.Rows.Add(row);
+                    }
+
+                    // wcf服务参数准备
+                    DataTable dt1 = new DataTable();
+                    DataTable dt2 = new DataTable();
+                    dt1 = dt.Clone();
+                    dt2 = dt.Copy();
+                    dt1.TableName = "oea_file";
+                    dt2.TableName = "oeb_file";
+
+                    foreach (DataRow dr in dt2.Rows)
+                    {
+                        dt1.ImportRow(dr);
+
+                        break;
+                    }
+
+                    // wcf 服务执行
+                    //string str = a.Del(dt1,dt2);
+                    try
+                    {
+                        act.Add(dt1, dt2);
+                        success += ccode + "、";
+                    }
+                    catch (Exception ex)
+                    {
+                        error += ccode + "、";
+                    }
+                    //str = a.Add(dt1, dt2);
+                }
+                act.Close();
+                msg = "成功：" + success + "/n\n<br />失败：" + error;
             }
             return msg;
         }

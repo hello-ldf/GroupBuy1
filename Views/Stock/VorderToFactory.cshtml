@@ -342,18 +342,15 @@
 				if(r == false) {
 					return;
 				}
-				var f1 = "";
+				var ccodes = "";
 				var vorders = $('#vorder_grid').datagrid('getChecked');
+				var mycars=new Array();
 				$.each(vorders, function(i, vorder) {
-					if(i == 0) {
-						f1 = "''" + vorder.CCODE + "''";
-					} else {
-						f1 += ",''" + vorder.CCODE + "''";
-					}
+					ccodes[i] = vorder.CCODE;
 				});
 				var parm = {
 					db: db,
-					f1: f1
+					ccodes: ccodes
 				}
 				var parmJson = JSON.stringify(parm);
 				$.ajax({

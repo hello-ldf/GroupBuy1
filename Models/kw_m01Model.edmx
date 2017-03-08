@@ -803,6 +803,21 @@
           <Property Name="cstop" Type="char" MaxLength="1" />
         </EntityType>
         <!--生成过程中发现错误:
+警告 6002: 表/视图“kw_m01.dbo.v_poman”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="v_poman">
+          <Key>
+            <PropertyRef Name="db" />
+            <PropertyRef Name="CPOMANID" />
+            <PropertyRef Name="CEMPID" />
+            
+          </Key>
+          <Property Name="db" Type="varchar" MaxLength="8" Nullable="false" />
+          <Property Name="CPOMANID" Type="nvarchar" MaxLength="12" Nullable="false" />
+          <Property Name="CEMPID" Type="nvarchar" MaxLength="12" Nullable="false" />
+          <Property Name="CREMARK" Type="nvarchar" MaxLength="255" />
+          <Property Name="CNAME" Type="nvarchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <!--生成过程中发现错误:
 警告 6002: 表/视图“kw_m01.dbo.v_prodclas”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
         <EntityType Name="v_prodclas">
           <Key>
@@ -1169,6 +1184,130 @@
           <Property Name="dtaxrate" Type="decimal" Precision="18" Scale="5" />
           <Property Name="csettlemodeid" Type="nvarchar" MaxLength="12" />
           <Property Name="FStlName" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“kw_m01.dbo.v_vorder”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="v_vorder">
+          <Key>
+            <PropertyRef Name="db" />
+            <PropertyRef Name="CCODE" />
+            <PropertyRef Name="CVENDID" />
+            <PropertyRef Name="CMAN" />
+            <PropertyRef Name="DDEDT" />
+            <PropertyRef Name="CPYID" />
+            <PropertyRef Name="CCYID" />
+            <PropertyRef Name="DAGIO" />
+            <PropertyRef Name="DPAYAMT" />
+            <PropertyRef Name="DPAYAMT1" />
+            <PropertyRef Name="CMTFLAG" />
+            <PropertyRef Name="ENDFLAG" />
+            <PropertyRef Name="INETFLAG" />
+            <PropertyRef Name="DAMT" />
+            <PropertyRef Name="DCYAMT" />
+            <PropertyRef Name="dtransportamt" />
+            <PropertyRef Name="CMTFLAG_text" />
+          </Key>
+          <Property Name="db" Type="varchar" MaxLength="8" Nullable="false" />
+          <Property Name="CCODE" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="CVENDID" Type="nvarchar" MaxLength="12" Nullable="false" />
+          <Property Name="DDATE" Type="datetime" />
+          <Property Name="CMAN" Type="nvarchar" MaxLength="12" Nullable="false" />
+          <Property Name="CACCPMAN" Type="nvarchar" MaxLength="12" />
+          <Property Name="CTRANS" Type="nvarchar" MaxLength="12" />
+          <Property Name="DDEDT" Type="datetime" Nullable="false" />
+          <Property Name="CDEADR" Type="nvarchar" MaxLength="60" />
+          <Property Name="CPYID" Type="nvarchar" MaxLength="12" Nullable="false" />
+          <Property Name="CCYID" Type="nvarchar" MaxLength="12" Nullable="false" />
+          <Property Name="DAGIO" Type="decimal" Precision="8" Scale="5" Nullable="false" />
+          <Property Name="DPAYAMT" Type="decimal" Precision="18" Scale="5" Nullable="false" />
+          <Property Name="DPAYAMT1" Type="decimal" Precision="18" Scale="5" Nullable="false" />
+          <Property Name="CREMARK" Type="text" />
+          <Property Name="CMTFLAG" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="ENDFLAG" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="BEGINMAN" Type="nvarchar" MaxLength="20" />
+          <Property Name="BEGINDT" Type="datetime" />
+          <Property Name="EDITMAN" Type="nvarchar" MaxLength="20" />
+          <Property Name="EDITDT" Type="datetime" />
+          <Property Name="CMTMAN" Type="nvarchar" MaxLength="20" />
+          <Property Name="CMTDT" Type="datetime" />
+          <Property Name="ENDMAN" Type="nvarchar" MaxLength="20" />
+          <Property Name="ENDDT" Type="datetime" />
+          <Property Name="INETFLAG" Type="tinyint" Nullable="false" />
+          <Property Name="DAMT" Type="decimal" Precision="18" Scale="5" Nullable="false" />
+          <Property Name="DCYAMT" Type="decimal" Precision="18" Scale="5" Nullable="false" />
+          <Property Name="cpyway" Type="varchar" MaxLength="12" />
+          <Property Name="drate" Type="decimal" Precision="18" Scale="5" />
+          <Property Name="cvendphone" Type="varchar" MaxLength="24" />
+          <Property Name="cpoflag" Type="char" MaxLength="1" />
+          <Property Name="cacct_vendid" Type="nvarchar" MaxLength="12" />
+          <Property Name="dtaxrate" Type="decimal" Precision="18" Scale="5" />
+          <Property Name="DFREIGHTAMT" Type="decimal" Precision="18" Scale="5" />
+          <Property Name="cbldflag" Type="char" MaxLength="1" />
+          <Property Name="cexflag" Type="char" MaxLength="1" />
+          <Property Name="plango_date" Type="datetime" />
+          <Property Name="factgo_date" Type="datetime" />
+          <Property Name="cannulmtman" Type="nvarchar" MaxLength="20" />
+          <Property Name="cannulmtdt" Type="datetime" />
+          <Property Name="cdecode" Type="nvarchar" MaxLength="50" />
+          <Property Name="ctransportid" Type="nvarchar" MaxLength="12" />
+          <Property Name="dtransportamt" Type="decimal" Precision="18" Scale="5" Nullable="false" />
+          <Property Name="iprint" Type="int" />
+          <Property Name="cprintman" Type="nvarchar" MaxLength="20" />
+          <Property Name="CVENDID_text" Type="nvarchar" MaxLength="20" />
+          <Property Name="CCYID_text" Type="nvarchar" MaxLength="20" />
+          <Property Name="cpyway_text" Type="varchar" MaxLength="20" />
+          <Property Name="CPYID_text" Type="nvarchar" MaxLength="20" />
+          <Property Name="CMTFLAG_text" Type="varchar" MaxLength="4" Nullable="false" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“kw_m01.dbo.v_vorderc”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="v_vorderc">
+          <Key>
+            <PropertyRef Name="db" />
+            <PropertyRef Name="CCODE" />
+            <PropertyRef Name="IORDER" />
+            <PropertyRef Name="CMTEID" />
+            <PropertyRef Name="CCOLORID" />
+            <PropertyRef Name="CWHID" />
+            <PropertyRef Name="DQTY" />
+            <PropertyRef Name="DPRICE" />
+            <PropertyRef Name="INETFLAG" />
+            <PropertyRef Name="DAGIOC" />
+          </Key>
+          <Property Name="db" Type="varchar" MaxLength="8" Nullable="false" />
+          <Property Name="CCODE" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="IORDER" Type="int" Nullable="false" />
+          <Property Name="CMTEID" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="CVMTEID" Type="nvarchar" MaxLength="50" />
+          <Property Name="CCOLORID" Type="nvarchar" MaxLength="12" Nullable="false" />
+          <Property Name="CWHID" Type="nvarchar" MaxLength="12" Nullable="false" />
+          <Property Name="CDESC" Type="nvarchar" MaxLength="255" />
+          <Property Name="DQTY" Type="decimal" Precision="18" Scale="5" Nullable="false" />
+          <Property Name="DPRICE" Type="decimal" Precision="18" Scale="5" Nullable="false" />
+          <Property Name="INETFLAG" Type="tinyint" Nullable="false" />
+          <Property Name="DDEQTY" Type="decimal" Precision="18" Scale="5" />
+          <Property Name="CPPLANID" Type="nvarchar" MaxLength="20" />
+          <Property Name="IPORDER" Type="int" />
+          <Property Name="DCYPRICE" Type="decimal" Precision="18" Scale="5" />
+          <Property Name="DCYCOST" Type="decimal" Precision="18" Scale="5" />
+          <Property Name="DAGIOC" Type="decimal" Precision="18" Scale="5" Nullable="false" />
+          <Property Name="CPOMANID" Type="nvarchar" MaxLength="12" />
+          <Property Name="corid" Type="varchar" MaxLength="20" />
+          <Property Name="icorder" Type="int" />
+          <Property Name="cpodesc" Type="text" />
+          <Property Name="dtaxprice" Type="decimal" Precision="18" Scale="5" />
+          <Property Name="dpack_qty" Type="decimal" Precision="18" Scale="5" />
+          <Property Name="plango_date" Type="datetime" />
+          <Property Name="factgo_date" Type="datetime" />
+          <Property Name="ddedtc" Type="datetime" />
+          <Property Name="cattrid" Type="nvarchar" MaxLength="12" />
+          <Property Name="cvcolorid" Type="nvarchar" MaxLength="12" />
+          <Property Name="dstandardcost" Type="decimal" Precision="18" Scale="5" />
+          <Property Name="cmteid_text" Type="nvarchar" MaxLength="60" />
+          <Property Name="ccolorid_text" Type="nvarchar" MaxLength="255" />
+          <Property Name="cattrid_text" Type="nvarchar" MaxLength="20" />
+          <Property Name="cwhid_text" Type="nvarchar" MaxLength="20" />
+          <Property Name="cmteid_unit" Type="nvarchar" MaxLength="20" />
         </EntityType>
         <!--生成过程中发现错误:
 警告 6002: 表/视图“kw_m01.dbo.v_warehous”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
@@ -1968,6 +2107,15 @@
     [v_payment].[cstop] AS [cstop]
     FROM [dbo].[v_payment] AS [v_payment]</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="v_poman" EntityType="Self.v_poman" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [v_poman].[db] AS [db], 
+    [v_poman].[CPOMANID] AS [CPOMANID], 
+    [v_poman].[CEMPID] AS [CEMPID], 
+    [v_poman].[CREMARK] AS [CREMARK], 
+    [v_poman].[CNAME] AS [CNAME]
+    FROM [dbo].[v_poman] AS [v_poman]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="v_prodclas" EntityType="Self.v_prodclas" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [v_prodclas].[db] AS [db], 
@@ -2238,6 +2386,99 @@
     [v_vendor].[csettlemodeid] AS [csettlemodeid], 
     [v_vendor].[FStlName] AS [FStlName]
     FROM [dbo].[v_vendor] AS [v_vendor]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="v_vorder" EntityType="Self.v_vorder" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [v_vorder].[db] AS [db], 
+    [v_vorder].[CCODE] AS [CCODE], 
+    [v_vorder].[CVENDID] AS [CVENDID], 
+    [v_vorder].[DDATE] AS [DDATE], 
+    [v_vorder].[CMAN] AS [CMAN], 
+    [v_vorder].[CACCPMAN] AS [CACCPMAN], 
+    [v_vorder].[CTRANS] AS [CTRANS], 
+    [v_vorder].[DDEDT] AS [DDEDT], 
+    [v_vorder].[CDEADR] AS [CDEADR], 
+    [v_vorder].[CPYID] AS [CPYID], 
+    [v_vorder].[CCYID] AS [CCYID], 
+    [v_vorder].[DAGIO] AS [DAGIO], 
+    [v_vorder].[DPAYAMT] AS [DPAYAMT], 
+    [v_vorder].[DPAYAMT1] AS [DPAYAMT1], 
+    [v_vorder].[CREMARK] AS [CREMARK], 
+    [v_vorder].[CMTFLAG] AS [CMTFLAG], 
+    [v_vorder].[ENDFLAG] AS [ENDFLAG], 
+    [v_vorder].[BEGINMAN] AS [BEGINMAN], 
+    [v_vorder].[BEGINDT] AS [BEGINDT], 
+    [v_vorder].[EDITMAN] AS [EDITMAN], 
+    [v_vorder].[EDITDT] AS [EDITDT], 
+    [v_vorder].[CMTMAN] AS [CMTMAN], 
+    [v_vorder].[CMTDT] AS [CMTDT], 
+    [v_vorder].[ENDMAN] AS [ENDMAN], 
+    [v_vorder].[ENDDT] AS [ENDDT], 
+    [v_vorder].[INETFLAG] AS [INETFLAG], 
+    [v_vorder].[DAMT] AS [DAMT], 
+    [v_vorder].[DCYAMT] AS [DCYAMT], 
+    [v_vorder].[cpyway] AS [cpyway], 
+    [v_vorder].[drate] AS [drate], 
+    [v_vorder].[cvendphone] AS [cvendphone], 
+    [v_vorder].[cpoflag] AS [cpoflag], 
+    [v_vorder].[cacct_vendid] AS [cacct_vendid], 
+    [v_vorder].[dtaxrate] AS [dtaxrate], 
+    [v_vorder].[DFREIGHTAMT] AS [DFREIGHTAMT], 
+    [v_vorder].[cbldflag] AS [cbldflag], 
+    [v_vorder].[cexflag] AS [cexflag], 
+    [v_vorder].[plango_date] AS [plango_date], 
+    [v_vorder].[factgo_date] AS [factgo_date], 
+    [v_vorder].[cannulmtman] AS [cannulmtman], 
+    [v_vorder].[cannulmtdt] AS [cannulmtdt], 
+    [v_vorder].[cdecode] AS [cdecode], 
+    [v_vorder].[ctransportid] AS [ctransportid], 
+    [v_vorder].[dtransportamt] AS [dtransportamt], 
+    [v_vorder].[iprint] AS [iprint], 
+    [v_vorder].[cprintman] AS [cprintman], 
+    [v_vorder].[CVENDID_text] AS [CVENDID_text], 
+    [v_vorder].[CCYID_text] AS [CCYID_text], 
+    [v_vorder].[cpyway_text] AS [cpyway_text], 
+    [v_vorder].[CPYID_text] AS [CPYID_text], 
+    [v_vorder].[CMTFLAG_text] AS [CMTFLAG_text]
+    FROM [dbo].[v_vorder] AS [v_vorder]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="v_vorderc" EntityType="Self.v_vorderc" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [v_vorderc].[db] AS [db], 
+    [v_vorderc].[CCODE] AS [CCODE], 
+    [v_vorderc].[IORDER] AS [IORDER], 
+    [v_vorderc].[CMTEID] AS [CMTEID], 
+    [v_vorderc].[CVMTEID] AS [CVMTEID], 
+    [v_vorderc].[CCOLORID] AS [CCOLORID], 
+    [v_vorderc].[CWHID] AS [CWHID], 
+    [v_vorderc].[CDESC] AS [CDESC], 
+    [v_vorderc].[DQTY] AS [DQTY], 
+    [v_vorderc].[DPRICE] AS [DPRICE], 
+    [v_vorderc].[INETFLAG] AS [INETFLAG], 
+    [v_vorderc].[DDEQTY] AS [DDEQTY], 
+    [v_vorderc].[CPPLANID] AS [CPPLANID], 
+    [v_vorderc].[IPORDER] AS [IPORDER], 
+    [v_vorderc].[DCYPRICE] AS [DCYPRICE], 
+    [v_vorderc].[DCYCOST] AS [DCYCOST], 
+    [v_vorderc].[DAGIOC] AS [DAGIOC], 
+    [v_vorderc].[CPOMANID] AS [CPOMANID], 
+    [v_vorderc].[corid] AS [corid], 
+    [v_vorderc].[icorder] AS [icorder], 
+    [v_vorderc].[cpodesc] AS [cpodesc], 
+    [v_vorderc].[dtaxprice] AS [dtaxprice], 
+    [v_vorderc].[dpack_qty] AS [dpack_qty], 
+    [v_vorderc].[plango_date] AS [plango_date], 
+    [v_vorderc].[factgo_date] AS [factgo_date], 
+    [v_vorderc].[ddedtc] AS [ddedtc], 
+    [v_vorderc].[cattrid] AS [cattrid], 
+    [v_vorderc].[cvcolorid] AS [cvcolorid], 
+    [v_vorderc].[dstandardcost] AS [dstandardcost], 
+    [v_vorderc].[cmteid_text] AS [cmteid_text], 
+    [v_vorderc].[ccolorid_text] AS [ccolorid_text], 
+    [v_vorderc].[cattrid_text] AS [cattrid_text], 
+    [v_vorderc].[cwhid_text] AS [cwhid_text], 
+    [v_vorderc].[cmteid_unit] AS [cmteid_unit]
+    FROM [dbo].[v_vorderc] AS [v_vorderc]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="v_warehous" EntityType="Self.v_warehous" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -2676,6 +2917,9 @@
             <Parameter Name="g_cmtMan" Mode="In" Type="String" />
           </FunctionImport>
           <EntitySet Name="M_STOCK" EntityType="kw_m01Model.M_STOCK" />
+          <EntitySet Name="v_poman" EntityType="kw_m01Model.v_poman" />
+          <EntitySet Name="v_vorder" EntityType="kw_m01Model.v_vorder" />
+          <EntitySet Name="v_vorderc" EntityType="kw_m01Model.v_vorderc" />
         </EntityContainer>
         <EntityType Name="v_colorset">
           <Key>
@@ -4092,6 +4336,138 @@
           <Property Name="Backup2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Backup3" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
+        <EntityType Name="v_poman">
+          <Key>
+            <PropertyRef Name="db" />
+            <PropertyRef Name="CPOMANID" />
+            <PropertyRef Name="CEMPID" />
+          </Key>
+          <Property Name="db" Type="String" Nullable="false" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="CPOMANID" Type="String" Nullable="false" MaxLength="12" FixedLength="false" Unicode="true" />
+          <Property Name="CEMPID" Type="String" Nullable="false" MaxLength="12" FixedLength="false" Unicode="true" />
+          <Property Name="CREMARK" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="CNAME" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="v_vorder">
+          <Key>
+            <PropertyRef Name="db" />
+            <PropertyRef Name="CCODE" />
+            <PropertyRef Name="CVENDID" />
+            <PropertyRef Name="CMAN" />
+            <PropertyRef Name="DDEDT" />
+            <PropertyRef Name="CPYID" />
+            <PropertyRef Name="CCYID" />
+            <PropertyRef Name="DAGIO" />
+            <PropertyRef Name="DPAYAMT" />
+            <PropertyRef Name="DPAYAMT1" />
+            <PropertyRef Name="CMTFLAG" />
+            <PropertyRef Name="ENDFLAG" />
+            <PropertyRef Name="INETFLAG" />
+            <PropertyRef Name="DAMT" />
+            <PropertyRef Name="DCYAMT" />
+            <PropertyRef Name="dtransportamt" />
+            <PropertyRef Name="CMTFLAG_text" />
+          </Key>
+          <Property Name="db" Type="String" Nullable="false" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="CCODE" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="CVENDID" Type="String" Nullable="false" MaxLength="12" FixedLength="false" Unicode="true" />
+          <Property Name="DDATE" Type="DateTime" Precision="3" />
+          <Property Name="CMAN" Type="String" Nullable="false" MaxLength="12" FixedLength="false" Unicode="true" />
+          <Property Name="CACCPMAN" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+          <Property Name="CTRANS" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+          <Property Name="DDEDT" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CDEADR" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="CPYID" Type="String" Nullable="false" MaxLength="12" FixedLength="false" Unicode="true" />
+          <Property Name="CCYID" Type="String" Nullable="false" MaxLength="12" FixedLength="false" Unicode="true" />
+          <Property Name="DAGIO" Type="Decimal" Nullable="false" Precision="8" Scale="5" />
+          <Property Name="DPAYAMT" Type="Decimal" Nullable="false" Precision="18" Scale="5" />
+          <Property Name="DPAYAMT1" Type="Decimal" Nullable="false" Precision="18" Scale="5" />
+          <Property Name="CREMARK" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="CMTFLAG" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="ENDFLAG" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="BEGINMAN" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="BEGINDT" Type="DateTime" Precision="3" />
+          <Property Name="EDITMAN" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="EDITDT" Type="DateTime" Precision="3" />
+          <Property Name="CMTMAN" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="CMTDT" Type="DateTime" Precision="3" />
+          <Property Name="ENDMAN" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="ENDDT" Type="DateTime" Precision="3" />
+          <Property Name="INETFLAG" Type="Byte" Nullable="false" />
+          <Property Name="DAMT" Type="Decimal" Nullable="false" Precision="18" Scale="5" />
+          <Property Name="DCYAMT" Type="Decimal" Nullable="false" Precision="18" Scale="5" />
+          <Property Name="cpyway" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="drate" Type="Decimal" Precision="18" Scale="5" />
+          <Property Name="cvendphone" Type="String" MaxLength="24" FixedLength="false" Unicode="false" />
+          <Property Name="cpoflag" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="cacct_vendid" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+          <Property Name="dtaxrate" Type="Decimal" Precision="18" Scale="5" />
+          <Property Name="DFREIGHTAMT" Type="Decimal" Precision="18" Scale="5" />
+          <Property Name="cbldflag" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="cexflag" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="plango_date" Type="DateTime" Precision="3" />
+          <Property Name="factgo_date" Type="DateTime" Precision="3" />
+          <Property Name="cannulmtman" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="cannulmtdt" Type="DateTime" Precision="3" />
+          <Property Name="cdecode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ctransportid" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+          <Property Name="dtransportamt" Type="Decimal" Nullable="false" Precision="18" Scale="5" />
+          <Property Name="iprint" Type="Int32" />
+          <Property Name="cprintman" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="CVENDID_text" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="CCYID_text" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="cpyway_text" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CPYID_text" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="CMTFLAG_text" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="v_vorderc">
+          <Key>
+            <PropertyRef Name="CCODE" />
+            <PropertyRef Name="IORDER" />
+            <PropertyRef Name="CMTEID" />
+            <PropertyRef Name="CCOLORID" />
+            <PropertyRef Name="CWHID" />
+            <PropertyRef Name="DQTY" />
+            <PropertyRef Name="DPRICE" />
+            <PropertyRef Name="INETFLAG" />
+            <PropertyRef Name="DAGIOC" />
+            <PropertyRef Name="db" />
+          </Key>
+          <Property Name="CCODE" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="IORDER" Type="Int32" Nullable="false" />
+          <Property Name="CMTEID" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="CVMTEID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CCOLORID" Type="String" Nullable="false" MaxLength="12" FixedLength="false" Unicode="true" />
+          <Property Name="CWHID" Type="String" Nullable="false" MaxLength="12" FixedLength="false" Unicode="true" />
+          <Property Name="CDESC" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="DQTY" Type="Decimal" Nullable="false" Precision="18" Scale="5" />
+          <Property Name="DPRICE" Type="Decimal" Nullable="false" Precision="18" Scale="5" />
+          <Property Name="INETFLAG" Type="Byte" Nullable="false" />
+          <Property Name="DDEQTY" Type="Decimal" Precision="18" Scale="5" />
+          <Property Name="CPPLANID" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="IPORDER" Type="Int32" />
+          <Property Name="DCYPRICE" Type="Decimal" Precision="18" Scale="5" />
+          <Property Name="DCYCOST" Type="Decimal" Precision="18" Scale="5" />
+          <Property Name="DAGIOC" Type="Decimal" Nullable="false" Precision="18" Scale="5" />
+          <Property Name="CPOMANID" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+          <Property Name="corid" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="icorder" Type="Int32" />
+          <Property Name="cpodesc" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="dtaxprice" Type="Decimal" Precision="18" Scale="5" />
+          <Property Name="dpack_qty" Type="Decimal" Precision="18" Scale="5" />
+          <Property Name="plango_date" Type="DateTime" Precision="3" />
+          <Property Name="factgo_date" Type="DateTime" Precision="3" />
+          <Property Name="ddedtc" Type="DateTime" Precision="3" />
+          <Property Name="cattrid" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+          <Property Name="cvcolorid" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+          <Property Name="dstandardcost" Type="Decimal" Precision="18" Scale="5" />
+          <Property Name="cmteid_text" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="ccolorid_text" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="cattrid_text" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="cwhid_text" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="cmteid_unit" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="db" Type="String" Nullable="false" MaxLength="8" FixedLength="false" Unicode="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -5455,6 +5831,114 @@
                 <ScalarProperty Name="CWHID" ColumnName="CWHID" />
                 <ScalarProperty Name="CMTEID_text" ColumnName="CMTEID_text" />
                 <ScalarProperty Name="CMTEID" ColumnName="CMTEID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="v_poman">
+            <EntityTypeMapping TypeName="kw_m01Model.v_poman">
+              <MappingFragment StoreEntitySet="v_poman">
+                <ScalarProperty Name="CNAME" ColumnName="CNAME" />
+                <ScalarProperty Name="CREMARK" ColumnName="CREMARK" />
+                <ScalarProperty Name="CEMPID" ColumnName="CEMPID" />
+                <ScalarProperty Name="CPOMANID" ColumnName="CPOMANID" />
+                <ScalarProperty Name="db" ColumnName="db" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="v_vorder">
+            <EntityTypeMapping TypeName="kw_m01Model.v_vorder">
+              <MappingFragment StoreEntitySet="v_vorder">
+                <ScalarProperty Name="CMTFLAG_text" ColumnName="CMTFLAG_text" />
+                <ScalarProperty Name="CPYID_text" ColumnName="CPYID_text" />
+                <ScalarProperty Name="cpyway_text" ColumnName="cpyway_text" />
+                <ScalarProperty Name="CCYID_text" ColumnName="CCYID_text" />
+                <ScalarProperty Name="CVENDID_text" ColumnName="CVENDID_text" />
+                <ScalarProperty Name="cprintman" ColumnName="cprintman" />
+                <ScalarProperty Name="iprint" ColumnName="iprint" />
+                <ScalarProperty Name="dtransportamt" ColumnName="dtransportamt" />
+                <ScalarProperty Name="ctransportid" ColumnName="ctransportid" />
+                <ScalarProperty Name="cdecode" ColumnName="cdecode" />
+                <ScalarProperty Name="cannulmtdt" ColumnName="cannulmtdt" />
+                <ScalarProperty Name="cannulmtman" ColumnName="cannulmtman" />
+                <ScalarProperty Name="factgo_date" ColumnName="factgo_date" />
+                <ScalarProperty Name="plango_date" ColumnName="plango_date" />
+                <ScalarProperty Name="cexflag" ColumnName="cexflag" />
+                <ScalarProperty Name="cbldflag" ColumnName="cbldflag" />
+                <ScalarProperty Name="DFREIGHTAMT" ColumnName="DFREIGHTAMT" />
+                <ScalarProperty Name="dtaxrate" ColumnName="dtaxrate" />
+                <ScalarProperty Name="cacct_vendid" ColumnName="cacct_vendid" />
+                <ScalarProperty Name="cpoflag" ColumnName="cpoflag" />
+                <ScalarProperty Name="cvendphone" ColumnName="cvendphone" />
+                <ScalarProperty Name="drate" ColumnName="drate" />
+                <ScalarProperty Name="cpyway" ColumnName="cpyway" />
+                <ScalarProperty Name="DCYAMT" ColumnName="DCYAMT" />
+                <ScalarProperty Name="DAMT" ColumnName="DAMT" />
+                <ScalarProperty Name="INETFLAG" ColumnName="INETFLAG" />
+                <ScalarProperty Name="ENDDT" ColumnName="ENDDT" />
+                <ScalarProperty Name="ENDMAN" ColumnName="ENDMAN" />
+                <ScalarProperty Name="CMTDT" ColumnName="CMTDT" />
+                <ScalarProperty Name="CMTMAN" ColumnName="CMTMAN" />
+                <ScalarProperty Name="EDITDT" ColumnName="EDITDT" />
+                <ScalarProperty Name="EDITMAN" ColumnName="EDITMAN" />
+                <ScalarProperty Name="BEGINDT" ColumnName="BEGINDT" />
+                <ScalarProperty Name="BEGINMAN" ColumnName="BEGINMAN" />
+                <ScalarProperty Name="ENDFLAG" ColumnName="ENDFLAG" />
+                <ScalarProperty Name="CMTFLAG" ColumnName="CMTFLAG" />
+                <ScalarProperty Name="CREMARK" ColumnName="CREMARK" />
+                <ScalarProperty Name="DPAYAMT1" ColumnName="DPAYAMT1" />
+                <ScalarProperty Name="DPAYAMT" ColumnName="DPAYAMT" />
+                <ScalarProperty Name="DAGIO" ColumnName="DAGIO" />
+                <ScalarProperty Name="CCYID" ColumnName="CCYID" />
+                <ScalarProperty Name="CPYID" ColumnName="CPYID" />
+                <ScalarProperty Name="CDEADR" ColumnName="CDEADR" />
+                <ScalarProperty Name="DDEDT" ColumnName="DDEDT" />
+                <ScalarProperty Name="CTRANS" ColumnName="CTRANS" />
+                <ScalarProperty Name="CACCPMAN" ColumnName="CACCPMAN" />
+                <ScalarProperty Name="CMAN" ColumnName="CMAN" />
+                <ScalarProperty Name="DDATE" ColumnName="DDATE" />
+                <ScalarProperty Name="CVENDID" ColumnName="CVENDID" />
+                <ScalarProperty Name="CCODE" ColumnName="CCODE" />
+                <ScalarProperty Name="db" ColumnName="db" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="v_vorderc">
+            <EntityTypeMapping TypeName="kw_m01Model.v_vorderc">
+              <MappingFragment StoreEntitySet="v_vorderc">
+                <ScalarProperty Name="db" ColumnName="db" />
+                <ScalarProperty Name="cmteid_unit" ColumnName="cmteid_unit" />
+                <ScalarProperty Name="cwhid_text" ColumnName="cwhid_text" />
+                <ScalarProperty Name="cattrid_text" ColumnName="cattrid_text" />
+                <ScalarProperty Name="ccolorid_text" ColumnName="ccolorid_text" />
+                <ScalarProperty Name="cmteid_text" ColumnName="cmteid_text" />
+                <ScalarProperty Name="dstandardcost" ColumnName="dstandardcost" />
+                <ScalarProperty Name="cvcolorid" ColumnName="cvcolorid" />
+                <ScalarProperty Name="cattrid" ColumnName="cattrid" />
+                <ScalarProperty Name="ddedtc" ColumnName="ddedtc" />
+                <ScalarProperty Name="factgo_date" ColumnName="factgo_date" />
+                <ScalarProperty Name="plango_date" ColumnName="plango_date" />
+                <ScalarProperty Name="dpack_qty" ColumnName="dpack_qty" />
+                <ScalarProperty Name="dtaxprice" ColumnName="dtaxprice" />
+                <ScalarProperty Name="cpodesc" ColumnName="cpodesc" />
+                <ScalarProperty Name="icorder" ColumnName="icorder" />
+                <ScalarProperty Name="corid" ColumnName="corid" />
+                <ScalarProperty Name="CPOMANID" ColumnName="CPOMANID" />
+                <ScalarProperty Name="DAGIOC" ColumnName="DAGIOC" />
+                <ScalarProperty Name="DCYCOST" ColumnName="DCYCOST" />
+                <ScalarProperty Name="DCYPRICE" ColumnName="DCYPRICE" />
+                <ScalarProperty Name="IPORDER" ColumnName="IPORDER" />
+                <ScalarProperty Name="CPPLANID" ColumnName="CPPLANID" />
+                <ScalarProperty Name="DDEQTY" ColumnName="DDEQTY" />
+                <ScalarProperty Name="INETFLAG" ColumnName="INETFLAG" />
+                <ScalarProperty Name="DPRICE" ColumnName="DPRICE" />
+                <ScalarProperty Name="DQTY" ColumnName="DQTY" />
+                <ScalarProperty Name="CDESC" ColumnName="CDESC" />
+                <ScalarProperty Name="CWHID" ColumnName="CWHID" />
+                <ScalarProperty Name="CCOLORID" ColumnName="CCOLORID" />
+                <ScalarProperty Name="CVMTEID" ColumnName="CVMTEID" />
+                <ScalarProperty Name="CMTEID" ColumnName="CMTEID" />
+                <ScalarProperty Name="IORDER" ColumnName="IORDER" />
+                <ScalarProperty Name="CCODE" ColumnName="CCODE" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

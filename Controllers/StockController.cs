@@ -20,6 +20,10 @@ namespace GroupBuy1.Controllers
         {
             return View("test");
         }
+        public ViewResult v2fPage()
+        {
+            return View("VorderToFactory");
+        }
         public JsonResult Index()
         {
             JsonResult jsonResult = new JsonResult();
@@ -173,6 +177,20 @@ namespace GroupBuy1.Controllers
             }
             return grid_json;
         }
+        // 采购员选择
+        public string Init_poman_grid(string db)
+        {
+            string grid_json = "";
+            using (kw_m01Context kw_m01 = new kw_m01Context())
+            {
+                var pomans = from s in kw_m01.v_poman
+                             where s.db == db
+                             orderby s.CPOMANID
+                             select s;
+                grid_json = JsonConvert.SerializeObject(pomans);
+            }
+            return grid_json;
+        }
 
         // ***          初始化数据   结束
         // ****************************************
@@ -223,6 +241,54 @@ namespace GroupBuy1.Controllers
                 kw_m01.sp_ins_erp_polist(db, ccode);
             }
 
+            return msg;
+        }
+
+        // 根据条件筛选采购单
+        public string qry_vorder_grid(string db, DateTime? date1, DateTime? date2, string pomanid, string vendid, string remark)
+        {
+            string grid_json = "";
+            using (kw_m01Context kw_m01 = new kw_m01Context())
+            {
+                var vorders = from s in kw_m01.v_vorder
+                              where s.db == db
+                              && s.CMTFLAG == "0"
+                              && (pomanid == "" ? true : s.CMAN == pomanid)
+                              && (vendid == "" ? true : s.CVENDID == vendid)
+                              && (date1 == null ? true : date1 <= s.BEGINDT && s.BEGINDT <= date2)
+                              orderby s.BEGINDT
+                              select s;
+                grid_json = JsonConvert.SerializeObject(vorders);
+            }
+            return grid_json;
+        }
+
+        // 查询采购单详情
+        public string qry_vorderc_grid(string db,string ccode)
+        {
+            string grid_json = "";
+            using (kw_m01Context kw_m01 = new kw_m01Context())
+            {
+                var vordercs = from s in kw_m01.v_vorderc
+                              where s.db == db
+                              && s.CCODE == ccode
+                              orderby s.IORDER
+                              select s;
+                grid_json = JsonConvert.SerializeObject(vordercs);
+            }
+            return grid_json;
+        }
+
+        // 采购单 转 工厂销售单
+        public string v2f(string db, string f1)
+        {
+            string msg = "失败。未知原因";
+            using (kw_m01Context kw_m01 = new kw_m01Context())
+            {
+                // 调用WCF
+
+                msg = "success";
+            }
             return msg;
         }
 

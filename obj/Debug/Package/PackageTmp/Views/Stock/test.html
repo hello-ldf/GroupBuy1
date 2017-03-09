@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<!--									black-bootstrap-default-gray-material-metro							-->
+		<link rel="stylesheet" type="text/css" href="../../Content/themes/material/easyui.css" />
+		<link rel="stylesheet" type="text/css" href="../../Content/themes/icon.css" />
+		<link rel="stylesheet" type="text/css" href="../../Content/fakeLoader.css" />
+		<!--自定义样式-->
+		<style type="text/css">
+			body,
+			div,
+			span,
+			a,
+			p,
+			hr {
+				overflow: hidden;
+				display: block;
+				margin: 0;
+				padding: 0;
+			}
+			
+			.span1 {
+				margin: 5px 20px;
+				float: left;
+			}
+			
+			.span1 label {
+				text-align: right;
+				width: 80px;
+				display: inline-block;
+			}
+			
+			button:hover {
+				cursor: pointer;
+			}
+			
+			.btns1 button {
+				margin: 3px 20px;
+				width: 120px;
+			}
+			
+			fieldset {
+				float: left;
+				height: 75px;
+			}
+			
+			.align-right {
+				font-size: 13px;
+				text-align: right;
+				width: 70px;
+				display: inline-block;
+			}
+			
+			a.tabs-inner {
+				padding: 2px !important;
+			}
+			
+			.fakeloader {
+				z-index: 9999 !important;
+			}
+		</style>
+		<script type="text/javascript">
+			if('@Session["cid"]' == '') {
+				alert('请先登录');
+				window.location.href = '/Home/Index';
+			}
+		</script>
+	</head>
+
+	<body style="width: 100%; margin-top: 20px;" onload="closeWindow()">
+
+		<div style="background-color:whitesmoke; width: 1300px; min-height: 800px; margin: 0 auto;">
+
+			<!--标题-->
+			<p style="padding:10px 20px; color: darkblue; font-size: 30px; line-height: 30px; ">采购单转工厂销售单</p>
+
+			<hr style="margin: 10px 0;" />
+
+			<div class="easyui-layout" style="width:1300px;height:800px;">
+				<!--单头GRID-->
+				<div title="查询条件" data-options="region:'north',split:true" style="height:150px">
+					<!--左侧条件-->
+					<div style="width: 900px;float: left;">
+						<div>
+							<span class="span1">
+							<label>开始日期：</label>
+	                        <input id="d4311" class="Wdate" style="width: 217px;" type="text" onclick="WdatePicker({maxDate:'#F{$dp.$D(\'d4312\')||\'2020-10-01\'}'})" readonly="readonly"/> 
+	                    </span>
+							<span class="span1">
+	                    	<label>结束日期：</label>
+							<input id="d4312" class="Wdate" style="width: 217px;" type="text" onclick="WdatePicker({minDate:'#F{$dp.$D(\'d4311\')}',maxDate:'2020-10-01'})" readonly="readonly"/>
+	                    </span>
+						</div>
+						<div>
+							<span class="span1">
+	                        <label>采购员：</label>
+	                        <input id="CMAN" name="sale_window" />
+	                        <button name="sale_window">选择</button>
+	                    </span>
+							<span class="span1">
+	                        <label>厂家：</label>
+	                        <input id="CVENDID" name="vender_window" />
+	                        <button name="vender_window">选择</button>
+	                    </span>
+							<span class="span1">
+	                        <label>备注：</label>
+	                        <input id="CREMARK" />
+	                    </span>
+						</div>
+					</div>
+
+					<!--右侧-->
+					<div style="margin-top:10px;float: right; width: 100px;">
+						<button>查询</button><br />
+						<button style="margin-top:5px;">提交	</button>
+					</div>
+				</div>
+
+				<!--单头GRID-->
+				<div title="采购单 - 单头" data-options="region:'center',split:true">
+					<table id="vorder_grid" class="easyui-datagrid" style="height:100%;width: 1300px;"></table>
+				</div>
+
+				<!--单身grid-->
+				<div title="采购单 - 单身" data-options="region:'south',split:true" style="height:350px">
+					<table id="vorderc_grid" class="easyui-datagrid" style="height:100%;width: 1300px;"></table>
+				</div>
+			</div>
+
+		</div>
+
+		<!--颜色编号-->
+		<div id="sale_window" class="easyui-window" title="采购员" modal="true" style="width:1100px; height:600px;">
+			<div title="采购员资料" data-options="region:'center'">
+				<table id="sale_grid" class="easyui-datagrid"></table>
+			</div>
+		</div>
+
+		<!--厂家编号-->
+		<div id="vender_window" class="easyui-window" title="厂家资料" modal="true" style="width:1100px; height:600px;">
+			<div class="easyui-layout" data-options="fit:true">
+				<!--左边树-->
+				<div title="厂家分类" data-options="region:'west',split:true" style="width:300px;">
+					<div class="easyui-panel">
+						<ul id="vendclas_tree" class="easyui-tree"></ul>
+					</div>
+				</div>
+				<!--右边grid-->
+				<div title="厂家资料" data-options="region:'center'">
+					<table id="vender_grid" class="easyui-datagrid"></table>
+				</div>
+			</div>
+		</div>
+
+		<script src="../../Scripts/jquery-1.11.3.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../Scripts/jquery.easyui.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../Scripts/fakeLoader.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../Content/My97DatePicker/WdatePicker.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+//			var db = '@Session["db"]';
+			var db = 'zcscdb7';
+			var erp_cname = '@Session["cname"]';
+
+			$(document).ready(function() {
+
+				// 厂家编号 - 厂家分类
+				$("#vendclas_tree").tree({
+					url: '/Stock/Init_vendclas_tree?db=' + db,
+					method: 'get',
+					animate: true,
+					lines: true,
+					onClick: function(node) {
+						$("#vender_grid").datagrid('load', {
+							db: db,
+							CCLASSID: node.id
+						});
+					}
+				});
+
+				// 厂家编号 - 厂家资料
+				$("#vender_grid").datagrid({
+					method: 'get',
+					url: '/Stock/Init_vender_grid',
+					columns: [
+						[
+							{ field: 'CVENDID', title: '编码', width: 100, align: 'center' },
+							{ field: 'CNAME', title: '简称', width: 100, align: 'center' },
+							{ field: 'CCNAME', title: '中文名称', width: 100, align: 'center' },
+							{ field: 'CCLASSID', title: '分类编码', width: 100, align: 'center' },
+							{ field: 'CNAME_a', title: '分类名称', width: 100, align: 'center' },
+							{ field: 'CPOMAN', title: '采购员编码', width: 100, align: 'center' },
+							{ field: 'cpomanname', title: '采购员名称', width: 100, align: 'center' },
+							{ field: 'FStlName', title: '结算方式', width: 100, align: 'center' },
+							{ field: 'CADR1', title: '地址1', width: 100, align: 'center' },
+							{ field: 'CCONMAN', title: '联系人', width: 100, align: 'center' },
+							{ field: 'CTEL', title: '电话', width: 100, align: 'center' },
+							{ field: 'dtaxrate', title: '税额', width: 100, align: 'center' }
+						]
+					],
+					striped: true,
+					singleSelect: true,
+					onDblClickRow: function(i, row) {
+						$("#CVENDID").val(row.CVENDID);
+						$("#vender_window").window({ closed: true });
+					}
+				});
+
+				// 采购单 - 单头
+				$("#vorder_grid").datagrid({
+					method: 'post',
+					url: '//',
+					columns: [
+						[
+							{ field: '', checkbox: true, title: '选择', width: 100, align: 'center' },
+							{ field: 'CCODE', title: '单号', width: 100, align: 'center' },
+							{ field: 'CVENDID', title: '厂家编码', width: 100, align: 'center' },
+							{ field: 'CVENDID_text', title: '厂家名称', width: 100, align: 'center' },
+							{ field: 'vendclas_text', title: '厂家分类', width: 100, align: 'center' },
+							{ field: 'DDATE', title: '日期', width: 100, align: 'center' },
+							{ field: 'CMAN_text', title: '供应商经手人', width: 100, align: 'center' },
+							{ field: 'DDEDT', title: '送货日期', width: 100, align: 'center' },
+							{ field: 'CDEADR', title: '送货地址', width: 100, align: 'center' },
+							//{ field: 'CTRANS', title: '运输方法', width: 100, align: 'center' },
+							{ field: 'CCYID', title: '货币编码', width: 100, align: 'center' },
+							{ field: 'CCYID_text', title: '货币', width: 100, align: 'center' },
+							{ field: 'cpyway_text', title: '结算方式', width: 100, align: 'center' },
+							{ field: 'CPYID_text', title: '付款条件', width: 100, align: 'center' },
+							{ field: 'DAGIO', title: '主折率', width: 100, align: 'center' },
+							//{ field: 'DPAYAMT', title: '订金', width: 100, align: 'center' },
+							//{ field: 'DPAYAMT1', title: '降价', width: 100, align: 'center' },
+							{ field: 'CREMARK', title: '备注', width: 100, align: 'center' },
+							{ field: 'CMTFLAG_text', title: '审核标志', width: 100, align: 'center' },
+							{ field: 'BEGINMAN', title: '建立人', width: 100, align: 'center' },
+							{ field: 'BEGINDT', title: '建立日期', width: 100, align: 'center' },
+							{ field: 'EDITMAN', title: '修改人', width: 100, align: 'center' },
+							{ field: 'EDITDT', title: '修改日期', width: 100, align: 'center' },
+							{ field: 'CMTMAN', title: '审核人', width: 100, align: 'center' },
+							{ field: 'CMTDT', title: '审核日期', width: 100, align: 'center' }
+							//{ field: 'INETFLAG', title: '商场编号', width: 100, align: 'center' }
+						]
+					],
+					fit: true,
+					striped: true,
+					singleSelect: true
+				});
+
+				// 采购单 - 单身
+				$("#vorderc_grid").datagrid({
+					method: 'post',
+					url: '//',
+					columns: [
+						[
+							{ field: 'CCODE', title: '单号', width: 100, align: 'center' },
+							{ field: 'IORDER', title: '项次', width: 100, align: 'center' },
+							{ field: 'CMTEID', title: '商品编码', width: 100, align: 'center' },
+							{ field: 'CMTEID_text', title: '商品名称', width: 100, align: 'center' },
+							{ field: 'CCOLORID', title: '颜色编码', width: 100, align: 'center' },
+							{ field: 'CCOLORID_text', title: '颜色名称', width: 100, align: 'center' },
+							{ field: 'cattrid_text', title: '属性', width: 100, align: 'center' },
+							{ field: 'CWHID_text', title: '仓库', width: 100, align: 'center' },
+							{ field: 'DQTY', title: '数量', width: 100, align: 'center' },
+							{ field: 'CMTEID_unit', title: '单位', width: 100, align: 'center' },
+							{ field: 'DPRICE', title: '不含税单价', width: 100, align: 'center' },
+							{ field: 'dtaxprice', title: '含税单价', width: 100, align: 'center' },
+							{ field: 'DAGIOC', title: '子折率', width: 100, align: 'center' },
+							{ field: 'DCYPRICE', title: '本币单价', width: 100, align: 'center' },
+							{ field: 'DCYCOST', title: '本币成本', width: 100, align: 'center' },
+							{ field: 'dstandardcost', title: '标准进价', width: 100, align: 'center' },
+							{ field: 'CDESC', title: '说明', width: 100, align: 'center' },
+							{ field: 'cpodesc', title: '非标说明', width: 100, align: 'center' },
+							{ field: 'DDEQTY', title: '已进货量', width: 100, align: 'center' },
+							{ field: 'CPPLANID', title: '采购计划单', width: 100, align: 'center' },
+							{ field: 'IPORDER', title: '计划单项次', width: 100, align: 'center' },
+							{ field: 'CPOMANID', title: '业务员编号', width: 100, align: 'center' },
+							{ field: 'corid', title: '客户订单号', width: 100, align: 'center' },
+							{ field: 'icorder', title: '订单项次', width: 100, align: 'center' },
+							{ field: 'plango_date', title: '计划出厂日期', width: 100, align: 'center' },
+							{ field: 'ddedtc', title: '交货日期', width: 100, align: 'center' }
+						]
+					],
+					fit: true,
+					striped: true,
+					singleSelect: true
+				});
+			}); // ready end
+
+
+			// 合上所有window
+			function closeWindow() {
+				var windows = $(".easyui-window");
+				$.each(windows, function(i, win) {
+					$("#" + win.id).window({ closed: true });
+				});
+			}
+		</script>
+	</body>
+
+</html>

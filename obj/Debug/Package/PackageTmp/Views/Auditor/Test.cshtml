@@ -1,0 +1,515 @@
+﻿@{ Layout = null; }
+
+<!DOCTYPE html>
+
+<html>
+
+	<head>
+		<title></title>
+		<link rel="stylesheet" href="~/Content/demo.css" />
+		<link rel="stylesheet" href="~/Content/easyui.css" />
+		<link rel="stylesheet" href="~/Content/icon.css" />
+		<link rel="stylesheet" type="text/css" href="../../Content/bootstrap.min.css" />
+
+		<style>
+			#corder label {
+				font-size: 13px;
+				text-align: right;
+				width: 120px;
+				display: inline-block;
+			}
+			
+			#corder select {
+				width: 173px;
+				height: 21px;
+			}
+			
+			body,
+			div {
+				display: block;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div style="float: left;margin-left: 70px" class="btn-group" role="group" aria-label="...">
+			<button type="button" class="btn btn-default" onclick="queryReady(this)">查询</button>
+			<button type="button" class="btn btn-default ToF" onclick="query()">确认</button>
+			<button type="button" class="btn btn-default ToF" onclick="queryChancel()">取消</button>
+
+			<button type="button" id="" class="btn btn-default" disabled>新增</button>
+			<!--<button type="button" class="btn btn-default ToF">新增</button>
+			<button type="button" class="btn btn-default ToF">修改</button>-->
+
+			<button type="button" class="btn btn-default" disabled>修改</button>
+			<!--<button type="button" class="btn btn-default ToF">新增</button>
+			<button type="button" class="btn btn-default ToF">修改</button>-->
+
+			<button type="button" class="btn btn-default" disabled>删除</button>
+			<button type="button" id="submitOrder" class="btn btn-default" onclick="cmt()" disabled>审核</button>
+			<button type="button" id="cancelOrder" class="btn btn-default" onclick="cancelOrder()" disabled>弃审</button>
+			<button type="button" class="btn btn-default" disabled>打印</button>
+			<label id="CMTFLAG" style="color:red; font-size:larger"></label>
+		</div>
+
+		<br /><br />
+
+		<div id="corder" style="width:100%;height:450px">
+			<!-- 上三列 -->
+			<div style="height:380px">
+				<!-- 第一列 -->
+				<div style="position:absolute;left:20px">
+					<label>区域：</label>
+					<select id="db"></select>
+					<br />
+
+					<label>单号：</label>
+					<input type="text" size="20" id="CCODE" value="395-17020126">
+					<br />
+
+					<label>销售网点：</label>
+					<input type="text" size="20" id="cwhid" disabled="disabled">
+					<br />
+
+					<label>联系电话：</label>
+					<input type="text" size="20" id="custphone" disabled="disabled">
+					<br />
+
+					<label>客户名称：</label>
+					<select id="CCMAN" disabled="disabled"></select>
+					<br />
+
+					<label>VIP编号：</label>
+					<input type="text" size="20" id="cvipid" disabled="disabled">
+					<br />
+
+					<label>付款条件：</label>
+					<select id="CPYID_text" disabled="disabled"></select>
+					<br />
+
+					<label>结算方式：</label>
+					<select id="cpyway_text" disabled="disabled"></select>
+					<br />
+
+					<label>运输方法：</label>
+					<input type="text" size="20" id="CTRANS" disabled="disabled">
+					<br />
+
+					<label>刷卡金额：</label>
+					<input type="text" size="20" id="??" disabled="disabled">
+					<br />
+
+					<label>送货区域：</label>
+					<input type="text" size="20" id="??" disabled="disabled">
+					<br />
+
+					<label>销售网点名称：</label>
+					<select id="cwhid_text" disabled="disabled"></select>
+					<br />
+
+					<label>要发票：</label>
+					<input type="checkbox" id="ccinflag" disabled="disabled">
+					<br />
+
+					<label>生成采购订单：</label>
+					<input type="checkbox" id="cautopoflag" disabled="disabled">
+				</div>
+
+				<!-- 第二列 -->
+				<div style="position:absolute;left:320px">
+					<label>委托：</label>
+					<input type="checkbox" size="20" id="ctenantflag" disabled="disabled">
+					<br />
+
+					<label>合同号：</label>
+					<input type="text" size="20" id="ccontractno" disabled="disabled">
+					<br />
+
+					<label>客户分类：</label>
+					<select id="CCLASSID" disabled="disabled"></select>
+					<br />
+
+					<label>联系人：</label>
+					<input type="text" size="20" id="CCONMAN" disabled="disabled">
+					<br />
+
+					<label>特惠项目：</label>
+					<input type="text" size="20" id="cprivilegeid" disabled="disabled">
+					<br />
+
+					<label>货币：</label>
+					<input type="text" size="20" id="CCYID" value="人民币" disabled="disabled">
+					<br />
+
+					<label>汇率：</label>
+					<input type="text" size="20" id="drate" disabled="disabled">
+					<br />
+
+					<label>补差额：</label>
+					<input type="text" size="20" id="??" disabled="disabled">
+					<br />
+
+					<label>消费储值金额：</label>
+					<input type="text" size="20" id="??" disabled="disabled">
+					<br />
+
+					<label>税率（%）：</label>
+					<input type="text" size="20" id="dcess" disabled="disabled">
+					<br />
+
+					<label>刷卡费用：</label>
+					<input type="text" size="20" id="??" disabled="disabled">
+					<br />
+
+					<label>推荐人：</label>
+					<input type="text" size="20" id="??" disabled="disabled">
+					<br />
+
+					<label>提留费：</label>
+					<input type="text" size="20" id="??" disabled="disabled">
+				</div>
+
+				<!-- 第三列 -->
+				<div style="position:absolute;left:620px">
+					<label>日期：</label>
+					<input type="text" size="20" id="DDATE" disabled="disabled">
+					<br />
+
+					<label>交货日期：</label>
+					<input type="text" size="20" id="DDEDT" disabled="disabled">
+					<br />
+
+					<label>客户编码：</label>
+					<select id="CCUSTID" disabled="disabled"></select>
+					<br />
+
+					<label>经手人：</label>
+					<select id="CSALEMAN" disabled="disabled"></select>
+					<br />
+
+					<label>降价：</label>
+					<input type="text" size="20" id="DPAYAMT1" disabled="disabled">
+					<br />
+
+					<label>运杂费：</label>
+					<input type="text" size="20" id="DFREIGHTAMT" disabled="disabled">
+					<br />
+
+					<label>成交金额：</label>
+					<input type="text" size="20" id="DCYAMT" disabled="disabled">
+					<br />
+
+					<label>订金：</label>
+					<input type="text" size="20" id="DPAYAMT" disabled="disabled">
+					<br />
+
+					<label>合计：</label>
+					<input type="text" size="20" id="DAMT" disabled="disabled">
+					<br />
+
+					<label>设计师：</label>
+					<input type="text" size="20" id="cstylist" disabled="disabled">
+					<br />
+
+					<label>预收款比例(%)：</label>
+					<input type="text" size="20" id="??" disabled="disabled">
+					<br />
+
+					<label>签约设计师：</label>
+					<select id="csignstylistid_text" disabled="disabled"></select>
+					<br />
+
+					<label>团购号：</label>
+					<input type="text" size="20" id="email" disabled="disabled">
+					<br />
+				</div>
+			</div>
+
+			<!-- 下两行 -->
+			<div>
+				<label>交货地址：</label>
+				<input type="text" size="100" id="CDEADR" disabled="disabled">
+				<br />
+
+				<label>备注：</label>
+				<input type="text" size="100" id="CREMARK" disabled="disabled">
+			</div>
+		</div>
+
+		<hr />
+		<hr />
+
+		<!-- 单身 -->
+		<div id="order-list">
+			<table id="cordercTb" class="easyui-datagrid" style="height:250px"></table>
+		</div>
+
+		<script src="~/Scripts/jquery-1.11.3.min.js"></script>
+		<script src="~/Scripts/easyui-lang-zh_CN.js"></script>
+		<script src="~/Scripts/jquery.easyui.min.js"></script>
+		<script src="~/Scripts/MyMsg.js"></script>
+		<script>
+			$(document).ready(function() {
+				// 初始化 地区 select
+				$.ajax({
+					type: "Post",
+					url: "/Global/GetAreas",
+					dataType: "json",
+					success: function(data) {
+						var areas = JSON.parse(data);
+						$.each(areas, function(i, area) {
+							$("#db").append("<option value='" + area.value + "'>" + area.text + "</option>");
+						});
+					},
+					error: function(error) {
+
+					}
+				});
+
+				// 初始化样式
+				forbiCorder();
+				hideToF();
+				
+				// 单身EASYUI grid
+				$('#cordercTb').datagrid({
+					title: '订货明细',
+					width: 1000,
+					//height: 340,
+					//url: 'url',
+					//method: 'POST',
+					//queryParams: { 'id': id },
+					//idField: '产品ID',
+					//striped: true,
+					//fitColumns: false,  // 自适应则没有水平滚动条
+					//singleSelect: false,
+					//rownumbers: true,
+					//pagination: false,
+					//nowrap: false,
+					//pageSize: 10,
+					//pageList: [10, 20, 50, 100, 150, 200],
+					showFooter: true,
+					columns: [
+						[
+							{ field: 'IORDER', title: '项次', align: 'center', width: 100 },
+							{ field: 'CMTEID', title: '商品编码', align: 'center', width: 100 },
+							{ field: 'pName', title: '商品名称', align: 'center', width: 100 },
+							{ field: 'CCOLORID', title: '颜色编码', align: 'center', width: 100 },
+							{ field: 'pColor', title: '颜色名称', align: 'center', width: 100 },
+							{ field: 'pSpec', title: '规格型号', align: 'center', width: 100 },
+							{ field: 'pStore', title: '仓库', align: 'center', width: 100 },
+							{ field: 'cstation1_text', title: '专卖店', align: 'center', width: 100 },
+							{ field: 'pUnit', title: '单位', align: 'center', width: 100 },
+							{ field: 'cpoflag', title: '非标', align: 'center', width: 100 },
+							{ field: 'cpodesc', title: '非标产品说明', align: 'center', width: 100 },
+							{ field: 'DQTY', title: '数量', align: 'center', width: 100 },
+							{ field: 'DAGIOC', title: '折率', align: 'center', width: 100 },
+							{ field: 'DPRICE', title: '含税单价', align: 'center', width: 100 },
+							{ field: 'damtc', title: '金额', align: 'center', width: 100 },
+							{ field: 'CDESC', title: '说明', align: 'center', width: 100 },
+							{ field: 'pAttritem', title: '商品属性', align: 'center', width: 100 },
+							{ field: 'CCODE', title: '标价', align: 'center', width: 100 },
+							{ field: 'drejqty', title: '已销未送退货数量', align: 'center', width: 100 },
+							{ field: '??', title: '单据类型', align: 'center', width: 100 }
+						]
+					],
+					//onBeforeLoad: function (param) {},
+					//onLoadSuccess: function (data) {},
+					//onLoadError: function () {},
+					//onClickCell: function (rowIndex, field, value) {},
+				});
+			});
+
+			// ****** function *************
+			function query() {
+				var query = {
+					ccode: $("#CCODE").val(),
+					db: $('#db option:selected').val()
+				};
+				var json = JSON.stringify(query);
+				$.ajax({
+					type: "Post",
+					url: "/Global/GetOrder",
+					contentType: "application/json; charset=utf-8",
+					data: json,
+					dataType: "json",
+					success: function(data) {
+						if(data == 3) {
+							alert(msg[data]); // 无此订单
+							return;
+						}
+						var orderQry = JSON.parse(data);
+						var corder = orderQry.corder;
+						var cordercs = orderQry.cordercs;
+						var customer = orderQry.customer;
+
+						// 审核标志
+						if(corder.CMTFLAG == 1) {
+							$("#CMTFLAG").text("已审核");
+							$("#cancelOrder").removeProp("disabled");
+							$("#submitOrder").prop("disabled",true);
+						} else {
+							$("#CMTFLAG").text("未审核");
+							$("#submitOrder").removeProp("disabled");
+							$("#cancelOrder").prop("disabled",true);
+						}
+
+						// 单头
+						$("#CCODE").val(corder.CCODE);
+						$("#cwhid").val(corder.cwhid);
+						$("#custphone").val(corder.custphone);
+						$("#CCMAN").append("<option>" + corder.CCMAN + "</option>");
+						$("#cvipid").val(corder.cvipid);
+						$("#CPYID_text").append("<option>" + corder.cpyid_text + "</option>");
+						$("#cpyway_text").append("<option>" + corder.cpyway_text + "</option>");
+						$("#CTRANS").val(corder.CTRANS);
+						$("#cwhid_text").append("<option>" + corder.cwhid_text + "</option>");
+						(corder.ccinflag == 1) ? $("#ccinflag").prop("checked", true): true;
+						(corder.cautopoflag == 1) ? $("#cautopoflag").prop("checked", true): true;
+						(corder.ctenantflag == 1) ? $("#ctenantflag").prop("checked", true): true;
+						$("#CCLASSID").append("<option>" + customer.CCUSTID + "</option>");
+						$("#CCONMAN").val(corder.CCONMAN);
+						$("#cprivilegeid").val(corder.cprivilegeid);
+						//$("#CCYID").val(corder.CCYID);   人民币
+						$("#drate").val(corder.drate);
+						$("#dcess").val(corder.dcess);
+						$("#DDATE").val(corder.DDATE.substring(0, 10));
+						$("#DDEDT").val(corder.DDEDT.substring(0, 10));
+						$("#CCUSTID").append("<option>" + customer.CCUSTID + "</option>");
+						$("#CSALEMAN").append("<option>" + corder.CSALEMAN_text + "</option>");
+						$("#DPAYAMT1").val(corder.DPAYAMT1);
+						$("#DFREIGHTAMT").val(corder.DFREIGHTAMT);
+						$("#DCYAMT").val(corder.DCYAMT);
+						$("#DPAYAMT").val(corder.DPAYAMT);
+						$("#DAMT").val(corder.DAMT);
+						$("#cstylist").val(corder.cstylist);
+						$("#csignstylistid_text").append("<option>" + corder.csignstylistid_text + "</option>");
+						$("#email").val(corder.email);
+
+						// grid
+						$('#cordercTb').datagrid('loadData', cordercs);
+						
+						queryChancel();
+					},
+					error: function(error) {
+						alert("/Auditor/Query，请求失败。" + error);
+					}
+				});
+			}
+
+			// 提交订单
+			function cmt() {
+				var json = {
+					ccode: $("#CCODE").val(),
+					db: $('#db option:selected').val(),
+					ccustid: $('#CCUSTID option:selected').val(),
+				};
+				json = JSON.stringify(json);
+				$.ajax({
+					type: "Post",
+					url: "/Auditor/CMT",
+					contentType: "application/json; charset=utf-8",
+					data: json,
+					dataType: "json",
+					success: function(data) {
+						if(data == "success") {
+							$("#CMTFLAG").text("已审核");
+							$("#submitOrder").prop("disabled",true);
+							$("#cancelOrder").removeProp("disabled");
+						} else {
+							alert(msg[data]);
+						}
+					},
+					error: function(error) {}
+				});
+			}
+			
+			// 撤回订单
+			function cancelOrder(){
+				var json = {
+					ccode: $("#CCODE").val(),
+					db: $('#db option:selected').val()
+				};
+				json = JSON.stringify(json);
+				$.ajax({
+					type: "Post",
+					url: "/Auditor/CancelOrder",
+					contentType: "application/json; charset=utf-8",
+					data: json,
+					dataType: "json",
+					success: function(data) {
+						if(data == "success") {
+							$("#CMTFLAG").text("未审核");
+							$("#submitOrder").removeProp("disabled");
+							$("#cancelOrder").prop("disabled",true);
+						} else {
+							alert(msg[data]);
+						}
+					},
+					error: function(error) {}
+				});
+			}
+			
+			
+			// 查询准备
+			function queryReady(obj){
+				hideTool(obj);
+				$("#db").removeProp("disabled");
+				$("#CCODE").removeProp("disabled");
+			}
+			// 查询准备
+			function queryChancel(){
+				showTool();
+				$("#db").prop("disabled",true);
+				$("#CCODE").prop("disabled",true);
+			}
+
+			// 禁用所有控件
+			function forbiCorder() {
+				var inputs = $("#corder input");
+				var selects = $("#corder select");
+				$.each(inputs, function(i, input) {
+					input.disabled = true;
+				});
+				$.each(selects, function(i, select) {
+					select.disabled = true;
+				});
+			}
+			
+			// 隐藏所有确认取消的btn
+			function hideToF() {
+				var ToFs = $(".ToF");
+				$.each(ToFs, function(i, ToF) {
+					ToF.style.display = "none";
+				});
+			}
+			
+			// 隐藏工具栏
+			function hideTool(btn0){
+				var btn1 = btn0.nextSibling.nextSibling;
+				var btn2 = btn1.nextSibling.nextSibling;
+				
+				var btns = $(".btn");
+				$.each(btns, function(i, btn) {
+					btn.style.display = "none";
+				});
+//				btn0.disabled = "disabled";
+				btn0.style.display = "block";
+				btn1.style.display = "block";
+				btn2.style.display = "block";
+			}
+			
+			// 取消按钮
+			function showTool(){
+				var btns = $(".btn");
+				$.each(btns, function(i, btn) {
+					btn.style.display = "block";
+				});
+				hideToF();
+			}
+			
+			// 清空所有值
+			
+		</script>
+	</body>
+
+</html>

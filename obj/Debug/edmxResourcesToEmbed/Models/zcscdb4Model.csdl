@@ -1,4 +1,22 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="zcscdb4Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-  <EntityContainer Name="zcscdb4Entities" annotation:LazyLoadingEnabled="true" />
+  <EntityContainer Name="zcscdb4Entities" annotation:LazyLoadingEnabled="true">
+    <FunctionImport Name="sp_me01">
+      <Parameter Name="g_flag" Mode="In" Type="String" />
+      <Parameter Name="b_date" Mode="In" Type="String" />
+      <Parameter Name="e_date" Mode="In" Type="String" />
+      <Parameter Name="g_str1" Mode="In" Type="String" />
+      <Parameter Name="g_str2" Mode="In" Type="String" />
+      <Parameter Name="g_str3" Mode="In" Type="String" />
+      <Parameter Name="g_str4" Mode="In" Type="String" />
+      <Parameter Name="g_str5" Mode="In" Type="String" />
+      <Parameter Name="g_str6" Mode="In" Type="String" />
+      <Parameter Name="g_str7" Mode="In" Type="String" />
+      <Parameter Name="g_str8" Mode="In" Type="String" />
+      <Parameter Name="g_str9" Mode="In" Type="String" />
+      <Parameter Name="g_str10" Mode="In" Type="String" />
+      <Parameter Name="g_str11" Mode="In" Type="String" />
+      <Parameter Name="g_str12" Mode="In" Type="String" />
+    </FunctionImport>
+  </EntityContainer>
 </Schema>

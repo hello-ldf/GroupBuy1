@@ -25,13 +25,13 @@
       <publishTime>01/23/2017 15:26:19</publishTime>
     </File>
     <File Include="bin/GroupBuy1.dll">
-      <publishTime>03/08/2017 17:36:22</publishTime>
+      <publishTime>03/09/2017 09:23:28</publishTime>
     </File>
     <File Include="bin/GroupBuy1.dll.config">
       <publishTime>03/08/2017 16:53:48</publishTime>
     </File>
     <File Include="bin/GroupBuy1.pdb">
-      <publishTime>03/08/2017 17:36:22</publishTime>
+      <publishTime>03/09/2017 09:23:28</publishTime>
     </File>
     <File Include="bin/Microsoft.AspNet.Identity.Core.dll">
       <publishTime>01/23/2017 15:26:21</publishTime>
@@ -338,6 +338,75 @@
     </File>
     <File Include="Content/mui.poppicker.css">
       <publishTime>02/12/2017 13:42:43</publishTime>
+    </File>
+    <File Include="Content/My97DatePicker/calendar.js">
+      <publishTime>03/08/2017 11:41:05</publishTime>
+    </File>
+    <File Include="Content/My97DatePicker/lang/en.js">
+      <publishTime>03/08/2017 11:41:05</publishTime>
+    </File>
+    <File Include="Content/My97DatePicker/lang/zh-cn.js">
+      <publishTime>03/08/2017 11:41:05</publishTime>
+    </File>
+    <File Include="Content/My97DatePicker/lang/zh-tw.js">
+      <publishTime>03/08/2017 11:41:05</publishTime>
+    </File>
+    <File Include="Content/My97DatePicker/skin/datePicker.gif">
+      <publishTime>03/08/2017 11:41:05</publishTime>
+    </File>
+    <File Include="Content/My97DatePicker/skin/default/datepicker.css">
+      <publishTime>03/08/2017 11:41:05</publishTime>
+    </File>
+    <File Include="Content/My97DatePicker/skin/default/img.gif">
+      <publishTime>03/08/2017 11:41:05</publishTime>
+    </File>
+    <File Include="Content/My97DatePicker/skin/WdatePicker.css">
+      <publishTime>03/08/2017 11:41:05</publishTime>
+    </File>
+    <File Include="Content/My97DatePicker/skin/whyGreen/bg.jpg">
+      <publishTime>03/08/2017 11:41:05</publishTime>
+    </File>
+    <File Include="Content/My97DatePicker/skin/whyGreen/datepicker.css">
+      <publishTime>03/08/2017 11:41:05</publishTime>
+    </File>
+    <File Include="Content/My97DatePicker/skin/whyGreen/img.gif">
+      <publishTime>03/08/2017 11:41:05</publishTime>
+    </File>
+    <File Include="Content/My97DatePicker/WdatePicker.js">
+      <publishTime>03/08/2017 11:41:05</publishTime>
+    </File>
+    <File Include="Content/My97DatePicker/开发包/lang/en.js">
+      <publishTime>03/08/2017 11:41:05</publishTime>
+    </File>
+    <File Include="Content/My97DatePicker/开发包/lang/zh-cn.js">
+      <publishTime>03/08/2017 11:41:05</publishTime>
+    </File>
+    <File Include="Content/My97DatePicker/开发包/lang/zh-tw.js">
+      <publishTime>03/08/2017 11:41:05</publishTime>
+    </File>
+    <File Include="Content/My97DatePicker/开发包/readme.txt">
+      <publishTime>03/08/2017 11:41:05</publishTime>
+    </File>
+    <File Include="Content/My97DatePicker/开发包/skin/datePicker.gif">
+      <publishTime>03/08/2017 11:41:05</publishTime>
+    </File>
+    <File Include="Content/My97DatePicker/开发包/skin/default/datepicker.css">
+      <publishTime>03/08/2017 11:41:05</publishTime>
+    </File>
+    <File Include="Content/My97DatePicker/开发包/skin/default/img.gif">
+      <publishTime>03/08/2017 11:41:05</publishTime>
+    </File>
+    <File Include="Content/My97DatePicker/开发包/skin/WdatePicker.css">
+      <publishTime>03/08/2017 11:41:05</publishTime>
+    </File>
+    <File Include="Content/My97DatePicker/开发包/skin/whyGreen/bg.jpg">
+      <publishTime>03/08/2017 11:41:05</publishTime>
+    </File>
+    <File Include="Content/My97DatePicker/开发包/skin/whyGreen/datepicker.css">
+      <publishTime>03/08/2017 11:41:05</publishTime>
+    </File>
+    <File Include="Content/My97DatePicker/开发包/skin/whyGreen/img.gif">
+      <publishTime>03/08/2017 11:41:05</publishTime>
     </File>
     <File Include="Content/Site.css">
       <publishTime>01/23/2017 15:50:25</publishTime>
@@ -1642,7 +1711,7 @@
       <publishTime>01/23/2017 15:50:43</publishTime>
     </File>
     <File Include="Scripts/_references.js">
-      <publishTime>03/08/2017 17:35:48</publishTime>
+      <publishTime>03/09/2017 09:22:37</publishTime>
     </File>
     <File Include="Views/Account/ConfirmEmail.cshtml">
       <publishTime>01/23/2017 15:26:19</publishTime>
@@ -1697,6 +1766,9 @@
     </File>
     <File Include="Views/datagrid_data1.json">
       <publishTime>02/26/2017 12:08:34</publishTime>
+    </File>
+    <File Include="Views/Home.cshtml">
+      <publishTime>03/07/2017 10:54:20</publishTime>
     </File>
     <File Include="Views/Home/About.cshtml">
       <publishTime>01/23/2017 15:26:10</publishTime>
@@ -1776,11 +1848,14 @@
     <File Include="Views/Stock/datagrid_data1.json">
       <publishTime>02/26/2017 11:49:21</publishTime>
     </File>
+    <File Include="Views/Stock/test.html">
+      <publishTime>03/08/2017 13:38:40</publishTime>
+    </File>
     <File Include="Views/Stock/tree_data1.json">
       <publishTime>02/26/2017 17:12:56</publishTime>
     </File>
     <File Include="Views/Stock/VorderToFactory.cshtml">
-      <publishTime>03/08/2017 16:20:47</publishTime>
+      <publishTime>03/09/2017 09:30:04</publishTime>
     </File>
     <File Include="Views/StorageInCs/Create.cshtml">
       <publishTime>01/23/2017 15:36:38</publishTime>
@@ -1828,7 +1903,7 @@
       <publishTime>03/02/2017 04:59:58</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>03/08/2017 17:18:39</publishTime>
+      <publishTime>03/09/2017 09:23:29</publishTime>
     </File>
   </ItemGroup>
 </Project>

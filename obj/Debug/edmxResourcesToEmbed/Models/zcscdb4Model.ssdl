@@ -28,5 +28,22 @@
     <Parameter Name="l_filter4" Type="varchar(max)" Mode="In" />
     <Parameter Name="l_filter5" Type="varchar" Mode="In" />
   </Function>
+  <Function Name="sp_me01" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="g_flag" Type="varchar" Mode="In" />
+    <Parameter Name="b_date" Type="varchar" Mode="In" />
+    <Parameter Name="e_date" Type="varchar" Mode="In" />
+    <Parameter Name="g_str1" Type="varchar" Mode="In" />
+    <Parameter Name="g_str2" Type="varchar" Mode="In" />
+    <Parameter Name="g_str3" Type="varchar" Mode="In" />
+    <Parameter Name="g_str4" Type="varchar" Mode="In" />
+    <Parameter Name="g_str5" Type="varchar" Mode="In" />
+    <Parameter Name="g_str6" Type="varchar" Mode="In" />
+    <Parameter Name="g_str7" Type="varchar" Mode="In" />
+    <Parameter Name="g_str8" Type="varchar" Mode="In" />
+    <Parameter Name="g_str9" Type="varchar" Mode="In" />
+    <Parameter Name="g_str10" Type="varchar" Mode="In" />
+    <Parameter Name="g_str11" Type="varchar" Mode="In" />
+    <Parameter Name="g_str12" Type="varchar" Mode="In" />
+  </Function>
   <EntityContainer Name="zcscdb4ModelStoreContainer" />
 </Schema>

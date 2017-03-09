@@ -328,7 +328,6 @@ namespace GroupBuy1.Controllers
                     }
 
                     // wcf 服务执行
-                    //string str = a.Del(dt1,dt2);
                     try
                     {
                         act.Add(dt1, dt2);
@@ -336,9 +335,9 @@ namespace GroupBuy1.Controllers
                     }
                     catch (Exception ex)
                     {
+                        new SaveError(ex, o, o, o, o, o, db, ccode);
                         error += ccode + "、";
                     }
-                    //str = a.Add(dt1, dt2);
                 }
                 act.Close();
                 msg = "成功：" + success + "/n\n<br />失败：" + error;

@@ -38,6 +38,6 @@ namespace GroupBuy1.Models
         public decimal b05 { get; set; }
         public string b06 { get; set; }
         public string b07 { get; set; }
-        public de b08 { get; set; }
+        public decimal b08 { get; set; }
     }
 }
